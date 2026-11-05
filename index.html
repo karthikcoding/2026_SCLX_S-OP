@@ -1,0 +1,1793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, noai, noimageai" />
+<title>Launching Into the Unknown · SCLX</title>
+<!--
+  SCLX 2026 · S&OP session (Karthik Ramachandran) · Launching Into the Unknown:
+  New-Product Demand & Supply Chain Strategy. HTML twin of "2026 SCLX S&OP Karthik.pptx" (36 slides, same order).
+  Built by _build/build_html.py from _build/html_template.html: the SCLX shared CSS block is copied verbatim
+  from "2026 SCLX Project Introduction 1/project-1.html"; speaker notes are copied from the pptx.
+  Gates (clicks) reveal the answer / lesson lines on answer slides. s9 is skipped (hidden backup).
+-->
+<style>deck-stage:not(:defined){visibility:hidden}</style>
+<style>
+/* ═══ SCLX shared · BEGIN · canonical copy: .claude/sclx-work/shared/sclx-shared.css
+   Keep identical in all three decks: run .claude/sclx-work/tools/sync-shared.py <deck.html> after editing.
+   Look: the IGEL deck (Helvetica Neue, paper/ink, hairlines, big type) + one Coca-Cola red. ═══ */
+:root {
+  --paper: #FBFBFA; --ink: #131312; --muted: #71716A; --hair: #E4E4DE; --tint: #F2F2ED;
+  --red: #D50015;      /* the words the PPT marks in red; always bold as well (5.3:1 on paper) */
+  --coke: #F40009;     /* brand ground on the title and closing slides only */
+  --sans: "Helvetica Neue", Helvetica, "Arial Nova", Arial, sans-serif;
+  --m: 140px;          /* side margin */
+}
+html, body { margin: 0; padding: 0; background: #000; }
+/* Keyed on bare `section` so base styles survive cloning into the rail. */
+section { font-family: var(--sans); background: var(--paper); color: var(--ink);
+  box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; position: relative;
+  -webkit-font-smoothing: antialiased; }
+section *, section *::before, section *::after { box-sizing: border-box; }
+h1, h2, h3, p, figure, blockquote, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+h1, h2 { font-weight: 700; letter-spacing: -0.03em; }
+svg text { font-family: var(--sans); }
+img { display: block; }
+.red { color: var(--red); font-weight: 700; }
+.muted { color: var(--muted); }
+.pg { position: absolute; right: 64px; bottom: 52px; font-size: 24px; color: var(--muted);
+  opacity: 0.55; font-variant-numeric: tabular-nums; }
+.kicker { font-size: 29px; font-weight: 500; letter-spacing: 0.01em; color: var(--muted); }
+.src { font-size: 24px; line-height: 1.3; color: var(--muted); }
+.sgate { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+.ico { display: block; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── standard content slide: headline top-left, content below ── */
+.s-std { padding: 84px var(--m) 0; }
+.s-std > h2 { font-size: 64px; line-height: 1.08; max-width: 1640px; }
+.s-std.compact > h2 { font-size: 56px; }
+
+/* ── exhibits (third-party charts kept as images; click to enlarge) ── */
+.exh { position: absolute; margin: 0; background: #fff; box-shadow: 0 0 0 1.5px var(--hair); }
+.exh img { width: 100%; height: 100%; object-fit: contain; }
+
+/* ── white title (IGEL pattern) ── */
+.s-title-w { padding: 0 var(--m); }
+.s-title-w .lockup { position: absolute; left: var(--m); top: 118px; height: 62px; width: auto; }
+.s-title-w h1 { position: absolute; left: var(--m); top: 318px; font-size: 138px; line-height: 1.02; letter-spacing: -0.035em; }
+.s-title-w .edition { position: absolute; left: var(--m); top: 506px; font-size: 36px; color: var(--muted); }
+.s-title-w .foot { position: absolute; left: var(--m); right: var(--m); top: 742px; padding-top: 44px;
+  border-top: 2px solid var(--hair); display: flex; justify-content: space-between; align-items: flex-end; }
+.s-title-w .who { font-size: 30px; line-height: 1.42; color: var(--muted); }
+.s-title-w .who b { color: var(--ink); font-weight: 700; }
+.s-title-w .logos { display: flex; align-items: center; gap: 72px; }
+.s-title-w .logos .gt { height: 104px; width: auto; }
+.s-title-w .logos .ko { height: 74px; width: auto; }
+
+/* ── red band title (the SCLX band, redrawn) ── */
+.s-title-r { padding: 0; }
+.s-title-r .band { position: absolute; left: -60px; right: -60px; top: 0; height: 728px; background: var(--coke);
+  border-radius: 0 0 50% 50% / 0 0 128px 128px; }
+.s-title-r .lockup { position: absolute; left: 0; right: 0; margin: 0 auto; top: 112px; height: 64px; width: auto; }
+.s-title-r h1 { position: absolute; left: 0; right: 0; top: 322px; text-align: center; color: var(--paper);
+  font-size: 138px; line-height: 1.02; letter-spacing: -0.035em; }
+.s-title-r .edition { position: absolute; left: 0; right: 0; top: 520px; text-align: center; font-size: 36px; color: rgba(251,251,250,0.86); }
+.s-title-r .foot { position: absolute; left: 0; right: 0; top: 752px; height: 228px; display: flex; justify-content: center; align-items: center; gap: 56px; }
+.s-title-r .foot .gt { height: 98px; width: auto; }
+.s-title-r .foot .ko { height: 72px; width: auto; }
+.s-title-r .foot .rule { width: 2px; height: 128px; background: var(--hair); }
+.s-title-r .who { font-size: 30px; line-height: 1.42; color: var(--muted); }
+.s-title-r .who b { color: var(--ink); font-weight: 700; }
+
+/* ── closing "?" slide (the SCLX closing, redrawn) ── */
+.s-close { background: var(--coke); padding: 0; }
+.s-close .q { position: absolute; left: 730px; top: 214px; width: 460px; height: 460px; border-radius: 50%; background: var(--paper);
+  display: grid; place-items: center; }
+.s-close .q span { font-size: 360px; font-weight: 700; line-height: 1; color: var(--coke); letter-spacing: -0.02em; margin-top: -10px; }
+.s-close .lockup { position: absolute; left: 0; right: 0; margin: 0 auto; top: 852px; height: 64px; width: auto; }
+.s-close .pg { color: rgba(251,251,250,0.7); opacity: 1; }
+
+/* ── presenter chrome (deck-chrome.js): blackout (B), lightbox ([data-enlarge]), films ── */
+#blackout { position: fixed; inset: 0; background: #000; z-index: 2147482000; opacity: 0; pointer-events: none; transition: opacity .4s ease; }
+#blackout[data-on] { opacity: 1; pointer-events: auto; }
+.lightbox { position: fixed; inset: 0; z-index: 2147481000; display: grid; place-items: center; background: rgba(10,10,9,0.94); cursor: zoom-out; opacity: 0; transition: opacity .25s ease; }
+.lightbox[data-on] { opacity: 1; }
+.lightbox img { max-width: 94vw; max-height: 94vh; object-fit: contain; background: #fff; }
+[data-enlarge] { cursor: zoom-in; }
+.film { position: relative; margin: 0; width: var(--fw, 1236px); aspect-ratio: var(--ar, 16 / 9); flex: none; background: #0B0B0A; overflow: hidden; cursor: pointer; }
+.film img, .film video, .film iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+.film iframe { z-index: 3; background: #000; }
+.film .play { position: absolute; left: 40px; bottom: 40px; z-index: 2; width: 112px; height: 112px; border-radius: 50%;
+  background: var(--paper); display: grid; place-items: center; }
+.film .play::before { content: ""; margin-left: 9px; border-style: solid; border-width: 21px 0 21px 34px; border-color: transparent transparent transparent var(--ink); }
+.film[data-playing] .play { display: none; }
+@media print { #blackout, .lightbox { display: none; } .film .play { display: none; } }
+
+/* ── iframe animations: live on screen, still image in print ── */
+.anim-holder { position: absolute; }
+.anim-holder iframe { width: 100%; height: 100%; border: 0; background: var(--paper); display: block; }
+.anim-holder .pfig { display: none; }
+@media print {
+  .anim-holder iframe { display: none; }
+  .anim-holder .pfig { display: block; width: 100%; height: 100%; }
+  .anim-holder .pfig img { width: 100%; height: 100%; object-fit: contain; }
+}
+
+/* ── motion (only inside no-preference; print and reduced motion show the end state) ── */
+@media (prefers-reduced-motion: no-preference) {
+  [data-deck-active] .rise   { animation: rise 1.05s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  [data-deck-active] .rise.d1 { animation-delay: .25s; }
+  [data-deck-active] .rise.d2 { animation-delay: .5s; }
+  [data-deck-active] .rise.d3 { animation-delay: .75s; }
+  [data-deck-active] .late   { animation: appear 1.1s ease-out 2.2s both; }
+  [data-deck-active] .later  { animation: appear 1.1s ease-out 3.4s both; }
+  deck-stage section { transition: opacity 0.7s ease, visibility 0.7s; }
+  deck-stage section[data-fx="zoom"] { transition: opacity 0.7s ease, visibility 0.7s, transform 0.9s cubic-bezier(0.25, 0.1, 0.2, 1); transform: scale(1); }
+  deck-stage section[data-fx="zoom"]:not([data-deck-active]) { transform: scale(1.045); }
+  deck-stage section .grise[data-reveal] { transition: opacity .45s ease, transform .45s ease, visibility 0s linear .45s; }
+  deck-stage section .grise[data-reveal]:not([data-reveal-shown]) { transform: translateY(30px); }
+  deck-stage section .grise[data-reveal][data-reveal-shown] {
+    transition: opacity .6s ease var(--gd, 0s), transform .8s cubic-bezier(.2,.7,.2,1) var(--gd, 0s), visibility 0s linear var(--gd, 0s); }
+}
+@keyframes rise   { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: none; } }
+@keyframes appear { from { opacity: 0; } to { opacity: 1; } }
+@media print {
+  deck-stage section [data-reveal] { transform: none !important; transition: none !important; }
+  [data-deck-active] .rise, [data-deck-active] .late, [data-deck-active] .later { animation: none !important; }
+}
+/* ═══ SCLX shared · END ═══ */
+</style>
+<style>
+/* ─── deck-specific blocks (sop-) ─── */
+.sop-s1 h1 { top: 270px; font-size: 104px; line-height: 1.04; }
+.sop-s1 h1 .sub { display: block; margin-top: 22px; font-size: 54px; font-weight: 500; letter-spacing: -0.015em; color: rgba(251,251,250,0.92); }
+.sop-s1 .edition { top: 556px; }
+.sop-s1 .pg { visibility: hidden; }
+
+/* exercise / answer label above the headline */
+.s-std > .lab { font-size: 29px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 14px; color: var(--red); }
+.s-std > .lab.ans { color: var(--muted); }
+.s-std > .lab.bk { color: var(--muted); }
+
+/* body area under the headline */
+.body { margin-top: 56px; }
+.cols { display: grid; grid-template-columns: 1fr auto; gap: 80px; align-items: start; }
+.lead { font-size: 46px; line-height: 1.22; letter-spacing: -0.015em; text-wrap: balance; }
+.lead b { font-weight: 700; }
+.p { font-size: 36px; line-height: 1.32; margin-top: 22px; text-wrap: pretty; }
+.small { font-size: 30px; line-height: 1.35; color: var(--muted); margin-top: 22px; }
+.quote { font-size: 30px; line-height: 1.36; font-style: italic; color: var(--muted); margin-top: 26px; max-width: 1000px; }
+.rows > li { font-size: 38px; line-height: 1.24; padding: 22px 0 24px; border-top: 2px solid var(--hair); text-wrap: pretty; }
+.rows > li:last-child { border-bottom: 2px solid var(--hair); }
+.rows.tight > li { font-size: 34px; padding: 16px 0 18px; }
+.qs > li { font-size: 40px; line-height: 1.24; padding: 20px 0 22px 96px; border-top: 2px solid var(--hair); position: relative; }
+.qs > li > .red:first-child { position: absolute; left: 0; }
+.qs.tight > li { font-size: 34px; padding-top: 14px; padding-bottom: 16px; }
+.qs > li:last-child { border-bottom: 2px solid var(--hair); }
+.qs > li > .red { font-size: 40px; }
+.facts { display: grid; gap: 10px; }
+.facts p { font-size: 42px; line-height: 1.25; }
+.facts p b { font-weight: 700; }
+
+/* the takeaway line: ink rule above, big type (as Project 1 s4) */
+.take { margin-top: 44px; padding-top: 36px; border-top: 2px solid var(--ink); font-size: 50px; line-height: 1.15; letter-spacing: -0.02em; text-wrap: balance; }
+.take .sm { display: block; margin-top: 14px; font-size: 32px; line-height: 1.3; letter-spacing: 0; color: var(--muted); }
+
+/* tables: hairlines on paper, the result row tinted */
+table.t { width: 100%; border-collapse: collapse; font-variant-numeric: tabular-nums; }
+table.t th { font-size: 26px; font-weight: 500; color: var(--muted); text-align: right; padding: 0 0 14px 24px; border-bottom: 2px solid var(--ink); }
+table.t td { font-size: 34px; line-height: 1.2; text-align: right; padding: 18px 0 18px 24px; border-bottom: 2px solid var(--hair); }
+table.t th:first-child, table.t td:first-child { text-align: left; padding-left: 0; }
+table.t td:first-child { font-weight: 700; }
+table.t tr.hl td { background: var(--tint); font-weight: 700; }
+table.t tr.hl td:last-child { color: var(--red); }
+table.t tr.hl td:first-child { padding-left: 18px; }
+table.t.l td, table.t.l th { text-align: left; }
+table.t.sm td { font-size: 30px; padding: 14px 0 14px 24px; }
+table.t.sm th { font-size: 24px; }
+
+/* phone poll box */
+.poll { border: 3px solid var(--red); padding: 26px 34px 28px; width: 560px; background: #fff; }
+.poll .k { font-size: 24px; font-weight: 700; letter-spacing: 0.08em; color: var(--red); }
+.poll .q { font-size: 36px; line-height: 1.2; font-weight: 700; margin-top: 10px; }
+.poll .ph { font-size: 24px; font-style: italic; color: var(--muted); margin-top: 14px; }
+.hint { width: 560px; margin-top: 40px; font-size: 30px; line-height: 1.35; color: var(--muted); }
+.hint b { color: var(--ink); }
+
+/* photos */
+.ph-r { width: 560px; }
+.ph-r img { width: 100%; height: auto; }
+figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
+
+/* statement slides (as Project 1 s9: muted lead-in, ink line, red word) */
+.sop-stmt { padding: 0 var(--m); justify-content: center; }
+.sop-stmt .kicker { font-size: 40px; font-weight: 700; margin-bottom: 30px; }
+.sop-stmt h2 { font-size: 116px; line-height: 1.06; letter-spacing: -0.035em; max-width: 1640px; text-wrap: balance; }
+.sop-stmt .after { margin-top: 56px; font-size: 42px; line-height: 1.35; color: var(--muted); max-width: 1500px; }
+.sop-stmt .after b { color: var(--ink); }
+
+/* live polls: bars grow behind the options on the click after voting */
+.pollbars { --barl: 82px; }
+.pollbars > li { padding-right: 150px; }
+.pollbars .lbl { position: relative; z-index: 1; }
+.pollbars .bar { position: absolute; left: var(--barl); top: 8px; bottom: 8px; width: 0; background: var(--tint); z-index: 0;
+  transition: width .9s cubic-bezier(.2,.7,.2,1), background .3s; }
+.pollbars li.top .bar { background: #F6D5D8; }
+.pollbars .pct { position: absolute; right: 0; top: 20px; font-size: 40px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--muted); }
+.qs.tight.pollbars .pct { top: 12px; font-size: 34px; }
+.pollbars li.top .pct { color: var(--red); }
+.pollbars li > :not(.bar):not(.pct) { position: relative; z-index: 1; }
+.pollbars li > .red:first-child { position: absolute; }
+/* poll box: QR + live count (big = stacked; .h = QR left, text right) */
+.poll.live { width: 480px; text-align: center; padding: 26px 30px 24px; }
+.poll.live .qrw { width: 300px; height: 300px; margin: 16px auto 8px; }
+.poll.live .qr { width: 100%; height: 100%; image-rendering: pixelated; }
+.poll.live .qrw.none { border: 2px dashed var(--hair); display: flex; align-items: center; justify-content: center; padding: 18px; }
+.poll.live .qrw.none .qr { display: none; }
+.poll.live .qrw.none::after { content: "QR code appears once the poll web app is connected"; font-size: 20px; color: var(--muted); line-height: 1.3; }
+.poll.live .n { font-size: 30px; margin-top: 16px; }
+.poll.live .n b { font-size: 44px; font-variant-numeric: tabular-nums; }
+.poll.live .st { font-size: 20px; color: var(--muted); margin-top: 6px; min-height: 26px; }
+.poll.live .st.demo { color: var(--red); font-weight: 700; }
+.poll.live .reset { margin-top: 8px; font: inherit; font-size: 18px; color: var(--muted); background: none; border: 1px solid var(--hair); padding: 4px 12px; cursor: pointer; opacity: .5; }
+.poll.live .reset:hover { opacity: 1; }
+.poll.live.h { width: 560px; display: grid; grid-template-columns: 200px 1fr; column-gap: 26px; text-align: left; align-items: center; padding: 20px 24px; }
+.poll.live.h .qrw { grid-column: 1; grid-row: 1 / span 5; width: 200px; height: 200px; margin: 0; }
+.poll.live.h .qrw.none::after { font-size: 16px; }
+.poll.live.h > :not(.qrw) { grid-column: 2; }
+.poll.live.h .q { font-size: 30px; }
+.poll.live.h .n { margin-top: 8px; }
+.poll.live.h .reset { justify-self: start; }
+@media print { .poll.live .reset { display: none; } }
+.poll.live.edge { position: absolute; right: 48px; top: 196px; }
+/* s6 Segway: text left, photo bottom-middle (to the slide edge), poll right */
+.sop-s6 .body { max-width: 1060px; }
+.sop-s6 .quote, .sop-s6 .take { max-width: 860px; }
+.sop-s6 .photo { position: absolute; left: 1050px; bottom: 0; height: 430px; width: auto; }
+/* s19 Avastin: truncated-normal sketch beside the facts */
+.sop-paint { position: absolute; left: 1080px; bottom: 0; height: 400px; width: auto; }
+.sop-tn.sop-tn24 { position: absolute; right: 160px; top: 846px; width: 330px; }
+.sop-tn { flex: none; width: 340px; height: auto; }
+.sop-tn text { font-family: var(--sans); font-size: 22px; fill: var(--muted); }
+
+/* poll result slides (4b, 6b, 13b, 19b, 35b) */
+.sop-hist .body { flex-direction: column; }
+.hist { position: relative; display: grid; grid-template-columns: repeat(4, 1fr); gap: 56px; height: 560px; margin-top: 40px; padding: 0 40px;
+  border-bottom: 3px solid var(--ink); align-items: end; }
+.hist .col { position: relative; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; }
+.hist .b { width: 100%; height: 0; background: var(--hair); transition: height .9s cubic-bezier(.2,.7,.2,1), background .3s; }
+.hist .col.top .b { background: var(--red); }
+.hist .v { font-size: 56px; font-weight: 700; font-variant-numeric: tabular-nums; color: var(--muted); margin-bottom: 12px; line-height: 1; }
+.hist .v small { display: block; font-size: 26px; font-weight: 500; margin-top: 6px; text-align: center; }
+.hist .col.top .v { color: var(--red); }
+.hist-x { display: grid; grid-template-columns: repeat(4, 1fr); gap: 56px; padding: 0 40px; margin-top: 18px; text-align: center; font-size: 34px; line-height: 1.2; }
+.hist-x b { color: var(--red); margin-right: 10px; }
+.hist-n { margin-top: 34px; font-size: 30px; color: var(--muted); }
+.hist-n b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.hist-n .st.demo { color: var(--red); font-weight: 700; }
+.nhist .hist { height: 500px; margin-top: 70px; }
+.nhist .hist .v { font-size: 40px; }
+.nhist .hist-x { font-size: 28px; }
+.nhist .mk { display: none; position: absolute; top: -10px; bottom: 0; width: 0; border-left: 4px dashed var(--red); z-index: 2; transition: left .9s cubic-bezier(.2,.7,.2,1); }
+.nhist .mk.truth { border-left: 4px solid var(--ink); }
+.nhist .mk.l span { left: auto; right: 10px; }
+.nhist .mk span { position: absolute; top: -34px; left: 10px; white-space: nowrap; font-size: 26px; font-weight: 700; color: var(--red); background: var(--paper); padding: 0 6px; }
+.nhist .mk.truth span { color: var(--ink); }
+.truth { margin-top: 18px; font-size: 30px; display: flex; gap: 22px; align-items: baseline; }
+.truth label { color: var(--muted); font-size: 24px; white-space: nowrap; }
+.truth input { width: 170px; font: inherit; font-size: 26px; padding: 4px 10px; border: 1px solid var(--hair); background: #fff; color: var(--ink); margin-left: 8px; }
+.truth-out b { color: var(--red); }
+@media print { .truth label { display: none; } }
+.qwall { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 40px; }
+.qwall .qc { border-top: 3px solid var(--red); background: #fff; padding: 22px 26px; font-size: 30px; line-height: 1.3; min-height: 150px;
+  display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+
+/* s25b pooling animation */
+.sop-pool .pool-sub { margin-top: 22px; font-size: 28px; color: var(--muted); display: flex; justify-content: space-between; align-items: baseline; max-width: 1640px; }
+.sop-pool .pool-sub .wk { font-size: 32px; color: var(--ink); white-space: nowrap; margin-left: 40px; }
+.sop-pool .pool-sub .wk b { font-variant-numeric: tabular-nums; display: inline-block; min-width: 40px; text-align: right; }
+.sop-pool .pool { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; margin-top: 26px; max-width: 1640px; }
+.sop-pool .pane { border-top: 3px solid var(--ink); padding-top: 16px; }
+.sop-pool .pane.r { border-top-color: var(--red); }
+.sop-pool .pane h3 { font-size: 36px; font-weight: 700; line-height: 1.15; }
+.sop-pool .pane h3 span { display: block; font-size: 26px; font-weight: 400; color: var(--muted); margin-top: 4px; }
+.sop-pool .pane.r h3 { color: var(--red); }
+.sop-pool svg { display: block; width: 100%; height: auto; margin-top: 8px; overflow: visible; }
+.sop-pool svg text { font-family: var(--sans); }
+.sop-pool .blk { transition: opacity .45s, fill-opacity .45s; }
+.sop-pool .blk.used { fill-opacity: .1; }
+.sop-pool .cust { transition: stroke .3s, stroke-width .3s; }
+.sop-pool .cust.out { fill-opacity: .2; stroke: var(--red); stroke-width: 5; stroke-dasharray: 8 6; }
+.sop-pool .sv { font-size: 30px; color: var(--muted); margin-top: 4px; }
+.sop-pool .sv b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.sop-pool .take { margin-top: 26px; padding-top: 22px; font-size: 44px; max-width: 1640px; }
+
+/* s3 roadmap */
+.road { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 64px; }
+.road > div { padding: 0 44px 0 0; border-top: 2px solid var(--ink); padding-top: 30px; }
+.road > div + div { padding-left: 44px; border-left: 2px solid var(--hair); }
+.road h3 { font-size: 56px; letter-spacing: -0.025em; margin-bottom: 18px; }
+.road .q { font-size: 36px; line-height: 1.22; font-weight: 500; min-height: 140px; }
+.road .c { font-size: 28px; line-height: 1.35; color: var(--muted); margin-top: 18px; }
+.road .c b { color: var(--ink); }
+.sop-hard .road .q { min-height: 132px; }
+.sop-hard .road .fix { border-top: 1px solid var(--hair); padding-top: 16px; }
+.sop-hard .road .fix b { color: var(--red); }
+
+/* s11 two products */
+.pair2 { display: flex; gap: 160px; justify-content: center; margin-top: 40px; }
+.pair2 img { height: 520px; width: auto; }
+.pair2 figcaption { text-align: center; font-size: 30px; color: var(--ink); font-weight: 700; }
+.sop-new2 .np-grid { display: flex; gap: 90px; justify-content: center; margin-top: 44px; }
+.sop-new2 .np-k { font-size: 24px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--ink); padding-bottom: 10px; margin-bottom: 26px; }
+.sop-new2 .np-row { display: flex; align-items: flex-start; gap: 22px; }
+.sop-new2 figure { margin: 0; width: 330px; }
+.sop-new2 .np-img { position: relative; height: 330px; background: var(--tint, #F2F2ED); display: flex; align-items: center; justify-content: center; }
+.sop-new2 .np-img span { font-size: 24px; color: var(--muted); text-align: center; padding: 20px; }
+.sop-new2 .np-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #fff; }
+.sop-new2 figcaption { margin-top: 16px; text-align: center; font-size: 28px; font-weight: 700; color: var(--ink); line-height: 1.2; }
+.sop-new2 figcaption > span:last-child { display: block; font-size: 22px; font-weight: 400; color: var(--muted); margin-top: 6px; }
+.sop-new2 .np-arr { font-size: 56px; color: var(--red); align-self: center; margin-top: -60px; }
+
+/* s30 Xiaomi flow */
+.xflow { display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; margin-top: 54px; }
+.xflow > div { font-size: 34px; font-weight: 700; line-height: 1.2; padding: 26px 30px 28px; background: var(--tint); border-left: 2px solid var(--paper); position: relative; }
+.xflow > div:nth-child(2) { background: var(--ink); color: var(--paper); }
+.xflow > div .s { display: block; font-size: 26px; font-weight: 500; color: var(--muted); margin-top: 6px; }
+.xflow > div:nth-child(2) .s { color: #C9C9C2; }
+.xlogos { display: flex; gap: 60px; align-items: center; margin-top: 40px; }
+.xlogos img { height: 230px; width: auto; }
+
+/* s34 synthesis grid */
+.grid3 { display: grid; grid-template-columns: 260px repeat(3, 1fr); margin-top: 52px; }
+.grid3 > div { padding: 22px 28px 24px 0; border-top: 2px solid var(--hair); font-size: 32px; line-height: 1.26; }
+.grid3 > .h { font-size: 44px; font-weight: 700; letter-spacing: -0.02em; border-top: 2px solid var(--ink); }
+.grid3 > .rl { font-size: 26px; font-weight: 500; color: var(--muted); padding-top: 28px; }
+.grid3 > .n { font-weight: 700; }
+/* ─── 14c/14d · wisdom of crowds (Galton's ox; when crowds beat experts) ─── */
+.sop-ox .ox { display: grid; grid-template-columns: 440px 1fr; gap: 70px; margin-top: 30px; align-items: start; }
+.sop-ox .ox-img { width: 440px; display: block; mix-blend-mode: multiply; }
+.sop-ox .ox-facts { list-style: none; margin-top: 18px; }
+.sop-ox .ox-facts li { font-size: 32px; line-height: 1.2; padding: 14px 0; border-top: 2px solid var(--hair); display: flex; justify-content: space-between; }
+.sop-ox .ox-facts li:last-child { border-bottom: 2px solid var(--hair); }
+.sop-ox .ox-facts li b { font-variant-numeric: tabular-nums; }
+.sop-ox .ox-facts li.act b { color: var(--red); }
+.sop-ox .ox-sub { font-size: 28px; color: var(--muted); display: flex; justify-content: space-between; align-items: baseline; }
+.sop-ox .ox-sub .gn { color: var(--ink); white-space: nowrap; margin-left: 30px; }
+.sop-ox .ox-sub .gn b { font-variant-numeric: tabular-nums; display: inline-block; min-width: 60px; text-align: right; }
+.sop-ox svg, .sop-why svg { display: block; width: 100%; height: auto; overflow: visible; }
+.sop-ox svg text, .sop-why svg text { font-family: var(--sans); }
+.sop-ox .mk line { stroke-dasharray: 460; stroke-dashoffset: 460; }
+.sop-ox .mk[data-reveal-shown] line { stroke-dashoffset: 0; transition: stroke-dashoffset .9s cubic-bezier(.2,.7,.2,1); }
+.sop-ox .take { margin-top: 18px; padding-top: 20px; font-size: 40px; }
+.sop-ox .src, .sop-why .src { position: absolute; left: var(--m); bottom: 52px; font-size: 22px; color: var(--muted); font-style: italic; }
+.sop-why .why { display: grid; grid-template-columns: 700px 1fr; gap: 70px; margin-top: 30px; align-items: start; }
+.sop-why .rows > li { font-size: 34px; padding: 16px 0 18px; }
+.sop-why .rows > li > b { display: block; }
+.sop-why .rows > li > span { display: block; font-size: 26px; color: var(--muted); margin-top: 6px; line-height: 1.3; }
+.sop-why .cap { font-size: 26px; color: var(--muted); white-space: nowrap; }
+.sop-why .cap b { color: var(--ink); }
+.sop-why .cap b.bad { color: var(--red); }
+.sop-why .ex { display: flex; gap: 40px; margin-top: 26px; align-items: flex-end; }
+.sop-why .ex figure { margin: 0; flex: 1; }
+.sop-why .ex .im { height: 150px; display: flex; align-items: flex-end; justify-content: center; }
+.sop-why .ex img { max-height: 150px; max-width: 100%; display: block; }
+.sop-why .ex figcaption { text-align: center; font-size: 22px; line-height: 1.25; margin-top: 10px; color: var(--muted); }
+.sop-why .ex figcaption b { display: block; color: var(--ink); font-size: 24px; }
+/* ─── Ex 7 · commit / wait / stage: timeline (28), animated answer (29), mature manufacturing (29b) ─── */
+.sop-cws .cws-f { font-size: 30px; line-height: 1.3; }
+.sop-cws .cws-f b { font-weight: 700; }
+.sop-cws svg.cws-tl { display: block; width: 100%; height: auto; margin: 10px 0 6px; overflow: visible; }
+.sop-cws svg text, .sop-flex svg text { font-family: var(--sans); }
+.sop-cws .qs.tight > li { font-size: 30px; }
+.sop-cws .qs > li > .red { font-size: 34px; }
+.sop-cws .p { margin-top: 14px; font-size: 32px; }
+.sop-flex .fx { display: grid; grid-template-columns: 500px 1fr; gap: 60px; margin-top: 24px; }
+.fx-k { font-size: 24px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--ink); padding-bottom: 10px; }
+.fx-sb { list-style: none; }
+.fx-sb li { display: grid; grid-template-columns: 200px 1fr 110px; align-items: center; gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--hair); font-size: 26px; }
+.fx-sb .nm { color: var(--muted); transition: color .4s; }
+.fx-sb li.on .nm { color: var(--ink); }
+.fx-sb .bw { height: 30px; position: relative; }
+.fx-sb .bw i { position: absolute; left: 0; top: 0; bottom: 0; width: 0; background: #9C9C94; transition: width .8s cubic-bezier(.2,.7,.2,1), background .4s; }
+.fx-sb li.best .bw i { background: var(--red); }
+.fx-sb li.best .nm, .fx-sb li.best .v { color: var(--red); font-weight: 700; }
+.fx-sb li.perf .bw i { background: none; border: 3px dashed var(--muted); width: 100%; }
+.fx-sb li.perf .nm, .fx-sb li.perf .v { color: var(--muted); }
+.fx-sb .v { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; }
+.fx-take { margin-top: 26px; font-size: 30px; line-height: 1.3; }
+.fx-now { font-size: 30px; color: var(--muted); min-height: 42px; }
+.fx-now b { color: var(--ink); margin-right: 14px; }
+.fx-pan { margin-top: 10px; }
+.fx-h { font-size: 26px; font-weight: 700; display: flex; justify-content: space-between; border-top: 3px solid var(--ink); padding-top: 8px; }
+.fx-pan[data-sc="1"] .fx-h { border-top-color: var(--red); }
+.fx-h span { font-weight: 400; color: var(--muted); }
+.fx-h .pf { font-variant-numeric: tabular-nums; }
+.fx-leg { margin-top: 14px; font-size: 21px; color: var(--muted); display: flex; gap: 20px; white-space: nowrap; align-items: center; }
+.fx-leg span { display: inline-flex; align-items: center; gap: 8px; }
+.fx-leg i { display: inline-block; width: 30px; height: 16px; }
+.fx-leg i.c { height: 6px; background: var(--red); }
+.fx-leg i.d { height: 0; border-top: 3px dashed var(--ink); }
+.fx-leg i.s { background: #6F6F68; }
+.fx-leg i.l { background: rgba(213,0,21,.22); border: 2px solid var(--red); }
+.fx-leg i.g { background: #E4E4DE; }
+.fx-leg .pfk { margin-left: auto; }
+.sop-flex svg { display: block; width: 100%; height: auto; overflow: visible; }
+.sop-flex svg .an { transition: y .6s cubic-bezier(.2,.7,.2,1), height .6s cubic-bezier(.2,.7,.2,1), opacity .4s; }
+.sop-flex svg .fade { transition: opacity .45s; }
+.sop-mat .mat { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; margin-top: 30px; }
+.sop-mat h3 { font-size: 34px; color: var(--ink); margin-bottom: 6px; }
+.sop-mat h3 span { display: block; font-size: 24px; font-weight: 400; color: var(--muted); margin-top: 4px; }
+.sop-mat .mat-c.r h3 { color: var(--red); }
+.sop-mat .fx-sb li { grid-template-columns: 220px 1fr 120px; padding: 12px 0; }
+.sop-mat table.t { margin-top: 30px; }
+.sop-mat table.t td, .sop-mat table.t th { font-size: 26px; }
+.sop-mat .small { margin-top: 14px; }
+/* ─── Ex 2 · jelly-bean jar (13, 13b) ─── */
+.sop-jar13 .jar-l { display: grid; grid-template-columns: 1fr 380px; gap: 50px; align-items: start; }
+.sop-jar13 .lead { font-size: 42px; text-wrap: nowrap; }
+.sop-jar13 .jar-img { width: 380px; height: 570px; object-fit: cover; display: block; }
+.sop-jar .jar-g { display: grid; grid-template-columns: 1fr 470px; gap: 60px; margin-top: 18px; }
+.sop-jar .nhist .hist { height: 330px; margin-top: 60px; }
+.sop-jar .nhist .hist-x { font-size: 22px; }
+.sop-jar .nhist .hist .v { font-size: 32px; }
+.jar-st { list-style: none; border-top: 3px solid var(--ink); margin-top: 8px; }
+.jar-st li { display: flex; justify-content: space-between; align-items: baseline; font-size: 30px; padding: 12px 0; border-bottom: 1px solid var(--hair); }
+.jar-st li span { color: var(--muted); }
+.jar-st li b { font-variant-numeric: tabular-nums; }
+.jar-ans { margin-top: 18px; border-top: 3px solid var(--red); padding-top: 12px; }
+.jar-ans p:first-child { display: flex; justify-content: space-between; align-items: baseline; font-size: 30px; }
+.jar-ans p:first-child b { font-size: 64px; color: var(--red); line-height: 1; }
+.jar-ans .truth-out { font-size: 22px; color: var(--muted); margin-top: 8px; line-height: 1.3; }
+.jar-ans .truth-out b { color: var(--red); }
+.jar-sf { margin-top: 26px; }
+.jar-sf .k { font-size: 24px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
+.jar-sf .k span { color: var(--muted); font-weight: 400; text-transform: none; letter-spacing: 0; }
+.jar-sf .sfl { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 12px; }
+.jar-sf .sfl li { border-top: 3px solid var(--ink); padding-top: 10px; display: grid; grid-template-columns: auto 1fr; column-gap: 16px; align-items: baseline; }
+.jar-sf .sfl li:first-child { border-top-color: var(--red); }
+.jar-sf .sfl .rk { grid-row: 1 / span 2; font-size: 56px; font-weight: 700; color: var(--red); line-height: 1; }
+.jar-sf .sfl .nm { font-size: 36px; font-weight: 700; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.jar-sf .sfl .gs { font-size: 24px; color: var(--muted); }
+.jar-sf .sfl .gs b { color: var(--ink); }
+.jar-sf .sfl li.none { color: var(--muted); font-size: 26px; display: block; }
+.jar-sf .gpt { margin-top: 12px; font-size: 24px; color: var(--muted); min-height: 30px; }
+.jar-sf .gpt b { color: var(--ink); }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<!-- s1 · title (the red band) -->
+<section data-label="1 · Launching Into the Unknown" class="s-title-r sop-s1" data-fx="zoom" data-speaker-notes="Open: &#x27;Operations is easy if, and only if, supply is reliable and matches demand, and the forecast is accurate and early. Today: a product that has never existed.&#x27;">
+  <div class="band"></div>
+  <img class="lockup rise" src="images/shared/logo-sclx-white.png" alt="Coca-Cola Supply Chain Leader Excellence" />
+  <h1 class="rise d1">Launching Into the Unknown<span class="sub">New-Product Demand &amp; Supply Chain Strategy</span></h1>
+  <div class="edition rise d1">SCLX November 2026</div>
+  <div class="foot rise d2">
+    <img class="gt" src="images/shared/logo-gt-exec-ed.png" alt="Georgia Tech Executive Education, Scheller College of Business" />
+    <div class="rule"></div>
+    <div class="who"><b>Karthik Ramachandran</b><br />Scheller College of Business<br />Georgia Tech</div>
+    <div class="rule"></div>
+    <img class="ko" src="images/shared/logo-coca-cola.png" alt="Coca-Cola" />
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s2 · Central Challenge -->
+<section data-label="2 · Central Challenge in Managing Operations" class="s-std" data-speaker-notes="0:00. Set up the hour: forecast, design, respond. Then FEMSA shows how a bottler runs S&amp;OP for real.">
+  <h2>Central Challenge in Managing Operations</h2>
+  <div class="body cols">
+    <div>
+      <p class="lead rise">Operations is <span class="red">EASY</span> if – and only if –</p>
+      <ul class="rows" style="margin-top:30px">
+        <li class="rise d1">Your supply is reliable and perfectly matches demand, and</li>
+        <li class="rise d1">Your demand forecast is accurate and available well in advance!</li>
+      </ul>
+      <p class="take grise" data-reveal="1">Today: what if the product has <span class="red">never existed</span>?<span class="sm">Challenge: “Synchronizing Supply and Demand”</span></p>
+    </div>
+    <img class="rise d2" style="height:720px;width:auto" src="images/sop/matching-supply-demand.png" alt="Matching Supply with Demand, textbook cover (Cachon and Terwiesch)" />
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s3 · roadmap -->
+<section data-label="3 · Today: Three Moves" class="s-std" data-speaker-notes="Arc: Forecast -&gt; Design -&gt; Respond -&gt; FEMSA. Bring a phone: we will poll the room several times.">
+  <h2>Today: Three Moves</h2>
+  <div class="road">
+    <div class="rise d1"><h3>A. <span class="red">Forecast</span></h3><p class="q">What will happen?</p><p class="c"><b>Cases</b> Segway · Meta Display · Wegovy pill · KO launches</p></div>
+    <div class="rise d2"><h3>B. <span class="red">Design</span></h3><p class="q">How do we build so the forecast matters less?</p><p class="c"><b>Cases</b> Genentech · postponement · Seagate</p></div>
+    <div class="rise d3"><h3>C. <span class="red">Respond</span></h3><p class="q">How do we adapt as we learn?</p><p class="c"><b>Cases</b> Xiaomi · the art of saying “No”</p></div>
+  </div>
+  <p class="take grise" data-reveal="1" style="margin-top:70px">Then: <span class="red">FEMSA</span> shows how S&amp;OP is implemented successfully at one of the world’s largest Coca-Cola bottlers.</p>
+  <div class="pg"></div>
+</section>
+
+<!-- s4 · poll (live: Google Form → Sheet; see SOP_POLLS at the end) -->
+<section data-label="4 · How Much Rides on New Products?" class="s-std sop-s4" data-poll="s4" data-speaker-notes="Quick poll on phones. Show the distribution and transition: launches matter, and they usually miss.">
+  <h2>How Much Rides on New Products?</h2>
+  <div class="body cols">
+    <div>
+      <p class="lead">What share of your business’s revenue comes from products launched in the last 3 years?</p>
+      <ul class="qs pollbars" style="margin-top:36px">
+        <li data-opt="0"><span class="red">A</span><span class="lbl">Under 10%</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
+        <li data-opt="1"><span class="red">B</span><span class="lbl">10–25%</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
+        <li data-opt="2"><span class="red">C</span><span class="lbl">Over 25%</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
+        <li data-opt="3"><span class="red">D</span><span class="lbl">I don’t know (also an answer!)</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
+      </ul>
+    </div>
+    <div class="poll live"><p class="k">PHONE POLL</p><p class="q">Scan to vote</p><div class="qrw"><img class="qr" src="images/sop/qr-s4.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s4b · histogram of the s4 poll (HTML only; not in the pptx) -->
+<section data-label="4b · Your Answers" class="s-std sop-hist" data-poll="s4" data-html-only data-speaker-notes="Histogram of the slide 4 poll, live from the same poll spreadsheet. Compare the room with the HBR benchmark on the next slide: more than half of launches miss their goals, yet many businesses depend on recent launches for a large share of revenue.">
+  <h2>Your Answers</h2>
+  <div class="body">
+    <p class="lead">Share of revenue from products launched in the last 3 years</p>
+    <div class="hist">
+      <div class="col" data-opt="0"><span class="v"></span><span class="b"></span></div>
+      <div class="col" data-opt="1"><span class="v"></span><span class="b"></span></div>
+      <div class="col" data-opt="2"><span class="v"></span><span class="b"></span></div>
+      <div class="col" data-opt="3"><span class="v"></span><span class="b"></span></div>
+    </div>
+    <div class="hist-x"><div><b>A</b>Under 10%</div><div><b>B</b>10–25%</div><div><b>C</b>Over 25%</div><div><b>D</b>I don’t know</div></div>
+    <p class="hist-n"><b class="cnt">0</b> <span class="w">responses</span> · <span class="st"></span></p>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s5 · most launches miss -->
+<section data-label="5 · Most Launches Miss" class="s-std" data-speaker-notes="Data points from Calmon&#x27;s NPI deck. Transition: here is the most famous miss.">
+  <h2>Most Launches Miss</h2>
+  <div class="body cols">
+    <div>
+      <p class="lead"><span class="red">&gt;50%</span> of launches miss their business goals <span class="muted">(HBR 2023)</span></p>
+      <p class="small">Failures come from silos, poor planning and experimentation, and meeting the needs of the company instead of the customer.</p>
+      <p class="p" style="margin-top:44px"><b>Reliance on new-product revenue is rising everywhere</b></p>
+      <ul class="rows tight" style="margin-top:14px">
+        <li>CPG: innovators are <b>1.8×</b> more likely to grow; 52% of new items grow in year 2</li>
+        <li>Pharma: patent cliffs (Merck needs &gt;$50B from new drugs by the mid-2030s)</li>
+        <li>Electronics, fast fashion, autos: short life cycles, constant newness</li>
+      </ul>
+    </div>
+    <figure class="ph-r rise d1" style="width:620px"><img src="images/sop/launch-times-square.png" alt="New-product launch advertising in Times Square" /></figure>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s6 · Segway plan, Ex 1 -->
+<section data-label="6 · Segway: The Plan" class="s-std sop-s6" data-poll="s6" data-speaker-notes="0:05. Everyone writes a number privately, then submits on phones. Do NOT discuss first.">
+  <p class="lab">Exercise 1</p>
+  <h2>Segway: The Plan</h2>
+  <div class="body" style="margin-top:40px">
+    <div class="facts">
+      <p><b>$80M</b> from Kleiner-Perkins &amp; CSFB · <b>$500M</b> valuation</p>
+      <p class="muted" style="font-size:34px">Backers &amp; advisors: Steve Jobs, Jeff Bezos, John Doerr · 12.5 mph · 80 lbs · $4,950</p>
+      <p style="margin-top:18px">Original projection: <span class="red">40,000 units/month by end of 2002</span></p>
+    </div>
+    <p class="quote">“I would stake my reputation, my money and my time on the fact that 10 years from now, this will be the way many people in many places get around.” — Dean Kamen</p>
+    <p class="take" style="margin-top:36px">How many units did Segway sell in its <span class="red">first two years</span>?</p>
+  </div>
+  <img class="photo" src="images/sop/segway-rider.jpg" alt="A rider on a Segway" />
+  <div class="poll live edge"><p class="k">PHONE POLL</p><p class="q">Enter your guess (units)</p><div class="qrw"><img class="qr" src="images/sop/qr-s6.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
+  <div class="pg"></div>
+</section>
+
+<!-- s6b · results of the s6 poll (HTML only) -->
+<section data-label="6b · Your Guesses" class="s-std sop-hist" data-poll="s6" data-html-only data-speaker-notes="Live histogram of the slide 6 guesses. Read out the median and the spread, then reveal the actual on the next slide: about 5,000 units.">
+  <h2>Your Guesses</h2>
+  <div class="body">
+    <p class="lead">Units Segway sold in its first two years, as guessed by this room</p>
+    <div class="nhist"></div>
+    <p class="hist-n"><b class="cnt">0</b> <span class="w">responses</span> · median guess <b class="med">–</b> · <span class="st"></span></p>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s7 · Segway reveal -->
+<section data-label="7 · Segway: What Happened" class="s-std" data-speaker-notes="Compare the room&#x27;s poll distribution to 5,000. Even the room&#x27;s lowest guesses are usually far above it.">
+  <p class="lab ans">Answer</p>
+  <h2>Segway: What Happened</h2>
+  <div class="body cols" style="margin-top:40px">
+    <div>
+      <p class="lead" style="font-size:64px">Total sales, first two years: <span class="red">~5,000 units</span></p>
+      <p class="p">The plan implied ~1M units, so the miss was roughly <span class="red">200×</span></p>
+      <ul class="rows tight grise" data-reveal="1" style="margin-top:34px">
+        <li>2001: “IT” leak, media explosion · launch on Good Morning America</li>
+        <li>2002: ~100 units in commercial trials; 300–1,000 advance orders via Amazon</li>
+        <li>2003+: management replaced (twice); 2006 recall for a controller defect</li>
+      </ul>
+      <p class="quote grise" data-reveal="2">“The question isn’t whether people will buy it. The question is whether or not the government will let them use it.” — Steve Jobs</p>
+    </div>
+    <img style="height:640px;width:auto" src="images/sop/malcop.jpg" alt="Paul Blart: Mall Cop, a mall security guard on a Segway" />
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s8 · where did the money go -->
+<section data-label="8 · Where Did the Money Go?" class="s-std" data-speaker-notes="Ask: what should be the objective of task scheduling? Answer: maximum uncertainty reduction per dollar, not speed to scale. Hidden next slide has Calmon&#x27;s doubt x importance scoring if asked.">
+  <h2>Where Did the Money Go?</h2>
+  <table class="t l" style="margin-top:56px">
+    <tr><th>Supply-side tasks (funded first)</th><th>Demand-side questions (postponed)</th></tr>
+    <tr><td>Production capacity</td><td>Which markets?</td></tr>
+    <tr><td>Reliability and robustness</td><td>What price point?</td></tr>
+    <tr><td>Technical performance</td><td>Is it legal on sidewalks?</td></tr>
+    <tr><td>Staffing a large organization</td><td>Where to ride? What benefits?</td></tr>
+    <tr class="hl"><td>$50M+ in 2000–2001</td><td>$?? in 2002</td></tr>
+  </table>
+  <p class="take grise" data-reveal="1">Test the assumption with the <span class="red">greatest uncertainty</span> first.<span class="sm">The forecast is a hypothesis; the launch is the experiment.</span></p>
+  <div class="pg"></div>
+</section>
+
+<!-- s9 · HIDDEN backup: risk scoring -->
+<section data-label="9 · Backup: Finding the Tallest Tale" class="s-std" data-deck-skip data-speaker-notes="HIDDEN backup slide (Calmon&#x27;s risk mitigation framework). Unhide if the Segway discussion goes there.">
+  <p class="lab bk">Backup</p>
+  <h2>Finding the “Tallest Tale”</h2>
+  <div class="body cols" style="grid-template-columns: 1fr 820px; margin-top:44px">
+    <ul class="rows tight">
+      <li>1. Map your hypotheses: customers, value, delivery, economics</li>
+      <li>2. Rate the <b>degree of doubt</b> for each (1–3)</li>
+      <li>3. Rate its <b>importance</b> to success or survival (1–3)</li>
+      <li>4. <span class="red">Risk factor = doubt × importance</span></li>
+      <li>5. Design a cheap test for each top risk: interviews, pilots, prototypes</li>
+    </ul>
+    <div>
+      <table class="t sm">
+        <tr><th>Segway hypothesis</th><th>Doubt</th><th>Import.</th><th>Risk</th></tr>
+        <tr><td>People will ride it on sidewalks</td><td>3</td><td>3</td><td class="red">9</td></tr>
+        <tr><td>Consumers pay ~$5,000</td><td>3</td><td>3</td><td class="red">9</td></tr>
+        <tr><td>We can build 40K/month</td><td>1</td><td>2</td><td>2</td></tr>
+        <tr><td>The tech is reliable</td><td>2</td><td>2</td><td>4</td></tr>
+      </table>
+      <p class="small">Illustrative scores. Sequence tasks for the most risk reduction per dollar: interviews ≈ $0.1M vs. a plant ≈ $3M.</p>
+    </div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s10 · part A -->
+<section data-label="10 · Part A: Forecast" class="sop-stmt" data-speaker-notes="0:10. Section A: forecasting new-product demand.">
+  <p class="kicker rise">part A · forecast</p>
+  <h2 class="rise d1">a forecast is a <span class="red">distribution</span>, not a number</h2>
+  <p class="after rise d2">No history · high uncertainty · many stakeholders depend on it</p>
+  <div class="pg"></div>
+</section>
+
+<!-- s11 · Meta Display + Wegovy pill (was Vision Pro) -->
+<section data-label="11 · Forecasting Something New" class="s-std sop-new2" data-speaker-notes="Cold-call two people (2 min). Land: no history, no analog, the forecast must carry a range.">
+  <h2>Forecasting Something New</h2>
+  <p class="lead" style="margin-top:32px">It is early 2025. You must forecast demand for two launches. How is each one different from forecasting the product beside it?</p>
+  <div class="np-grid">
+    <div class="np-pair">
+      <div class="np-k">Consumer tech · Meta</div>
+      <div class="np-row">
+        <figure class="rise d1"><div class="np-img"><span>Ray-Ban Meta</span><img src="images/sop/meta-rayban.png" alt="" onerror="this.remove()" /></div><figcaption>Ray-Ban Meta (Gen 2)<span>next version of a known product</span></figcaption></figure>
+        <div class="np-arr rise d2">→</div>
+        <figure class="rise d2"><div class="np-img"><span>Meta Ray-Ban Display</span><img src="images/sop/meta-display.png" alt="" onerror="this.remove()" /></div><figcaption>Meta Ray-Ban <span class="red">Display</span><span>a screen in the lens · new category</span></figcaption></figure>
+      </div>
+    </div>
+    <div class="np-pair">
+      <div class="np-k">Pharma · Novo Nordisk</div>
+      <div class="np-row">
+        <figure class="rise d3"><div class="np-img"><span>Wegovy injection</span><img src="images/sop/wegovy-pen.png" alt="" onerror="this.remove()" /></div><figcaption>Wegovy injection<span>weekly pen, years of sales data</span></figcaption></figure>
+        <div class="np-arr rise d4">→</div>
+        <figure class="rise d4"><div class="np-img"><span>Wegovy pill</span><img src="images/sop/wegovy-pill.png" alt="" onerror="this.remove()" /></div><figcaption>Wegovy <span class="red">pill</span><span>same drug, new form · new patients?</span></figcaption></figure>
+      </div>
+    </div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s12 · why hard -->
+<section data-label="12 · Why New-Product Forecasts Are Hard" class="s-std sop-hard" data-speaker-notes="Everything in part B depends on this: if the forecast is a distribution, capacity and inventory decisions become bets on that distribution.">
+  <h2>Why New-Product Forecasts Are Hard</h2>
+  <div class="road" style="margin-top:56px">
+    <div class="rise d1"><h3>Data</h3><p class="q">Little or no history</p><p class="c fix grise" data-reveal="1"><b>Look-alikes:</b> borrow the launch curve of an analog (Ray-Ban Meta Gen 1, the Wegovy pen), then scale for what differs</p></div>
+    <div class="rise d2"><h3>Uncertainty</h3><p class="q">Market acceptance, competition, adoption speed</p><p class="c fix grise" data-reveal="1"><b>Ranges:</b> low / likely / high (P10 · P50 · P90), an adoption curve for speed, updated as early signals arrive</p></div>
+    <div class="rise d3"><h3>Stakeholders</h3><p class="q">Many functions make decisions off the same number</p><p class="c fix grise" data-reveal="1"><b>Ensembles:</b> average independent methods and functions; one shared range, not one number per team</p></div>
+  </div>
+  <p class="take grise" data-reveal="2" style="margin-top:36px">A forecast is <span class="red">not a number</span>. It is a probability distribution.<span class="sm">A list of possible future scenarios, with a confidence attached to each, tied to a specific business decision.</span></p>
+  <div class="pg"></div>
+</section>
+
+<!-- s13 · Ex 2 -->
+<section data-label="13 · The Wisdom of the Crowd" class="s-std sop-jar13" data-poll="s13" data-speaker-notes="4 min. Hold up the jar (or point at the photo). Rules: guess privately, no talking to neighbors, one guess per phone (a later guess replaces an earlier one). Phones ask for a first name and a number. The three closest guesses are our superforecasters (in jest) and appear by name on the next slide. Give the room about 90 seconds, watch the response count climb, then move on. Don't hint at the answer (538).">
+  <p class="lab">Exercise 2</p>
+  <h2>The Wisdom of the Crowd</h2>
+  <div class="body cols" style="margin-top:34px">
+    <div class="jar-l">
+      <div>
+        <p class="lead">How many <span class="red">jelly beans</span> are in this jar?</p>
+        <ul class="rows tight" style="margin-top:30px">
+          <li>Guess privately. <b>Do not talk to your neighbors.</b></li>
+          <li>Enter your <b>first name</b> and your guess on your phone.</li>
+          <li>The three closest guesses are our <span class="red">superforecasters</span>.</li>
+        </ul>
+        <p class="p">Then we compare individual guesses with the <b>average of the room</b>.</p>
+      </div>
+      <img class="jar-img" src="images/sop/jarbeans.webp" alt="A glass jar full of jelly beans" />
+    </div>
+    <div class="poll live"><p class="k">PHONE POLL</p><p class="q">Your first name and your guess</p><div class="qrw"><img class="qr" src="images/sop/qr-s13.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s13b · results of the s13 poll (HTML only) -->
+<section data-label="13b · The Crowd’s Estimate" class="s-std sop-hist sop-jar" data-poll="s13" data-truth="538" data-gpt="485" data-html-only data-speaker-notes="Live histogram of the jelly-bean guesses, with the median, average and standard deviation. Read out the spread first: how far apart are the lowest and highest guesses? Click 1: the answer, 538 jelly beans, appears as a line on the chart, with how far off the crowd average is and what share of individual guesses it beats. Click 2: the three closest guesses by first name, our superforecasters (in jest; applause). If all three beat ChatGPT, a line shows that ChatGPT guessed 485; if ChatGPT would have made the top 3, it is not shown. Bridge: one good guesser is luck; the average of many independent guesses is a method.">
+  <h2>The Crowd’s Estimate</h2>
+  <div class="jar-g">
+    <div>
+      <p class="lead" style="font-size:36px">Every guess in the room</p>
+      <div class="nhist"></div>
+    </div>
+    <div class="jar-side">
+      <ul class="jar-st">
+        <li><span>Responses</span><b class="cnt">0</b></li>
+        <li><span>Median</span><b class="med">–</b></li>
+        <li><span>Average</span><b class="mean">–</b></li>
+        <li><span>Std. deviation</span><b class="sdv">–</b></li>
+      </ul>
+      <p class="hist-n" style="margin-top:8px;font-size:22px"><span class="st"></span></p>
+      <div class="jar-ans" data-reveal="1"><p><span>Answer</span><b>538</b></p><p class="truth-out"></p></div>
+    </div>
+  </div>
+  <div class="jar-sf" data-reveal="2">
+    <p class="k">Our superforecasters <span>(in jest)</span></p>
+    <ol class="sfl"></ol>
+    <p class="gpt"></p>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s14 · Ex 2 debrief -->
+<section data-label="14 · Why the Crowd Wins" class="s-std" data-speaker-notes="Calmon&#x27;s golden rules. Note the three methods: look-alike (analog adoption curves), expert opinion (structured, independent), early signals (crowdsourcing, pilots, pre-orders; pre-orders != sustained demand).">
+  <p class="lab ans">Answer</p>
+  <h2>Why the Crowd Wins</h2>
+  <table class="t l" style="margin-top:44px">
+    <tr><th>Golden rule</th><th>What it means in a launch forecast</th></tr>
+    <tr><td>Normalize information</td><td>Everyone looks at the same jar: same assumptions, same data</td></tr>
+    <tr><td>Keep inputs independent</td><td>Estimate before you discuss; talking first makes the crowd’s error larger</td></tr>
+    <tr><td>Diversify inputs</td><td>Sales, Marketing, Ops, Finance, R&amp;D: errors that differ cancel out</td></tr>
+    <tr><td>Triangulate methods</td><td>Look-alike analogs · expert opinion · early demand signals</td></tr>
+    <tr><td>Build consensus</td><td>Agree on a range, assumptions, and confidence, not a single number</td></tr>
+  </table>
+  <p class="take grise" data-reveal="1" style="font-size:44px">Forecasting is a <span class="red">process</span> that requires structure, iteration, and learning.</p>
+  <div class="pg"></div>
+</section>
+
+<!-- 14c · Galton's ox (HTML only, from "wisdom of crowds.pptx" slide 1) -->
+<section data-label="14c · Experts vs. Crowds" class="s-std sop-ox" data-html-only data-speaker-notes="2 min. Right after the room's estimate. The story: Plymouth, England, 1906, a livestock fair. 787 people paid sixpence each to guess the weight of an ox once slaughtered and dressed; prizes for the closest. Butchers and farmers, but also clerks and families with no expertise at all. Francis Galton expected the crowd to be hopeless and collected the tickets. The guesses fall in by themselves as the slide opens. Click 1: the median guess was 1,207 lb and the average 1,197 lb. Ask: what did the ox actually weigh? Click 2: 1,198 lb. The average missed by one pound, while about half the individual guesses were off by more than 35 lb. Galton called it the trustworthiness of a democratic judgment (Vox Populi, Nature, 1907); Surowiecki built The Wisdom of Crowds on it. Compare with our own room's number. Bridge: so when does this work, and when does it fail?">
+  <p class="lab ans">Answer</p>
+  <h2>Experts vs. Crowds: Galton’s Ox</h2>
+  <div class="ox">
+    <div>
+      <img class="ox-img" src="images/sop/crowd-ox.png" alt="Sketch of an ox" />
+      <ul class="ox-facts">
+        <li data-reveal="1"><span>Guess median</span><b>1,207 lb</b></li>
+        <li data-reveal="1"><span>Guess average</span><b>1,197 lb</b></li>
+        <li class="act" data-reveal="2"><span>Actual weight</span><b>1,198 lb</b></li>
+      </ul>
+    </div>
+    <div>
+      <p class="ox-sub"><span>Plymouth fair, 1906: every guess at the ox’s dressed weight</span><span class="gn">Guesses <b class="gnn">0</b></span></p>
+      <svg class="oxs" viewBox="0 0 1160 540"></svg>
+      <p class="take grise" data-reveal="2">About half the guesses missed by <b>35 lb or more</b>. The average missed by <span class="red">1 lb</span>.</p>
+    </div>
+  </div>
+  <p class="src">Galton, “Vox Populi,” Nature, 1907 · Surowiecki, The Wisdom of Crowds, 2004</p>
+  <div class="pg"></div>
+</section>
+
+<!-- 14d · when crowds beat experts (HTML only, from "wisdom of crowds.pptx" slide 2) -->
+<section data-label="14d · When Crowds Beat Experts" class="s-std sop-why" data-html-only data-speaker-notes="3 min. Three conditions (Surowiecki). On arrival: 40 people guess independently. Their errors point in different directions, so the average lands close to the truth (diversity). Click 1, independence: now one confident voice speaks first (1,330 lb) and everyone drifts toward it. The guesses get closer to each other, which feels like consensus, but the average moves about 90 lb away from the truth. Talking first makes the crowd's error larger. In a launch meeting the loud voice is often the most senior person or the brand team. Click 2, aggregation: you also need a way to pool the guesses. Google PageRank counts links as votes. On Who Wants to Be a Millionaire, Ask the Audience was right about 91% of the time, against 65% for Phone a Friend (the expert). Prediction markets priced the 2012 US election, and a stock price pools millions of views (AAPL). For a launch forecast: estimate privately, mix Sales, Marketing, Ops, Finance and R&amp;D, then average. Agree on a range, not a single number.">
+  <h2>When Crowds Beat Experts</h2>
+  <div class="why">
+    <ul class="rows tight">
+      <li><b><span class="red">Diversity</span> of opinion</b><span>Different information, different errors: they cancel out</span></li>
+      <li data-reveal="1"><b><span class="red">Independence</span> of judgment</b><span>Estimate before you talk. One loud voice lines the errors up</span></li>
+      <li data-reveal="2"><b><span class="red">Aggregation</span> mechanism</b><span>A way to pool the views: an average, a vote, a market price</span></li>
+    </ul>
+    <div>
+      <p class="cap"><span class="capt">40 people guess the ox on their own.</span> Crowd average <b class="avg">–</b></p>
+      <svg class="whys" viewBox="0 0 900 400"></svg>
+    </div>
+  </div>
+  <div class="ex" data-reveal="2">
+    <figure><div class="im"><img src="images/sop/crowd-pagerank.png" alt="Google PageRank" /></div><figcaption><b>Google PageRank</b>links counted as votes</figcaption></figure>
+    <figure><div class="im"><img src="images/sop/crowd-millionaire.jpg" alt="Ask the Audience on Who Wants to Be a Millionaire" /></div><figcaption><b>Ask the Audience</b>right ~91% vs. 65% for the expert friend</figcaption></figure>
+    <figure><div class="im"><img src="images/sop/crowd-election2012.png" alt="Prediction market prices for the 2012 US presidential election" /></div><figcaption><b>Prediction markets</b>2012 US president</figcaption></figure>
+    <figure><div class="im"><img src="images/sop/crowd-aapl.png" alt="Apple share price, 2005 to 2015" /></div><figcaption><b>Stock prices</b>AAPL</figcaption></figure>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s15 · forecasting the unknowable -->
+<section data-label="15 · Forecasting the Unknowable" class="s-std" data-speaker-notes="McPlant (McDonald&#x27;s) and Nike Adapt (discontinued 2024): both bets on new-to-the-world demand. Next: the KO rule &#x27;model pipeline fill&#x27; as a math problem.">
+  <h2>Forecasting the Unknowable</h2>
+  <div class="body cols">
+    <div>
+      <p class="lead">When data doesn’t exist, planning must be <span class="red">sequential and adaptive</span>.</p>
+      <ul class="rows tight" style="margin-top:30px">
+        <li>Treat radical innovations as pilot launches: learn fast, revise forecasts, refine assumptions before scaling</li>
+        <li><span class="red">KO rules:</span> document assumptions, model pipeline fill, include PLM impact</li>
+        <li>The first forecast is a <b>hypothesis</b>; the launch is the <b>experiment</b>. What is your test bed?</li>
+      </ul>
+    </div>
+    <div style="display:grid;gap:26px;width:560px">
+      <figure><img style="width:100%" src="images/sop/mcplant.png" alt="McDonald’s McPlant burger" /><figcaption>McDonald’s McPlant</figcaption></figure>
+      <figure><img style="width:100%" src="images/sop/nike-adapt.png" alt="Nike Adapt self-lacing shoe" /><figcaption>Nike Adapt (discontinued 2024)</figcaption></figure>
+    </div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s16 · Ex 3 problem -->
+<section data-label="16 · The Pipeline-Fill Trap" class="s-std" data-speaker-notes="6 min. Tables work it on phones/paper.">
+  <p class="lab">Exercise 3</p>
+  <h2>The Pipeline-Fill Trap</h2>
+  <div class="facts" style="margin-top:44px">
+    <p>A new flavor launches in <b>4,000 stores</b>.</p>
+    <p>Each store takes an initial load-in of <b>24 cases</b>.</p>
+    <p>True consumer sell-through is <b>3 cases per store per week</b>.</p>
+  </div>
+  <ul class="qs" style="margin-top:44px">
+    <li><span class="red">Q1</span>What are shipments in launch week 1?</li>
+    <li><span class="red">Q2</span>A planner forecasts month 2 from month-1 shipments (weeks 2–4 replenish at sell-through). By how much does that overstate true demand?</li>
+    <li><span class="red">Q3</span>What signal should you track instead?</li>
+  </ul>
+  <div class="pg"></div>
+</section>
+
+<!-- s17 · Ex 3 answer -->
+<section data-label="17 · Shipments ≠ Consumption" class="s-std" data-speaker-notes="If you plan production on 132K you build a 2.75x overhang in month 2. This is why KO rules require modeling pipeline fill separately.">
+  <p class="lab ans">Answer</p>
+  <h2>Shipments ≠ Consumption</h2>
+  <table class="t" style="margin-top:44px">
+    <tr><th></th><th>Calculation</th><th>Cases</th></tr>
+    <tr><td>Week 1 shipments</td><td>4,000 × 24</td><td>96,000</td></tr>
+    <tr><td>Weeks 2–4 replenishment</td><td>3 weeks × 4,000 × 3</td><td>36,000</td></tr>
+    <tr><td>Month-1 shipments</td><td>96,000 + 36,000</td><td>132,000</td></tr>
+    <tr><td>True steady monthly demand</td><td>4 weeks × 4,000 × 3</td><td>48,000</td></tr>
+    <tr class="hl"><td>Overstatement</td><td>132,000 ÷ 48,000</td><td>2.75×</td></tr>
+  </table>
+  <p class="take grise" data-reveal="1">Track <span class="red">store velocity and repeat rate</span>, not shipments.<span class="sm">Separate pipeline fill from run-rate, document the assumptions, revise early. A preview of the bullwhip effect.</span></p>
+  <div class="pg"></div>
+</section>
+
+<!-- s18 · part B -->
+<section data-label="18 · Part B: Design" class="sop-stmt" data-speaker-notes="0:25. Section B: supply chain design. Three cushions: capacity, flexibility/hedging, postponement.">
+  <p class="kicker rise">part B · design</p>
+  <h2 class="rise d1">we won’t get the forecast right, so <span class="red">design for being wrong</span></h2>
+  <p class="after rise d2">You only feel capacity when you run out of it, yet you must decide before demand is observed.</p>
+  <div class="pg"></div>
+</section>
+
+<!-- s19 · Ex 4 problem -->
+<section data-label="19 · Sizing Capacity for Avastin" class="s-std" data-poll="s19" data-speaker-notes="6 min. Poll the slider first (most build near 1,000), then compute.">
+  <p class="lab">Exercise 4</p>
+  <h2>Sizing Capacity for Avastin</h2>
+  <div class="body" style="margin-top:40px;max-width:1190px">
+    <div style="display:flex;gap:36px;align-items:center">
+      <div class="facts" style="flex:1">
+        <p>Avastin sells for <b>$2,000</b> per dose.</p>
+        <p>Capacity costs <b>$400</b> per dose of annual capacity, committed years ahead.</p>
+        <p>Demand: <b>Normal (mean 1,000, sd 250)</b> thousand doses.</p>
+      </div>
+      <svg class="sop-tn" viewBox="0 0 380 250" role="img" aria-label="Truncated normal distribution of demand"><path d="M48,200 L48.0,184.3 L51.2,182.8 L54.4,181.1 L57.5,179.3 L60.7,177.3 L63.9,175.2 L67.1,173.0 L70.3,170.6 L73.4,168.1 L76.6,165.4 L79.8,162.6 L83.0,159.6 L86.2,156.5 L89.3,153.2 L92.5,149.8 L95.7,146.2 L98.9,142.5 L102.1,138.7 L105.2,134.7 L108.4,130.6 L111.6,126.4 L114.8,122.0 L118.0,117.6 L121.1,113.1 L124.3,108.5 L127.5,103.9 L130.7,99.2 L133.9,94.5 L137.0,89.8 L140.2,85.2 L143.4,80.5 L146.6,75.9 L149.8,71.4 L152.9,66.9 L156.1,62.6 L159.3,58.4 L162.5,54.4 L165.7,50.6 L168.8,46.9 L172.0,43.5 L175.2,40.2 L178.4,37.3 L181.6,34.6 L184.7,32.2 L187.9,30.0 L191.1,28.2 L194.3,26.7 L197.5,25.5 L200.6,24.7 L203.8,24.2 L207.0,24.0 L210.2,24.2 L213.4,24.7 L216.5,25.5 L219.7,26.7 L222.9,28.2 L226.1,30.0 L229.3,32.2 L232.4,34.6 L235.6,37.3 L238.8,40.2 L242.0,43.5 L245.2,46.9 L248.3,50.6 L251.5,54.4 L254.7,58.4 L257.9,62.6 L261.1,66.9 L264.2,71.4 L267.4,75.9 L270.6,80.5 L273.8,85.2 L277.0,89.8 L280.1,94.5 L283.3,99.2 L286.5,103.9 L289.7,108.5 L292.9,113.1 L296.0,117.6 L299.2,122.0 L302.4,126.4 L305.6,130.6 L308.8,134.7 L311.9,138.7 L315.1,142.5 L318.3,146.2 L321.5,149.8 L324.7,153.2 L327.8,156.5 L331.0,159.6 L334.2,162.6 L337.4,165.4 L340.6,168.1 L343.7,170.6 L346.9,173.0 L350.1,175.2 L353.3,177.3 L356.5,179.3 L359.6,181.1 L362.8,182.8 L366.0,184.3 L366,200 Z" fill="var(--tint)" stroke="none"/><path d="M48,200 L48.0,184.3 M366.0,184.3 L366,200" stroke="var(--red)" stroke-width="3" fill="none"/><path d="M48.0,184.3 L51.2,182.8 L54.4,181.1 L57.5,179.3 L60.7,177.3 L63.9,175.2 L67.1,173.0 L70.3,170.6 L73.4,168.1 L76.6,165.4 L79.8,162.6 L83.0,159.6 L86.2,156.5 L89.3,153.2 L92.5,149.8 L95.7,146.2 L98.9,142.5 L102.1,138.7 L105.2,134.7 L108.4,130.6 L111.6,126.4 L114.8,122.0 L118.0,117.6 L121.1,113.1 L124.3,108.5 L127.5,103.9 L130.7,99.2 L133.9,94.5 L137.0,89.8 L140.2,85.2 L143.4,80.5 L146.6,75.9 L149.8,71.4 L152.9,66.9 L156.1,62.6 L159.3,58.4 L162.5,54.4 L165.7,50.6 L168.8,46.9 L172.0,43.5 L175.2,40.2 L178.4,37.3 L181.6,34.6 L184.7,32.2 L187.9,30.0 L191.1,28.2 L194.3,26.7 L197.5,25.5 L200.6,24.7 L203.8,24.2 L207.0,24.0 L210.2,24.2 L213.4,24.7 L216.5,25.5 L219.7,26.7 L222.9,28.2 L226.1,30.0 L229.3,32.2 L232.4,34.6 L235.6,37.3 L238.8,40.2 L242.0,43.5 L245.2,46.9 L248.3,50.6 L251.5,54.4 L254.7,58.4 L257.9,62.6 L261.1,66.9 L264.2,71.4 L267.4,75.9 L270.6,80.5 L273.8,85.2 L277.0,89.8 L280.1,94.5 L283.3,99.2 L286.5,103.9 L289.7,108.5 L292.9,113.1 L296.0,117.6 L299.2,122.0 L302.4,126.4 L305.6,130.6 L308.8,134.7 L311.9,138.7 L315.1,142.5 L318.3,146.2 L321.5,149.8 L324.7,153.2 L327.8,156.5 L331.0,159.6 L334.2,162.6 L337.4,165.4 L340.6,168.1 L343.7,170.6 L346.9,173.0 L350.1,175.2 L353.3,177.3 L356.5,179.3 L359.6,181.1 L362.8,182.8 L366.0,184.3" stroke="var(--red)" stroke-width="4" fill="none"/><path d="M34,200 H376 M34,200 V8" stroke="var(--ink)" stroke-width="2.5" fill="none"/><text x="214.0" y="236" text-anchor="middle">Demand</text><text transform="translate(18 114.0) rotate(-90)" text-anchor="middle">Probability</text></svg>
+    </div>
+    <ul class="qs" style="margin-top:30px">
+      <li><span class="red">Q1</span>Build for the mean? Yes or no?</li>
+      <li><span class="red">Q2</span>Cost of one dose too little (underage)? One dose too much (overage)?</li>
+      <li><span class="red">Q3</span>How much capacity would you build?</li>
+    </ul>
+  </div>
+  <div class="poll live edge"><p class="k">PHONE POLL</p><p class="q">How much capacity? (thousand doses)</p><div class="qrw"><img class="qr" src="images/sop/qr-s19.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
+  <div class="pg"></div>
+</section>
+
+<!-- s19b · results of the s19 poll (HTML only) -->
+<section data-label="19b · Your Capacity Choices" class="s-std sop-hist" data-poll="s19" data-html-only data-speaker-notes="Live histogram of the slide 19 answers. Note how many people built at or near the mean (1,000) before showing the critical-ratio answer on the next slide.">
+  <h2>Your Capacity Choices</h2>
+  <div class="body">
+    <p class="lead">How much Avastin capacity the room would build (thousand doses)</p>
+    <div class="nhist"></div>
+    <p class="hist-n"><b class="cnt">0</b> <span class="w">responses</span> · median <b class="med">–</b> · <span class="st"></span></p>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s20 · Ex 4 answer -->
+<section data-label="20 · Size to Economics, Not the Mean" class="s-std" data-speaker-notes="Epilogue: Avastin hit the jackpot; CCP3 was not built (personnel bandwidth) and Genentech bought Biogen-Idec&#x27;s Oceanside plant. Doing better than expected can still hurt: Avastin cannibalized Lucentis.">
+  <p class="lab ans">Answer</p>
+  <h2>Size to Economics, Not the Mean</h2>
+  <table class="t" style="margin-top:40px">
+    <tr><th></th><th>Avastin</th><th>A soft drink</th></tr>
+    <tr><td>Price</td><td>$2,000</td><td>$2,000</td></tr>
+    <tr><td>Capacity cost (overage)</td><td>$400</td><td>$1,000</td></tr>
+    <tr><td>Lost margin (underage)</td><td>$1,600</td><td>$1,000</td></tr>
+    <tr><td>Critical ratio</td><td>1,600 ÷ 2,000 = 0.80</td><td>1,000 ÷ 2,000 = 0.50</td></tr>
+    <tr class="hl"><td>Capacity to build</td><td>1,000 + 0.84 × 250 ≈ 1,210</td><td>1,000 (the mean)</td></tr>
+  </table>
+  <p class="take grise" data-reveal="1">High margins justify a <span class="red">capacity cushion</span> (+21%). Low margins say build to the mean.<span class="sm">Aside: one big tank fails 20% of the time; with two small tanks both fail 4%, at least one 36%. Small tanks trade cost for resilience.</span></p>
+  <div class="pg"></div>
+</section>
+
+<!-- s24 · Ex 5 problem (postponement; moved before Seagate) -->
+<section data-label="24 · Postponement and Pooling" class="s-std" data-poll="s24" data-speaker-notes="5 min. Tell the story: a famous Savannah bakery, fruit cake in four flavors (apricot, berry, cherry, date). It has already worked out that it needs 66 loaves of safety stock per flavor, 264 in all. Then it sees what Home Depot did with paint (white base, tinted at the counter) and designs its own business model innovation, Quick Flavor: hold one standard cake and flavor and quick-bake it to order. Run the poll BEFORE anyone computes; the next slide shows the results next to each choice. Many pick ¾ or the same. Behind the 66: weekly demand per flavor has mean 100 and sd 40 (independent), 95% service, so 1.65 × 40 = 66. Pooled: sd = 40 × √4 = 80, so 1.65 × 80 = 132 loaves. The answer is half (D): risk pools with √n, not n. The next slide shows it week by week. Bridge to cola: concentrate, late flavoring and late packaging are the same move.">
+  <p class="lab">Exercise 5</p>
+  <h2>Postponement and Pooling</h2>
+  <div class="body" style="margin-top:24px;max-width:1180px">
+    <p class="lead" style="font-size:40px">A famous <b>Savannah bakery</b> sells its fruit cake in <b>4 flavors</b>: apricot, berry, cherry, date. It needs <b>66 loaves</b> of safety stock per flavor: <b>264</b> in all.</p>
+    <p class="p" style="margin-top:18px">Then it sees what Home Depot did with paint (white base, tinted at the counter) and launches <span class="red"><b>Quick Flavor</b></span>: hold a standard cake, then flavor and quick-bake it to order.</p>
+    <p class="p" style="margin-top:18px;max-width:880px"><b>How many standard cakes should Quick Flavor hold in stock?</b></p>
+    <ul class="qs tight pollbars" style="margin-top:6px;max-width:880px">
+      <li data-opt="0"><span class="red">A</span><span class="lbl">the same (264)</span><span class="bar" hidden></span><span class="pct" hidden></span></li>
+      <li data-opt="1"><span class="red">B</span><span class="lbl">double (528)</span><span class="bar" hidden></span><span class="pct" hidden></span></li>
+      <li data-opt="2"><span class="red">C</span><span class="lbl">¾ as much (198)</span><span class="bar" hidden></span><span class="pct" hidden></span></li>
+      <li data-opt="3"><span class="red">D</span><span class="lbl">half (132)</span><span class="bar" hidden></span><span class="pct" hidden></span></li>
+    </ul>
+    <p class="small grise" data-reveal="1" style="margin-top:10px;max-width:900px;line-height:1.3">Behind the 66: demand per flavor mean 100, sd 40, so 1.65 × 40 = 66. Hint: sd of a sum of n independent demands = sd × √n.</p>
+  </div>
+  <div class="poll live edge"><p class="k">PHONE POLL</p><p class="q">Guess first, then compute</p><div class="qrw"><img class="qr" src="images/sop/qr-s24.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
+  <svg class="sop-tn sop-tn24" viewBox="0 0 380 250" role="img" aria-label="Normal distribution of weekly demand per flavor"><path d="M48,200 L48.0,184.3 L51.2,182.8 L54.4,181.1 L57.5,179.3 L60.7,177.3 L63.9,175.2 L67.1,173.0 L70.3,170.6 L73.4,168.1 L76.6,165.4 L79.8,162.6 L83.0,159.6 L86.2,156.5 L89.3,153.2 L92.5,149.8 L95.7,146.2 L98.9,142.5 L102.1,138.7 L105.2,134.7 L108.4,130.6 L111.6,126.4 L114.8,122.0 L118.0,117.6 L121.1,113.1 L124.3,108.5 L127.5,103.9 L130.7,99.2 L133.9,94.5 L137.0,89.8 L140.2,85.2 L143.4,80.5 L146.6,75.9 L149.8,71.4 L152.9,66.9 L156.1,62.6 L159.3,58.4 L162.5,54.4 L165.7,50.6 L168.8,46.9 L172.0,43.5 L175.2,40.2 L178.4,37.3 L181.6,34.6 L184.7,32.2 L187.9,30.0 L191.1,28.2 L194.3,26.7 L197.5,25.5 L200.6,24.7 L203.8,24.2 L207.0,24.0 L210.2,24.2 L213.4,24.7 L216.5,25.5 L219.7,26.7 L222.9,28.2 L226.1,30.0 L229.3,32.2 L232.4,34.6 L235.6,37.3 L238.8,40.2 L242.0,43.5 L245.2,46.9 L248.3,50.6 L251.5,54.4 L254.7,58.4 L257.9,62.6 L261.1,66.9 L264.2,71.4 L267.4,75.9 L270.6,80.5 L273.8,85.2 L277.0,89.8 L280.1,94.5 L283.3,99.2 L286.5,103.9 L289.7,108.5 L292.9,113.1 L296.0,117.6 L299.2,122.0 L302.4,126.4 L305.6,130.6 L308.8,134.7 L311.9,138.7 L315.1,142.5 L318.3,146.2 L321.5,149.8 L324.7,153.2 L327.8,156.5 L331.0,159.6 L334.2,162.6 L337.4,165.4 L340.6,168.1 L343.7,170.6 L346.9,173.0 L350.1,175.2 L353.3,177.3 L356.5,179.3 L359.6,181.1 L362.8,182.8 L366.0,184.3 L366,200 Z" fill="var(--tint)" stroke="none"/><path d="M48,200 L48.0,184.3 M366.0,184.3 L366,200" stroke="var(--red)" stroke-width="3" fill="none"/><path d="M48.0,184.3 L51.2,182.8 L54.4,181.1 L57.5,179.3 L60.7,177.3 L63.9,175.2 L67.1,173.0 L70.3,170.6 L73.4,168.1 L76.6,165.4 L79.8,162.6 L83.0,159.6 L86.2,156.5 L89.3,153.2 L92.5,149.8 L95.7,146.2 L98.9,142.5 L102.1,138.7 L105.2,134.7 L108.4,130.6 L111.6,126.4 L114.8,122.0 L118.0,117.6 L121.1,113.1 L124.3,108.5 L127.5,103.9 L130.7,99.2 L133.9,94.5 L137.0,89.8 L140.2,85.2 L143.4,80.5 L146.6,75.9 L149.8,71.4 L152.9,66.9 L156.1,62.6 L159.3,58.4 L162.5,54.4 L165.7,50.6 L168.8,46.9 L172.0,43.5 L175.2,40.2 L178.4,37.3 L181.6,34.6 L184.7,32.2 L187.9,30.0 L191.1,28.2 L194.3,26.7 L197.5,25.5 L200.6,24.7 L203.8,24.2 L207.0,24.0 L210.2,24.2 L213.4,24.7 L216.5,25.5 L219.7,26.7 L222.9,28.2 L226.1,30.0 L229.3,32.2 L232.4,34.6 L235.6,37.3 L238.8,40.2 L242.0,43.5 L245.2,46.9 L248.3,50.6 L251.5,54.4 L254.7,58.4 L257.9,62.6 L261.1,66.9 L264.2,71.4 L267.4,75.9 L270.6,80.5 L273.8,85.2 L277.0,89.8 L280.1,94.5 L283.3,99.2 L286.5,103.9 L289.7,108.5 L292.9,113.1 L296.0,117.6 L299.2,122.0 L302.4,126.4 L305.6,130.6 L308.8,134.7 L311.9,138.7 L315.1,142.5 L318.3,146.2 L321.5,149.8 L324.7,153.2 L327.8,156.5 L331.0,159.6 L334.2,162.6 L337.4,165.4 L340.6,168.1 L343.7,170.6 L346.9,173.0 L350.1,175.2 L353.3,177.3 L356.5,179.3 L359.6,181.1 L362.8,182.8 L366.0,184.3" stroke="var(--red)" stroke-width="4" fill="none"/><path d="M34,200 H376 M34,200 V8" stroke="var(--ink)" stroke-width="2.5" fill="none"/><text x="376" y="236" text-anchor="end">Demand</text><text transform="translate(18 114.0) rotate(-90)" text-anchor="middle">Probability</text><text x="207" y="226" text-anchor="middle">100</text></svg>
+  <img class="sop-paint" src="images/sop/paint_mixing.jpg" alt="Tint being added to white base paint at the store counter, the idea behind Quick Flavor" />
+  <div class="pg"></div>
+</section>
+
+<!-- s24b · results of the s24 poll (HTML only) -->
+<section data-label="24b · Quick Flavor: Your Answers" class="s-std" data-poll="s24" data-html-only data-speaker-notes="Same slide with the live results: bars next to each choice show how the room voted (the top answer in red). Late votes still count while the slide is up. Many rooms land on ¾ or the same; the answer is D, half (132). Click to show the hint, let tables check it, then go to the animation.">
+  <p class="lab">Exercise 5</p>
+  <h2>Postponement and Pooling</h2>
+  <div class="body" style="margin-top:24px;max-width:1180px">
+    <p class="lead" style="font-size:40px">A famous <b>Savannah bakery</b> sells its fruit cake in <b>4 flavors</b>: apricot, berry, cherry, date. It needs <b>66 loaves</b> of safety stock per flavor: <b>264</b> in all.</p>
+    <p class="p" style="margin-top:18px">Then it sees what Home Depot did with paint (white base, tinted at the counter) and launches <span class="red"><b>Quick Flavor</b></span>: hold a standard cake, then flavor and quick-bake it to order.</p>
+    <p class="p" style="margin-top:18px;max-width:880px"><b>How many standard cakes should Quick Flavor hold in stock?</b></p>
+    <ul class="qs tight pollbars" style="margin-top:6px;max-width:880px">
+      <li data-opt="0"><span class="red">A</span><span class="lbl">the same (264)</span><span class="bar"></span><span class="pct"></span></li>
+      <li data-opt="1"><span class="red">B</span><span class="lbl">double (528)</span><span class="bar"></span><span class="pct"></span></li>
+      <li data-opt="2"><span class="red">C</span><span class="lbl">¾ as much (198)</span><span class="bar"></span><span class="pct"></span></li>
+      <li data-opt="3"><span class="red">D</span><span class="lbl">half (132)</span><span class="bar"></span><span class="pct"></span></li>
+    </ul>
+    <p class="small grise" data-reveal="1" style="margin-top:10px;max-width:900px;line-height:1.3">Behind the 66: demand per flavor mean 100, sd 40, so 1.65 × 40 = 66. Hint: sd of a sum of n independent demands = sd × √n.</p>
+  </div>
+  <div class="poll live edge"><p class="k">PHONE POLL</p><p class="q">Guess first, then compute</p><div class="qrw"><img class="qr" src="images/sop/qr-s24.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
+  <svg class="sop-tn sop-tn24" viewBox="0 0 380 250" role="img" aria-label="Normal distribution of weekly demand per flavor"><path d="M48,200 L48.0,184.3 L51.2,182.8 L54.4,181.1 L57.5,179.3 L60.7,177.3 L63.9,175.2 L67.1,173.0 L70.3,170.6 L73.4,168.1 L76.6,165.4 L79.8,162.6 L83.0,159.6 L86.2,156.5 L89.3,153.2 L92.5,149.8 L95.7,146.2 L98.9,142.5 L102.1,138.7 L105.2,134.7 L108.4,130.6 L111.6,126.4 L114.8,122.0 L118.0,117.6 L121.1,113.1 L124.3,108.5 L127.5,103.9 L130.7,99.2 L133.9,94.5 L137.0,89.8 L140.2,85.2 L143.4,80.5 L146.6,75.9 L149.8,71.4 L152.9,66.9 L156.1,62.6 L159.3,58.4 L162.5,54.4 L165.7,50.6 L168.8,46.9 L172.0,43.5 L175.2,40.2 L178.4,37.3 L181.6,34.6 L184.7,32.2 L187.9,30.0 L191.1,28.2 L194.3,26.7 L197.5,25.5 L200.6,24.7 L203.8,24.2 L207.0,24.0 L210.2,24.2 L213.4,24.7 L216.5,25.5 L219.7,26.7 L222.9,28.2 L226.1,30.0 L229.3,32.2 L232.4,34.6 L235.6,37.3 L238.8,40.2 L242.0,43.5 L245.2,46.9 L248.3,50.6 L251.5,54.4 L254.7,58.4 L257.9,62.6 L261.1,66.9 L264.2,71.4 L267.4,75.9 L270.6,80.5 L273.8,85.2 L277.0,89.8 L280.1,94.5 L283.3,99.2 L286.5,103.9 L289.7,108.5 L292.9,113.1 L296.0,117.6 L299.2,122.0 L302.4,126.4 L305.6,130.6 L308.8,134.7 L311.9,138.7 L315.1,142.5 L318.3,146.2 L321.5,149.8 L324.7,153.2 L327.8,156.5 L331.0,159.6 L334.2,162.6 L337.4,165.4 L340.6,168.1 L343.7,170.6 L346.9,173.0 L350.1,175.2 L353.3,177.3 L356.5,179.3 L359.6,181.1 L362.8,182.8 L366.0,184.3 L366,200 Z" fill="var(--tint)" stroke="none"/><path d="M48,200 L48.0,184.3 M366.0,184.3 L366,200" stroke="var(--red)" stroke-width="3" fill="none"/><path d="M48.0,184.3 L51.2,182.8 L54.4,181.1 L57.5,179.3 L60.7,177.3 L63.9,175.2 L67.1,173.0 L70.3,170.6 L73.4,168.1 L76.6,165.4 L79.8,162.6 L83.0,159.6 L86.2,156.5 L89.3,153.2 L92.5,149.8 L95.7,146.2 L98.9,142.5 L102.1,138.7 L105.2,134.7 L108.4,130.6 L111.6,126.4 L114.8,122.0 L118.0,117.6 L121.1,113.1 L124.3,108.5 L127.5,103.9 L130.7,99.2 L133.9,94.5 L137.0,89.8 L140.2,85.2 L143.4,80.5 L146.6,75.9 L149.8,71.4 L152.9,66.9 L156.1,62.6 L159.3,58.4 L162.5,54.4 L165.7,50.6 L168.8,46.9 L172.0,43.5 L175.2,40.2 L178.4,37.3 L181.6,34.6 L184.7,32.2 L187.9,30.0 L191.1,28.2 L194.3,26.7 L197.5,25.5 L200.6,24.7 L203.8,24.2 L207.0,24.0 L210.2,24.2 L213.4,24.7 L216.5,25.5 L219.7,26.7 L222.9,28.2 L226.1,30.0 L229.3,32.2 L232.4,34.6 L235.6,37.3 L238.8,40.2 L242.0,43.5 L245.2,46.9 L248.3,50.6 L251.5,54.4 L254.7,58.4 L257.9,62.6 L261.1,66.9 L264.2,71.4 L267.4,75.9 L270.6,80.5 L273.8,85.2 L277.0,89.8 L280.1,94.5 L283.3,99.2 L286.5,103.9 L289.7,108.5 L292.9,113.1 L296.0,117.6 L299.2,122.0 L302.4,126.4 L305.6,130.6 L308.8,134.7 L311.9,138.7 L315.1,142.5 L318.3,146.2 L321.5,149.8 L324.7,153.2 L327.8,156.5 L331.0,159.6 L334.2,162.6 L337.4,165.4 L340.6,168.1 L343.7,170.6 L346.9,173.0 L350.1,175.2 L353.3,177.3 L356.5,179.3 L359.6,181.1 L362.8,182.8 L366.0,184.3" stroke="var(--red)" stroke-width="4" fill="none"/><path d="M34,200 H376 M34,200 V8" stroke="var(--ink)" stroke-width="2.5" fill="none"/><text x="376" y="236" text-anchor="end">Demand</text><text transform="translate(18 114.0) rotate(-90)" text-anchor="middle">Probability</text><text x="207" y="226" text-anchor="middle">100</text></svg>
+  <div class="pg"></div>
+</section>
+
+<!-- s25b · pooling animation (HTML only; alternative to slide 25) -->
+<section data-label="25b · See It: Pool the Risk" class="s-std sop-pool" data-html-only data-speaker-notes="Back to the Savannah bakery. The animation runs by itself while the slide is on screen and restarts at week 1 each time you arrive. Left: four flavored cakes, 66 loaves of safety stock each (264). Right: Quick Flavor, one pile of 132 standard cakes, flavored and quick-baked to order. The number over each flavor is that week's demand (forecast 100); dots show the loaves going out; piles drain only by demand above forecast and restock weekly. Week 5 is the moment: Berry jumps to 170 and runs out on the left, while Apricot (61) and Cherry (59) leave their piles untouched, and those idle cakes cannot help Berry. On the right the four flavors net out to 5 under forecast, so nothing is drawn. By week 20 both sides serve 95% of flavor-weeks (76 of 80), with half the stock (a shortfall of standard cake counts against all four flavors). Click to reveal the takeaway. Bridge to cola: concentrate, late flavoring and late packaging are the same move.">
+  <p class="lab ans">Answer</p>
+  <h2>See It: One Standard Cake, Half the Stock</h2>
+  <p class="pool-sub"><span>The Savannah bakery, 4 flavors, forecast 100 loaves each per week. Regular stock covers the forecast; only demand above it comes out of safety stock (the piles).</span><span class="wk">Week <b class="wkn">1</b></span></p>
+  <div class="pool">
+    <div class="pane l"><h3>Flavored cakes<span>4 piles · 66 loaves each · <b>264 loaves</b></span></h3><svg class="pv" data-side="L" viewBox="0 0 820 500"></svg><p class="sv">Flavor-weeks served <b class="svp">–</b></p></div>
+    <div class="pane r"><h3>Quick Flavor<span>1 pile of standard cake · <b>132 loaves</b></span></h3><svg class="pv" data-side="R" viewBox="0 0 820 500"></svg><p class="sv">Flavor-weeks served <b class="svp">–</b></p></div>
+  </div>
+  <p class="take grise" data-reveal="1">Same service with <span class="red">half the stock</span>: one flavor’s spike is offset by another’s dip.</p>
+  <div class="pg"></div>
+</section>
+
+<!-- s21 · Ex 6 setup -->
+<section data-label="21 · Seagate: Where’s the Next Dollar?" class="s-std" data-speaker-notes="8 min total across the three Seagate slides. Tables compute the scenario margins.">
+  <p class="lab">Exercise 6</p>
+  <h2>Seagate: Where’s the Next Dollar?</h2>
+  <p class="p" style="margin-top:30px">Two disk drives. Each has its own <b>dedicated assembly line</b>; both share one expensive <b>test facility</b>.</p>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:30px">
+    <table class="t sm">
+      <tr><th>Stage</th><th>Margin / unit</th><th>Capacity</th><th>Cost / unit</th></tr>
+      <tr><td>Barracuda line</td><td>$300</td><td>Kb</td><td>$20</td></tr>
+      <tr><td>Cheetah line</td><td>$400</td><td>Kc</td><td>$30</td></tr>
+      <tr><td>Shared tester</td><td>—</td><td>Kt</td><td>$80</td></tr>
+    </table>
+    <table class="t sm">
+      <tr><th>Scenario</th><th>Prob.</th><th>Barracuda</th><th>Cheetah</th></tr>
+      <tr><td>1</td><td>0.25</td><td>250K</td><td>450K</td></tr>
+      <tr><td>2</td><td>0.50</td><td>300K</td><td>300K</td></tr>
+      <tr><td>3</td><td>0.25</td><td>350K</td><td>150K</td></tr>
+    </table>
+  </div>
+  <p class="p" style="margin-top:36px"><span class="red">Capital request:</span> Kb = 300K, Kc = 300K, Kt = 600K. Fixed $40M → total <b>$103M</b>.</p>
+  <ul class="qs" style="margin-top:20px">
+    <li style="font-size:34px"><span class="red">Q1</span>Margin in each scenario? (fill Cheetah first: it earns more per tester slot)</li>
+    <li style="font-size:34px"><span class="red">Q2</span>Expected profit?</li>
+    <li style="font-size:34px"><span class="red">Q3</span>You can change the three capacities. Where do you move money?</li>
+  </ul>
+  <div class="pg"></div>
+</section>
+
+<!-- s22 · Ex 5 capital request -->
+<section data-label="22 · Seagate: The Capital Request" class="s-std" data-poll="s22" data-speaker-notes="Run the poll before revealing. Most rooms vote A (the tester looks like the bottleneck).">
+  <p class="lab">Exercise 6</p>
+  <h2>Seagate: The Capital Request</h2>
+  <div style="max-width:1180px">
+  <table class="t" style="margin-top:36px">
+    <tr><th>Scenario</th><th>Barracuda sold</th><th>Cheetah sold</th><th>Margin</th></tr>
+    <tr><td>1 (p = 0.25)</td><td>250K × $300</td><td>300K × $400 (capped)</td><td>$195M</td></tr>
+    <tr><td>2 (p = 0.50)</td><td>300K × $300</td><td>300K × $400</td><td>$210M</td></tr>
+    <tr><td>3 (p = 0.25)</td><td>300K × $300 (capped)</td><td>150K × $400</td><td>$150M</td></tr>
+    <tr><td>Expected margin</td><td></td><td></td><td>$191.25M</td></tr>
+    <tr class="hl"><td>Expected profit</td><td></td><td>$191.25M − $103M</td><td>$88.25M</td></tr>
+  </table>
+  <div style="margin-top:34px">
+    <ul class="qs tight pollbars" style="flex:1">
+      <li data-opt="0"><span class="red">A</span><span class="lbl">Bigger tester</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
+      <li data-opt="1"><span class="red">B</span><span class="lbl">Bigger dedicated lines</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
+      <li data-opt="2"><span class="red">C</span><span class="lbl">Shrink everything</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
+      <li data-opt="3"><span class="red">D</span><span class="lbl">Keep the request</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
+    </ul>
+  </div>
+  </div>
+  <div class="poll live edge"><p class="k">PHONE POLL</p><p class="q">Where would you move money?</p><div class="qrw"><img class="qr" src="images/sop/qr-s22.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
+  <div class="pg"></div>
+</section>
+
+<!-- s23 · Ex 5 answer -->
+<section data-label="23 · Seagate: Hedge the Mix" class="s-std" data-speaker-notes="Found by trying all capacity combinations in 25K steps. Link: KPIs &lt;-&gt; bottlenecks; the bottleneck is not always where you should add capacity.">
+  <p class="lab ans">Answer</p>
+  <h2>Seagate: Hedge the Mix</h2>
+  <table class="t" style="margin-top:44px">
+    <tr><th>Design (Kb / Kc / Kt)</th><th>Cost</th><th>Margin S1 / S2 / S3</th><th>Expected profit</th></tr>
+    <tr><td>Request: 300 / 300 / 600</td><td>$103.0M</td><td>$195 / $210 / $150M</td><td>$88.25M</td></tr>
+    <tr class="hl"><td>Better: 350 / 350 / 600</td><td>$105.5M</td><td>$215 / $210 / $165M</td><td>$94.50M</td></tr>
+  </table>
+  <p class="p" style="margin-top:44px">Spending <b>$2.5M</b> more on cheap dedicated lines ($20–30/unit) earns <span class="red">+$6.25M</span>. The expensive shared tester ($80/unit) is already right-sized for total volume.</p>
+  <p class="take grise" data-reveal="1">You can’t predict the mix, so let it flex: <span class="red">operational hedging</span>.<span class="sm">Flexibility buys back part of a forecast you can never get.</span></p>
+  <div class="pg"></div>
+</section>
+
+<!-- s26 · SKU strategy -->
+<section data-label="26 · SKU Strategy: Supply Beyond the Plant" class="s-std" data-speaker-notes="1 min wrap of section B.">
+  <h2>SKU Strategy: Supply Beyond the Plant</h2>
+  <div class="body cols" style="margin-top:44px">
+    <div>
+      <p class="lead">Supply management is as much about <span class="red">product architecture</span> as logistics.</p>
+      <ul class="rows tight" style="margin-top:26px">
+        <li>Resilience depends on how you design and source SKUs. How many suppliers do you need?</li>
+        <li>Product flexibility absorbs preference and demand variability and reduces over-SKUing</li>
+        <li>Fewer, flexible SKUs with modular components simplify forecasting and buffer supply</li>
+      </ul>
+      <p class="take" style="font-size:40px">Three cushions: <span class="red">capacity</span> (Genentech) · <span class="red">flexibility</span> (Seagate) · <span class="red">postponement</span> (pooling)</p>
+    </div>
+    <div style="width:560px;display:grid;gap:24px">
+      <img style="width:100%" src="images/sop/sku-pen.png" alt="A modular injector pen" />
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px"><img style="width:100%" src="images/sop/sku-house-a.png" alt="Modular house, version A" /><img style="width:100%" src="images/sop/sku-house-b.png" alt="Modular house, version B" /></div>
+    </div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s27 · part C -->
+<section data-label="27 · Part C: Respond" class="sop-stmt" data-speaker-notes="0:45. Section C: response strategies.">
+  <p class="kicker rise">part C · respond</p>
+  <h2 class="rise d1">options have value: <span class="red">adapt as you learn</span></h2>
+  <p class="after rise d2">Commit, wait, stage, or refuse</p>
+  <div class="pg"></div>
+</section>
+
+<!-- s28 · Ex 7 problem -->
+<section data-label="28 · Commit, Wait, or Stage?" class="s-std sop-cws" data-poll="s28" data-speaker-notes="6 min. Simplified from the Delayed Newsvendor workbook. Story: a new product with a one-year life. You will know whether demand is High or Low after the first quarter of sales, but capacity has to be decided now. The empty timeline shows the two demand levels and the moment you learn. Three ways to play it: commit now (700 or 1,300), pilot in one region in Q1 and launch everywhere in Q2 once you know, or stage (700 now, rush 600 more for Q2 if High). The pilot runs on the pilot line, so no new capacity in Q1. Let them vote, then ask: what does a bottleneck cost you? (each missed unit is $2,000 of margin) And idle capacity? ($1,000 per unit). Next slide plays each strategy through the year.">
+  <p class="lab">Exercise 7</p>
+  <h2>Commit, Wait, or Stage?</h2>
+  <div class="body cols" style="margin-top:26px">
+    <div>
+      <p class="cws-f">A new product sells for 4 quarters. Demand is <b>Low (175 a quarter)</b> or <b>High (325)</b>, 50/50; Q1 sales tell you which. Margin <b>$2,000</b> a unit · capacity built now <b>$1,000</b> per unit of annual output.</p>
+      <svg class="cws-tl" viewBox="0 0 1060 205" aria-label="Empty timeline: four quarters, High demand at 325 and Low at 175 per quarter; you learn which after Q1">
+        <rect x="80" y="10" width="240" height="160" fill="#F2F2ED" />
+        <line x1="80" y1="40" x2="1040" y2="40" stroke="#131312" stroke-width="3" stroke-dasharray="10 7" />
+        <line x1="80" y1="100" x2="1040" y2="100" stroke="#131312" stroke-width="3" stroke-dasharray="10 7" />
+        <text x="70" y="48" text-anchor="end" font-size="24" font-weight="700" fill="#131312">High 325</text>
+        <text x="70" y="108" text-anchor="end" font-size="24" font-weight="700" fill="#131312">Low 175</text>
+        <line x1="80" y1="170" x2="1040" y2="170" stroke="#131312" stroke-width="2" />
+        <line x1="320" y1="4" x2="320" y2="170" stroke="#D50015" stroke-width="3" />
+        <text x="332" y="24" font-size="22" font-weight="700" fill="#D50015">you learn High or Low</text>
+        <text x="200" y="140" text-anchor="middle" font-size="22" fill="#71716A">pilot region?</text>
+        <text x="200" y="198" text-anchor="middle" font-size="24" fill="#71716A">Q1</text><text x="440" y="198" text-anchor="middle" font-size="24" fill="#71716A">Q2</text><text x="680" y="198" text-anchor="middle" font-size="24" fill="#71716A">Q3</text><text x="920" y="198" text-anchor="middle" font-size="24" fill="#71716A">Q4</text>
+        <text x="1040" y="140" text-anchor="end" font-size="22" fill="#71716A">capacity: your call</text>
+      </svg>
+      <ul class="qs tight pollbars" style="--barl:190px">
+        <li data-opt="0" style="padding-left:190px"><span class="red">Commit</span><span class="lbl">Build 700 or 1,300 now; launch everywhere in Q1.</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
+        <li data-opt="1" style="padding-left:190px"><span class="red">Wait</span><span class="lbl">Pilot in one region (20% of the market) in Q1; then build exactly and launch everywhere in Q2.</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
+        <li data-opt="2" style="padding-left:190px"><span class="red">Stage</span><span class="lbl">Build 700 now; if Q1 says High, rush 600 more for Q2 at <b>$1,100</b> a unit.</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
+      </ul>
+      <p class="p"><b>Which gives the highest expected profit? What does a bottleneck cost you?</b></p>
+    </div>
+    <div class="poll live"><p class="k">PHONE POLL</p><p class="q">Vote: Commit / Wait / Stage</p><div class="qrw"><img class="qr" src="images/sop/qr-s28.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s29 · Ex 7 answer -->
+<section data-label="29 · Pay for Flexibility" class="s-std sop-flex" data-speaker-notes="4 min. Each click plays one strategy through the year: Low demand on top, High below. Red bar = capacity, dashed line = demand, dark bars = units sold, red shading = lost sales (bottleneck), grey = idle capacity. The profit counter starts at minus the capacity cost and climbs $2,000 per unit sold. On arrival, Commit 700: High is a bottleneck all year (150 lost every quarter): $0.70M in both cases. Click 1, Commit 1,300: in Low, 600 units of capacity sit idle ($600K wasted): $0.10M or $1.30M, expected $0.70M, the same as 700. Click 2, Pilot and wait: Q1 sells only in the pilot region (20%), then exactly the right capacity: $0.42M or $0.78M, expected $0.60M. Learning is valuable, but the lost quarter costs more. Click 3, Stage: build 700. Low is perfect. High has one quarter of bottleneck, then 600 rush units at $1,100: $0.94M, expected $0.82M, the best. Click 4: perfect hindsight is $1.00M; stage gives up $180K, commit $300K, wait $400K. Math if asked: Commit 1,300 Low = 700 × $2,000 − 1,300 × $1,000 = $0.10M. Stage High = 1,150 × $2,000 − 700 × $1,000 − 600 × $1,100 = $0.94M. Wait High = (65 + 975) × $2,000 − 1,300 × $1,000 = $0.78M. Genentech: incremental vs. all-at-once expansion. Xiaomi (two slides on): small batches, then scale.">
+  <p class="lab ans">Answer</p>
+  <h2>Pay for Flexibility</h2>
+  <div class="fx">
+    <div>
+      <p class="fx-k">Expected profit</p>
+      <ul class="fx-sb">
+        <li data-i="0"><span class="nm">Commit 700</span><span class="bw"><i></i></span><b class="v"></b></li>
+        <li data-i="1"><span class="nm">Commit 1,300</span><span class="bw"><i></i></span><b class="v"></b></li>
+        <li data-i="2"><span class="nm">Pilot &amp; wait</span><span class="bw"><i></i></span><b class="v"></b></li>
+        <li data-i="3"><span class="nm">Stage</span><span class="bw"><i></i></span><b class="v"></b></li>
+        <li class="perf" data-reveal="4"><span class="nm">Perfect hindsight</span><span class="bw"><i></i></span><b class="v">$1.00M</b></li>
+      </ul>
+      <p class="fx-take" data-reveal="4"><span class="red">Staging</span> buys the High branch only when you need it. It gives up <b>$180K</b> to hindsight; committing gives up $300K, waiting $400K.</p>
+    </div>
+    <div>
+      <p class="fx-now"><b class="sn"></b><span class="sd"></span></p>
+      <div class="fx-pan" data-sc="0"><p class="fx-h"><span><b style="color:var(--ink)">Low demand</b> · 175 a quarter</span><b class="pf"></b></p><svg viewBox="0 0 1080 250"></svg></div>
+      <div class="fx-pan" data-sc="1"><p class="fx-h"><span><b style="color:var(--red)">High demand</b> · 325 a quarter</span><b class="pf"></b></p><svg viewBox="0 0 1080 250"></svg></div>
+      <p class="fx-leg"><span><i class="c"></i>capacity</span><span><i class="d"></i>demand</span><span><i class="s"></i>sold</span><span><i class="l"></i>lost sales</span><span><i class="g"></i>idle capacity</span><span class="pfk">profit = $2,000 × sold − capacity</span></p>
+    </div>
+  </div>
+  <i class="fx-step" data-reveal="1"></i><i class="fx-step" data-reveal="2"></i><i class="fx-step" data-reveal="3"></i>
+  <div class="pg"></div>
+</section>
+
+<!-- 29b · same exercise with mature-manufacturing costs (HTML only) -->
+<section data-label="29b · When Commitment Wins" class="s-std sop-mat" data-html-only data-speaker-notes="2 min. Same exercise with our original numbers, which fit a mature process: capacity $400, rush $600. On arrival: the new-product results from the last slide. Click 1: the mature process. Now Commit 1,300 wins at $1.48M, ahead of Stage $1.39M, Pilot and wait $1.20M and Commit 700 $1.12M. Click 2: why. Compare the two ways to be wrong. Overbuild and demand is Low: 600 idle units × the capacity cost. Stage and demand is High: 150 lost sales × $2,000, plus the rush premium on 600 units. New product: $600K vs. $360K, so stage. Mature: $240K vs. $420K, so commit. Both cases are 50/50, so the smaller regret wins. Cheap, proven capacity is cheap insurance: build ahead. Expensive, new capacity: stage it. KO: established lines and co-packers vs. a brand-new format or package.">
+  <h2>When Commitment Wins: Mature Manufacturing</h2>
+  <div class="mat">
+    <div class="mat-c" data-set="new"><h3>New product<span>capacity $1,000 · rush $1,100</span></h3><ul class="fx-sb"></ul></div>
+    <div class="mat-c r" data-set="old"><h3>Mature process<span>capacity $400 · rush $600</span></h3><ul class="fx-sb"></ul></div>
+  </div>
+  <table class="t l" data-reveal="2">
+    <tr><th>Cost of being wrong</th><th>New product</th><th>Mature process</th></tr>
+    <tr><td>Overbuild, demand Low: 600 idle units × capacity cost</td><td>$600K</td><td>$240K</td></tr>
+    <tr><td>Stage, demand High: 150 lost × $2,000 + 600 × rush premium</td><td>$360K</td><td>$420K</td></tr>
+    <tr class="hl"><td>Smaller regret wins</td><td>Stage</td><td>Commit 1,300</td></tr>
+  </table>
+  <p class="small" data-reveal="2">Cheap, proven capacity is cheap insurance: <b>build ahead</b>. Expensive, new capacity: <b>stage it</b>.</p>
+  <i class="fx-step" data-reveal="1"></i>
+  <div class="pg"></div>
+</section>
+
+<!-- s30 · Xiaomi -->
+<section data-label="30 · Staging in Practice: Xiaomi" class="s-std" data-speaker-notes="From Calmon&#x27;s IBP case. Staging at scale: each batch is an experiment that updates the forecast.">
+  <h2>Staging in Practice: Xiaomi</h2>
+  <p class="lead" style="margin-top:36px">Launch new products in <span class="red">small batches</span> · incorporate customer feedback · scale up production</p>
+  <div class="xlogos">
+    <img src="images/sop/xiaomi-phones.png" alt="Xiaomi phones" />
+    <img src="images/sop/xiaomi-hbr.png" alt="HBR article: How Xiaomi Beats Apple at Product Launches" />
+    <img style="height:180px" src="images/sop/xiaomi-logo.png" alt="Xiaomi logo" />
+  </div>
+  <div class="xflow">
+    <div class="rise d1">Batch 1<span class="s">~100K units</span></div>
+    <div class="rise d2">Customer feedback<span class="s">→ product update</span></div>
+    <div class="rise d2">Batch 2</div>
+    <div class="rise d3">Batch 3 …</div>
+  </div>
+  <p class="small">Model life cycle ≈ <b>12–18 months</b>: each batch is an experiment that updates the forecast.</p>
+  <div class="pg"></div>
+</section>
+
+<!-- s31 · Ex 8 problem -->
+<section data-label="31 · The Art of Saying No" class="s-std" data-speaker-notes="Optional (3 min). Club example from Sara Park&#x27;s 2025 IBP session.">
+  <p class="lab">Exercise 8</p>
+  <h2>The Art of Saying “No”</h2>
+  <div class="body cols" style="margin-top:40px">
+    <div>
+      <p class="lead">Demand management isn’t just forecasting. It’s <span class="red">selectivity</span>.</p>
+      <p class="small">“Right of refusal”: refusing some demand can increase profit when fulfilling it raises future costs.</p>
+      <p class="p" style="margin-top:36px"><b>A club customer asks for a variety pack:</b></p>
+      <ul class="rows tight" style="margin-top:12px">
+        <li>Variety pack: <b>$0.40/case × 2M cases</b> gross profit</li>
+        <li>Straight pack: <b>$0.75/case × 1M cases</b> gross profit</li>
+      </ul>
+      <p class="take" style="font-size:42px">What extra transport and repack cost per case makes variety the <span class="red">wrong answer</span>?</p>
+    </div>
+    <figure style="width:560px"><img style="width:100%" src="images/sop/right-of-refusal-paper.png" alt="Management Science paper: A Dynamic Inventory Model with the Right of Refusal" /><figcaption>Bhaskaran, Ramachandran &amp; Semple, <i>Management Science</i></figcaption></figure>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s32 · Ex 8 answer -->
+<section data-label="32 · Know What to Walk Away From" class="s-std" data-speaker-notes="Takeaway from Karthik&#x27;s 2025 &#x27;Art of saying No&#x27; slide.">
+  <p class="lab ans">Answer</p>
+  <h2>Know What to Walk Away From</h2>
+  <table class="t" style="margin-top:44px">
+    <tr><th></th><th>Gross profit</th></tr>
+    <tr><td>Variety pack: $0.40 × 2M</td><td>$0.80M</td></tr>
+    <tr><td>Straight pack: $0.75 × 1M</td><td>$0.75M</td></tr>
+    <tr class="hl"><td>Break-even extra cost: $0.05M ÷ 2M cases</td><td>$0.025 per case</td></tr>
+  </table>
+  <p class="p" style="margin-top:36px">Variety packs cost far more than 2.5¢ a case to move and repack, so KO chose <b>straight pack</b>.</p>
+  <p class="take grise" data-reveal="1">Forecasting tells you what’s coming; <span class="red">demand management decides what to walk away from</span>.<span class="sm">“Do Not Promote” lists · allocation · protect service on strategic SKUs</span></p>
+  <div class="pg"></div>
+</section>
+
+<!-- s33 · someone waits -->
+<section data-label="33 · Someone Waits" class="sop-stmt" data-speaker-notes="1 min. The operations strategy space from the Capacity Strategy deck.">
+  <p class="kicker rise">when uncertainty hits</p>
+  <h2 class="rise d1">someone waits: <span class="red">decide who</span></h2>
+  <div class="after rise d2">
+    <p><b>Resources wait:</b> capacity cushion (biotech, Genentech)</p>
+    <p><b>Products wait:</b> inventory cushion (high-tech, postponement)</p>
+    <p><b>Customers wait:</b> lead time (made-to-order, allocation)</p>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s34 · synthesis grid -->
+<section data-label="34 · What to Take Home" class="s-std" data-speaker-notes="0:55. Read across the grid, one row at a time.">
+  <h2>What to Take Home</h2>
+  <div class="grid3">
+    <div class="h" style="border-top-color:transparent"></div><div class="h">A. <span class="red">Forecast</span></div><div class="h">B. <span class="red">Design</span></div><div class="h">C. <span class="red">Respond</span></div>
+    <div class="rl">Idea</div><div>A distribution, not a number</div><div>Build so the forecast matters less</div><div>Adapt as you learn</div>
+    <div class="rl">Tool</div><div>Triangulate; separate pipeline fill from run-rate</div><div>Critical ratio · postponement · operational hedging</div><div>Commit / wait / stage / refuse</div>
+    <div class="rl">Today’s number</div><div class="n">2.75× launch overstatement</div><div class="n">0.80 → +21% cushion · ½ the safety stock · +$6.25M</div><div class="n">Staging $1.54M vs. commit $1.48M</div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s35 · bridge to FEMSA -->
+<section data-label="35 · Up Next: S&amp;OP at FEMSA" class="s-std" data-poll="s35" data-speaker-notes="Each table submits one question by phone poll (open text). Moderator hands the top-voted questions to FEMSA.">
+  <h2>Up Next: S&amp;OP at FEMSA</h2>
+  <div class="body cols" style="margin-top:40px">
+    <div>
+      <p class="lead">FEMSA will show how Sales &amp; Operations Planning is implemented successfully at the bottler.</p>
+      <p class="p" style="margin-top:34px"><b>As you listen, look for:</b></p>
+      <ul class="qs" style="margin-top:12px">
+        <li><span class="red">1</span>Where do they hold the cushion: capacity, inventory, or lead time?</li>
+        <li><span class="red">2</span>How do they forecast launches across thousands of stores?</li>
+        <li><span class="red">3</span>What do they postpone, pool, or say “No” to?</li>
+        <li><span class="red">4</span>How does S&amp;OP decide the trade-offs we computed today?</li>
+      </ul>
+    </div>
+    <div class="poll live"><p class="k">PHONE POLL</p><p class="q">Submit one question for the FEMSA team</p><div class="qrw"><img class="qr" src="images/sop/qr-s35.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">questions</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
+  </div>
+  <div class="pg"></div>
+</section>
+
+<!-- s35b · questions for FEMSA (HTML only) -->
+<section data-label="35b · Your Questions for FEMSA" class="s-std sop-hist" data-poll="s35" data-html-only data-speaker-notes="Live wall of the newest nine questions from slide 35. Hand over to the FEMSA team; they can read every question in the s35 tab of the poll spreadsheet.">
+  <h2>Your Questions for FEMSA</h2>
+  <div class="qwall"></div>
+  <p class="hist-n"><b class="cnt">0</b> <span class="w">questions</span> · newest first · <span class="st"></span></p>
+  <div class="pg"></div>
+</section>
+
+<!-- s36 · ? -->
+<section data-label="36 · ?" class="s-close" data-fx="zoom" data-speaker-notes="Questions.">
+  <div class="q rise" aria-label="Questions"><span>?</span></div>
+  <img class="lockup rise d1" src="images/shared/logo-sclx-white.png" alt="Coca-Cola Supply Chain Leader Excellence" />
+  <div class="pg"></div>
+</section>
+</deck-stage>
+<script src="deck-stage.js"></script>
+<script src="deck-morph.js"></script>
+<script src="deck-chrome.js"></script>
+<script>
+/* ═══ Live polls · phone → Apps Script web app → poll spreadsheet (one tab per poll) ═══
+   Voting pages: SOP_WEBAPP + "?p=<id>" (see _build/poll-webapp/Code.gs). QR codes are generated from
+   SOP_WEBAPP by _build/build_html.py. Slides read each tab through Google's gviz endpoint as JSONP
+   (the sheet is shared "anyone with the link can view"), only while a slide with data-poll is shown.
+   Columns per tab: Timestamp | Answer | Label | Device | Ms. One vote per phone (latest wins), except text.
+   "reset" stores the current time in this browser; older responses are ignored.
+   With SOP_WEBAPP empty, every poll shows labelled demo data. */
+window.SOP_WEBAPP = "https://script.google.com/macros/s/AKfycbz0WiHXv67KIIAQtMT8q-OqRqQomd0D1f44dHKBKIOUGgEOBUPNR-sHWwLhs5aBgo8/exec";   // paste the web app URL (ends in /exec), then rebuild
+window.SOP_SHEET = "1S-wsBNSMHC_x-kRKtY0QECAITu2Lgz14DrivM7vemHo";
+window.SOP_POLLS = {
+  s4:  { type: "choice", n: 4, demo: [6, 11, 9, 4] },
+  s6:  { type: "number", bins: "log" },
+  s13: { type: "number", bins: "auto", names: true },
+  s19: { type: "number", bins: "range:600:1600:100" },
+  s24: { type: "choice", n: 4, demo: [7, 3, 11, 9] },
+  s22: { type: "choice", n: 4, demo: [5, 9, 3, 7] },
+  s28: { type: "choice", n: 3, demo: [8, 5, 14] },
+  s35: { type: "text" }
+};
+(function () {
+  const stage = document.querySelector('deck-stage');
+  const P = window.SOP_POLLS, WEB = (window.SOP_WEBAPP || '').trim();
+  const cache = {}; let timer = null, live = null;
+  const LS = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+               set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+  const sinceOf = (id) => +LS.get('sop-poll-since-' + id) || 0;
+  const secsOf = (id) => document.querySelectorAll(`section[data-poll="${id}"]`);
+  const fmt = (v) => (Math.round(v * 100) / 100).toLocaleString('en-US');
+  const short = (v) => v >= 1e6 ? fmt(v / 1e6) + 'M' : v >= 1e4 ? fmt(v / 1e3) + 'K' : fmt(v);
+  const stamp = () => new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+  // ── demo data (deterministic) ──
+  function rng(seed) { let s = seed; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
+  function normals(seed, n, mu, sd) { const r = rng(seed), out = [];
+    for (let i = 0; i < n; i++) { const u = r() || 1e-9, v = r(); out.push(mu + sd * Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v)); } return out; }
+  function demo(id) {
+    const c = P[id];
+    if (c.type === 'choice') return { counts: c.demo || Array(c.n).fill(3) };
+    if (c.type === 'text') return { items: ['How do you forecast a launch with no sales history?', 'Who has the final say when Sales and Supply disagree?',
+      'What goes on your Do Not Promote list?', 'How long did it take before S&OP really worked?', 'Which metrics do you review every month?',
+      'How do you align the bottler and the brand owner on a launch?'] };
+    if (id === 's6') return { vals: normals(6, 30, Math.log(60000), 1.6).map((x) => Math.round(Math.exp(x) / 100) * 100) };
+    if (id === 's19') return { vals: normals(19, 30, 1080, 180).map((x) => Math.min(1600, Math.max(600, Math.round(x / 10) * 10))) };
+    const NM = ['Ana', 'Ben', 'Chloe', 'Dev', 'Elena', 'Femi', 'Grace', 'Hiro', 'Ines', 'Jamal', 'Kate', 'Luis', 'Maya', 'Nikhil', 'Olga',
+      'Priya', 'Quinn', 'Raj', 'Sofia', 'Tom', 'Uma', 'Victor', 'Wen', 'Ximena', 'Yusuf', 'Zoe', 'Arjun', 'Bea', 'Carlos', 'Dana'];
+    const vals = normals(13, 30, 560, 150).map((x) => Math.max(40, Math.round(x)));
+    return { vals, pts: vals.map((v, i) => ({ v, name: NM[i], ms: i })) };
+  }
+
+  // ── number bins ──
+  function nice(x) { const p = Math.pow(10, Math.floor(Math.log10(x))), f = x / p; return (f <= 1 ? 1 : f <= 2 ? 2 : f <= 2.5 ? 2.5 : f <= 5 ? 5 : 10) * p; }
+  function bins(spec, vals) {
+    if (spec === 'log') return { edges: [1e3, 1e4, 1e5, 1e6], labels: ['under 1K', '1K–10K', '10K–100K', '100K–1M', '1M or more'] };
+    const m = /^range:(-?[\d.]+):(-?[\d.]+):([\d.]+)$/.exec(spec || '');
+    if (m) { const a = +m[1], b = +m[2], st = +m[3], edges = [], labels = [];
+      for (let c = a; c <= b + 1e-9; c += st) { labels.push(fmt(c)); if (c < b) edges.push(c + st / 2); } return { edges, labels }; }
+    const s = vals.slice().sort((x, y) => x - y), q = (p) => s[Math.min(s.length - 1, Math.max(0, Math.round(p * (s.length - 1))))];
+    let lo = q(0.05), hi = q(0.95); if (!(hi > lo)) { lo -= 5; hi += 5; }
+    const st = nice((hi - lo) / 8), start = Math.floor(lo / st) * st, n = Math.max(1, Math.ceil((hi - start) / st + 1e-9));
+    const edges = [], labels = [];
+    for (let k = 0; k < n; k++) { const a = start + k * st; labels.push(short(a) + '–' + short(a + st)); if (k) edges.push(a); }
+    return { edges, labels, start, end: start + n * st };
+  }
+  const binOf = (edges, v) => { let i = 0; while (i < edges.length && v >= edges[i]) i++; return i; };
+  const median = (v) => { const s = v.slice().sort((a, b) => a - b), n = s.length; return n ? (n % 2 ? s[(n - 1) / 2] : (s[n / 2 - 1] + s[n / 2]) / 2) : NaN; };
+
+  // ── render into every section that shows this poll ──
+  const lastR = {};
+  function render(id, d, status, isDemo) {
+    lastR[id] = [d, status, isDemo];
+    const c = P[id];
+    let total = 0;
+    if (c.type === 'choice') total = d.counts.reduce((a, b) => a + b, 0);
+    else if (c.type === 'number') total = d.vals.length; else total = d.items.length;
+    secsOf(id).forEach((sec) => {
+      sec.querySelectorAll('.cnt').forEach((e) => e.textContent = total);
+      sec.querySelectorAll('.w').forEach((e) => e.textContent = c.type === 'text' ? (total === 1 ? 'question' : 'questions') : (total === 1 ? 'response' : 'responses'));
+      sec.querySelectorAll('.st').forEach((e) => { e.textContent = status || ''; e.classList.toggle('demo', !!isDemo); });
+      if (c.type === 'choice') choice(sec, d.counts, total);
+      if (c.type === 'number') number(sec, id, d.vals, d.pts || []);
+      if (c.type === 'text') wall(sec, d.items);
+    });
+  }
+  function choice(sec, counts, total) {
+    const max = Math.max(...counts);
+    sec.querySelectorAll('.pollbars li').forEach((li) => {
+      const c = counts[+li.dataset.opt] || 0, pct = total ? Math.round(100 * c / total) : 0;
+      li.querySelector('.pct').textContent = total ? pct + '%' : '';
+      li.querySelector('.bar').style.width = total && max ? `calc((100% - var(--barl) - 150px) * ${c / max})` : '0';
+      li.classList.toggle('top', total > 0 && c === max);
+    });
+    sec.querySelectorAll('.hist .col').forEach((col) => {
+      const c = counts[+col.dataset.opt] || 0, pct = total ? Math.round(100 * c / total) : 0;
+      col.querySelector('.v').innerHTML = total ? `${pct}%<small>${c}</small>` : '';
+      col.querySelector('.b').style.height = total && max ? `calc((100% - 110px) * ${c / max})` : '0';
+      col.classList.toggle('top', total > 0 && c === max);
+    });
+  }
+  function number(sec, id, vals, pts) {
+    const box = sec.querySelector('.nhist'); if (!box) return;
+    const B = bins(P[id].bins, vals), n = B.labels.length, counts = Array(n).fill(0);
+    vals.forEach((v) => counts[binOf(B.edges, v)]++);
+    const key = B.labels.join('|');
+    if (box.dataset.key !== key) {
+      box.dataset.key = key;
+      const gap = n > 6 ? 16 : 40;
+      box.innerHTML = `<div class="hist" style="grid-template-columns:repeat(${n},1fr);gap:${gap}px">` +
+        B.labels.map((_, i) => `<div class="col"><span class="v"></span><span class="b"></span></div>`).join('') +
+        `<div class="mk mean"><span></span></div><div class="mk truth"><span></span></div></div>` +
+        `<div class="hist-x" style="grid-template-columns:repeat(${n},1fr);gap:${gap}px">` + B.labels.map((l) => `<div></div>`).join('') + `</div>`;
+      box.querySelectorAll('.hist-x > div').forEach((e, i) => e.textContent = B.labels[i]);
+    }
+    const max = Math.max(...counts), total = vals.length;
+    box.querySelectorAll('.hist .col').forEach((col, i) => {
+      const c = counts[i];
+      col.querySelector('.v').textContent = total && c ? c : '';
+      col.querySelector('.b').style.height = total && max ? `calc((100% - 70px) * ${c / max})` : '0';
+      col.classList.toggle('top', total > 0 && c === max);
+    });
+    const mean = total ? vals.reduce((a, b) => a + b, 0) / total : NaN, med = median(vals);
+    sec.querySelectorAll('.med').forEach((e) => e.textContent = total ? fmt(Math.round(med)) : '–');
+    sec.querySelectorAll('.mean').forEach((e) => { if (e.tagName === 'B') e.textContent = total ? fmt(Math.round(mean * 10) / 10) : '–'; });
+    const sdv = total > 1 ? Math.sqrt(vals.reduce((a, v) => a + (v - mean) ** 2, 0) / (total - 1)) : NaN;
+    sec.querySelectorAll('.sdv').forEach((e) => e.textContent = isFinite(sdv) ? fmt(Math.round(sdv * 10) / 10) : '–');
+    // markers (linear "auto" bins only)
+    const pos = (v) => B.end > B.start ? Math.min(1, Math.max(0, (v - B.start) / (B.end - B.start))) : null;
+    const place = (cls, v, label) => { const mk = box.querySelector('.mk.' + cls); const f = B.start != null && isFinite(v) ? pos(v) : null;
+      mk.style.display = f == null ? 'none' : 'block'; if (f != null) { mk.style.left = `calc(40px + (100% - 80px) * ${f})`; mk.querySelector('span').textContent = label; } };
+    place('mean', total ? mean : NaN, 'crowd average ' + fmt(Math.round(mean * 10) / 10));
+    const tin = sec.querySelector('.truth-in'), out = sec.querySelector('.truth-out');
+    const TF = sec.dataset.truth != null ? Number(sec.dataset.truth) : NaN, gate = sec.querySelector('.jar-ans');
+    const T = tin ? (tin.value !== '' ? Number(tin.value) : NaN) : (gate && gate.hasAttribute('data-reveal-shown') ? TF : NaN);
+    superf(sec, pts, TF, mean);
+    place('truth', T, 'true value ' + fmt(T));
+    const lo = isFinite(T) && total && mean < T; box.querySelector('.mk.mean').classList.toggle('l', !!lo || !isFinite(T)); box.querySelector('.mk.truth').classList.toggle('l', isFinite(T) && total > 0 && !lo);
+    if (out) {
+      if (!isFinite(T) || !total) out.textContent = '';
+      else { const err = Math.abs(mean - T), beat = vals.filter((v) => Math.abs(v - T) > err).length;
+        out.innerHTML = ''; const b = document.createElement('b'); b.textContent = `${Math.round(100 * beat / total)}%`;
+        out.append(`The crowd average is off by ${fmt(Math.round(err * 10) / 10)} (${T ? fmt(Math.round(1000 * err / Math.abs(T)) / 10) : '–'}%). It beats `, b, ` of individual guesses (${beat} of ${total}).`); }
+    }
+  }
+  // the three closest guesses by name ("superforecasters"); ChatGPT shown only if all three beat it
+  function superf(sec, pts, T, mean) {
+    const ol = sec.querySelector('.sfl'); if (!ol || !isFinite(T)) return;
+    const top = pts.filter((p) => isFinite(p.v)).map((p) => ({ ...p, e: Math.abs(p.v - T) })).sort((a, b) => a.e - b.e || a.ms - b.ms).slice(0, 3);
+    ol.replaceChildren(...(top.length ? top.map((p, i) => { const li = document.createElement('li');
+      const rk = document.createElement('span'); rk.className = 'rk'; rk.textContent = i + 1;
+      const nm = document.createElement('span'); nm.className = 'nm'; nm.textContent = p.name || 'anonymous';
+      const gs = document.createElement('span'); gs.className = 'gs'; gs.innerHTML = 'guessed <b></b> · off by ';
+      gs.querySelector('b').textContent = fmt(p.v); gs.append(fmt(p.e)); li.append(rk, nm, gs); return li; })
+      : [Object.assign(document.createElement('li'), { className: 'none', textContent: 'No guesses yet.' })]));
+    const g = sec.querySelector('.gpt'); if (!g) return;
+    const G = Number(sec.dataset.gpt), eG = Math.abs(G - T);
+    g.textContent = '';
+    if (isFinite(G) && top.length === 3 && eG > top[2].e) {
+      const b = document.createElement('b'); b.textContent = fmt(G);
+      g.append('ChatGPT guessed ', b, ` (off by ${fmt(eG)}). All three superforecasters beat it` +
+        (isFinite(mean) && Math.abs(mean - T) < eG ? ', and so did the crowd average.' : '.'));
+    }
+  }
+  function wall(sec, items) {
+    const w = sec.querySelector('.qwall'); if (!w) return;
+    const show = items.slice(-9).reverse();
+    w.replaceChildren(...show.map((t) => { const d = document.createElement('div'); d.className = 'qc'; d.textContent = t; return d; }));
+  }
+
+  // ── read one tab ──
+  function read(id) {
+    if (!WEB) { render(id, demo(id), 'DEMO DATA · web app not connected', true); return; }
+    const cb = '__sopPoll_' + id + '_' + Date.now(), s = document.createElement('script');
+    let done = false;
+    const fail = (msg) => { if (done) return; done = true; cleanup();
+      render(id, cache[id] || (P[id].type === 'choice' ? { counts: Array(P[id].n).fill(0) } : P[id].type === 'number' ? { vals: [] } : { items: [] }), msg); };
+    const cleanup = () => { delete window[cb]; s.remove(); clearTimeout(to); };
+    window[cb] = (resp) => {
+      if (done) return; done = true; cleanup();
+      if (!resp || resp.status !== 'ok') { fail('sheet not readable: check sharing'); return; }
+      const cols = resp.table.cols || [];
+      if (!cols[1] || cols[1].label !== 'Answer' || !cols[4] || cols[4].label !== 'Ms') { fail(`tab “${id}” not found: run setup() in Apps Script`); return; }
+      const t0 = sinceOf(id), c = P[id], last = new Map(), all = [];
+      resp.table.rows.forEach((r, k) => {
+        const x = r.c || [], ms = x[4] && +x[4].v, ans = x[1] && x[1].v;
+        if (!isFinite(ms) || !ms || ms < t0 || ans == null || ans === '') return;
+        const dev = (x[3] && x[3].v) || ('row' + k);
+        if (c.type === 'text') all.push(String(ans)); else last.set(dev, { ans, name: x[2] && x[2].v ? String(x[2].v) : '', ms });
+      });
+      let d;
+      if (c.type === 'choice') { const counts = Array(c.n).fill(0);
+        last.forEach((a) => { const i = String(a.ans).toUpperCase().charCodeAt(0) - 65; if (i >= 0 && i < c.n) counts[i]++; }); d = { counts }; }
+      else if (c.type === 'number') { const pts = [...last.values()].map((a) => ({ v: Number(a.ans), name: a.name, ms: a.ms })).filter((p) => isFinite(p.v));
+        d = { vals: pts.map((p) => p.v), pts }; }
+      else d = { items: all };
+      cache[id] = d; render(id, d, 'live · updated ' + stamp());
+    };
+    const to = setTimeout(() => fail('offline · showing last result'), 8000);
+    s.onerror = () => fail('offline · showing last result');
+    s.src = 'https://docs.google.com/spreadsheets/d/' + window.SOP_SHEET + '/gviz/tq?headers=1&tqx=out:json;responseHandler:' + cb +
+      '&sheet=' + encodeURIComponent(id) + '&_=' + Date.now();
+    document.head.appendChild(s);
+  }
+  function start(id) { stop(); live = id; read(id); timer = setInterval(() => read(id), 4000); }
+  function stop() { if (timer) clearInterval(timer); timer = null; live = null; }
+
+  // ── wire up ──
+  document.querySelectorAll('section[data-poll][data-truth]').forEach((sec) => {
+    new MutationObserver(() => { const id = sec.dataset.poll; if (lastR[id]) render(id, ...lastR[id]); })
+      .observe(sec, { subtree: true, attributes: true, attributeFilter: ['data-reveal-shown'] });
+  });
+  document.querySelectorAll('section[data-poll]').forEach((sec) => {
+    const id = sec.dataset.poll;
+    sec.querySelectorAll('.qrw').forEach((q) => { if (!WEB) q.classList.add('none'); });
+    sec.querySelectorAll('.reset').forEach((b) => b.addEventListener('click', (e) => {
+      e.stopPropagation(); LS.set('sop-poll-since-' + id, String(Date.now())); LS.set('sop-truth-' + id, '');
+      sec.ownerDocument.querySelectorAll(`section[data-poll="${id}"] .truth-in`).forEach((x) => x.value = ''); cache[id] = null; read(id); }));
+    const tin = sec.querySelector('.truth-in');
+    if (tin) {
+      tin.value = LS.get('sop-truth-' + id) || '';
+      ['click', 'pointerdown', 'keydown'].forEach((ev) => tin.addEventListener(ev, (e) => e.stopPropagation()));
+      tin.addEventListener('input', () => { LS.set('sop-truth-' + id, tin.value); if (cache[id] || !WEB) render(id, cache[id] || demo(id), WEB ? 'live' : 'DEMO DATA · web app not connected', !WEB); });
+    }
+  });
+  Object.keys(P).forEach((id) => render(id, P[id].type === 'choice' ? { counts: Array(P[id].n).fill(0) } : P[id].type === 'number' ? { vals: [] } : { items: [] }, ''));
+  const idOf = (sec) => sec && sec.dataset.poll;
+  stage.addEventListener('slidechange', (e) => {
+    const id = idOf(stage.querySelectorAll(':scope > section')[e.detail.index]);
+    if (id) { if (live !== id) start(id); } else stop();
+  });
+  setTimeout(() => { const id = idOf(stage.querySelector(':scope > section[data-deck-active]')); if (id && !timer) start(id); }, 300);
+  window.addEventListener('beforeprint', () => Object.keys(P).forEach((id) => read(id)));
+})();
+</script>
+<script>
+/* ═══ s25b · pooling animation: 4 flavor piles vs. 1 postponed base (seeded, so every run is the same) ═══ */
+(function () {
+  const sec = document.querySelector('section.sop-pool'); if (!sec) return;
+  const stage = document.querySelector('deck-stage');
+  const NS = 'http://www.w3.org/2000/svg', SD = 40, SS1 = 66, SSP = 132, UNIT = 6, N = 11, WEEKS = 40, SEED = 293007, FC = 100;
+  const FL = [['Apricot', '#E3922F'], ['Berry', '#5B3A8C'], ['Cherry', '#B3261E'], ['Date', '#6E4B2F']];
+  const XC = [110, 310, 510, 710], YB = 250, BH = 16, BG = 3, YC = 400;
+  const el = (tag, at, parent) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); if (parent) parent.appendChild(e); return e; };
+  const S = {};
+  ['L', 'R'].forEach((side) => {
+    const svg = sec.querySelector(`svg[data-side="${side}"]`), o = { svg, piles: [], cust: [], dev: [] };
+    const gl = el('g', {}, svg), gb = el('g', {}, svg); o.dots = el('g', {}, svg);
+    if (side === 'L') {
+      XC.forEach((x, i) => { const p = [];
+        for (let k = 0; k < N; k++) p.push(el('rect', { class: 'blk', x: x - 55, y: YB - (k + 1) * (BH + BG), width: 110, height: BH, fill: FL[i][1] }, gb));
+        o.piles.push(p.reverse());   // top block first
+        el('line', { x1: x, y1: YB + 6, x2: x, y2: YC - 34, stroke: '#E4E4DE', 'stroke-width': 4 }, gl); });
+    } else {
+      const p = [];
+      for (let k = 0; k < N; k++) for (const x of [355, 465]) p.push(el('rect', { class: 'blk', x: x - 52, y: YB - (k + 1) * (BH + BG), width: 104, height: BH, fill: '#EAD9B5', stroke: '#C6B188', 'stroke-width': 1.5 }, gb));
+      o.piles.push(p.reverse());
+      el('line', { x1: 410, y1: YB + 6, x2: 410, y2: 282, stroke: '#E4E4DE', 'stroke-width': 4 }, gl);
+      XC.forEach((x) => el('line', { x1: 410, y1: 300, x2: x, y2: YC - 34, stroke: '#E4E4DE', 'stroke-width': 4 }, gl));
+      el('circle', { cx: 410, cy: 300, r: 20, fill: '#fff', stroke: '#131312', 'stroke-width': 3 }, gb);
+      const tx = el('text', { x: 440, y: 308, 'font-size': 22, fill: '#71716A' }, gb); tx.textContent = 'flavor + quick-bake';
+      o.net = el('text', { x: 560, y: 120, 'font-size': 26, 'font-weight': 700, fill: '#131312' }, gb);
+    }
+    XC.forEach((x, i) => {
+      o.cust.push(el('circle', { class: 'cust', cx: x, cy: YC, r: 30, fill: FL[i][1], stroke: '#fff', 'stroke-width': 4 }, gb));
+      const lb = el('text', { x, y: YC + 62, 'text-anchor': 'middle', 'font-size': 24, fill: '#131312' }, gb); lb.textContent = FL[i][0];
+      o.dev.push(el('text', { x, y: YC - 44, 'text-anchor': 'middle', 'font-size': 26, 'font-weight': 700, fill: '#131312' }, gb));
+      (o.gap = o.gap || []).push(el('text', { x, y: YC + 90, 'text-anchor': 'middle', 'font-size': 20, fill: '#71716A' }, gb));
+    });
+    S[side] = o;
+  });
+  const wkn = sec.querySelector('.wkn'), svp = sec.querySelectorAll('.svp');
+  let rs, weeks = [], wk = 0, timer = null, raf = null, served = { L: 0, R: 0 }, moving = [];
+  function gen() { rs = SEED; const r = () => (rs = (rs * 16807) % 2147483647) / 2147483647; weeks = [];
+    for (let w = 0; w < WEEKS; w++) { const d = []; for (let i = 0; i < 4; i++) { const u = r() || 1e-9, v = r(); d.push(Math.round(SD * Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v))); } weeks.push(d); } }
+  function refill() { ['L', 'R'].forEach((s) => { S[s].piles.flat().forEach((b) => b.classList.remove('used')); S[s].cust.forEach((c) => c.classList.remove('out')); S[s].dev.forEach((t) => t.textContent = ''); S[s].gap.forEach((t) => t.textContent = ''); }); if (S.R.net) S.R.net.textContent = ''; }
+  function dot(side, pts, color, delay) { const c = el('circle', { r: 8, fill: color, cx: pts[0][0], cy: pts[0][1], opacity: 0 }, S[side].dots); moving.push({ c, pts, t0: performance.now() + delay, dur: 900 }); }
+  function tick(now) {
+    moving = moving.filter((m) => { const f = (now - m.t0) / m.dur; if (f < 0) return true; if (f >= 1) { m.c.remove(); return false; }
+      const seg = m.pts.length - 1, k = Math.min(seg - 1, Math.floor(f * seg)), g = f * seg - k, a = m.pts[k], b = m.pts[k + 1];
+      m.c.setAttribute('cx', a[0] + (b[0] - a[0]) * g); m.c.setAttribute('cy', a[1] + (b[1] - a[1]) * g); m.c.setAttribute('opacity', 1); return true; });
+    raf = moving.length ? requestAnimationFrame(tick) : null;
+  }
+  const fmt = (d) => (d > 0 ? '+' : d < 0 ? '−' : '±') + Math.abs(d);
+  function week() {
+    if (wk >= WEEKS) { wk = 0; served = { L: 0, R: 0 }; }
+    refill(); const d = weeks[wk]; wkn.textContent = wk + 1;
+    // left: each color draws on its own pile; dots = this week's demand, blocks = the part above forecast
+    const nd = (x) => Math.max(1, Math.min(7, Math.round((FC + x) / 30)));
+    const lab = (o, i, x, out) => { o.dev[i].textContent = out ? `${FC + x} · OUT` : `${FC + x}`; o.dev[i].setAttribute('fill', out ? '#D50015' : '#131312');
+      o.gap[i].textContent = x > 0 ? `+${x} over forecast` : x < 0 ? `${Math.abs(x)} under forecast` : 'on forecast'; };
+    d.forEach((x, i) => { const use = Math.max(0, Math.ceil(x / UNIT)), pile = S.L.piles[i];
+      pile.slice(0, Math.min(N, use)).forEach((b, k) => setTimeout(() => b.classList.add('used'), 60 * k));
+      const out = x > SS1; if (!out) served.L++;
+      lab(S.L, i, x, out);
+      if (out) setTimeout(() => S.L.cust[i].classList.add('out'), 600);
+      for (let k = 0; k < nd(x); k++) dot('L', [[XC[i], YB + 6], [XC[i], YC - 34]], FL[i][1], 120 * k); });
+    // right: the base pile covers the net
+    const net = d.reduce((a, b) => a + b, 0), use = Math.max(0, Math.ceil(net / UNIT)), outR = net > SSP;
+    S.R.piles[0].slice(0, Math.min(2 * N, use)).forEach((b, k) => setTimeout(() => b.classList.add('used'), 40 * k));
+    if (!outR) served.R += 4;
+    S.R.net.textContent = net > 0 ? 'net over forecast ' + fmt(net) : 'net ' + fmt(net) + ': nothing drawn'; S.R.net.setAttribute('fill', outR ? '#D50015' : '#131312');
+    d.forEach((x, i) => { lab(S.R, i, x, outR);
+      if (outR) setTimeout(() => S.R.cust[i].classList.add('out'), 600);
+      for (let k = 0; k < nd(x); k++) dot('R', [[410, YB + 6], [410, 300], [XC[i], YC - 34]], FL[i][1], 120 * k); });
+    wk++;
+    const pct = (s) => Math.round(100 * served[s] / (4 * wk)) + '%';
+    svp[0].textContent = `${pct('L')} (${served.L} of ${4 * wk})`; svp[1].textContent = `${pct('R')} (${served.R} of ${4 * wk})`;
+    if (!raf) raf = requestAnimationFrame(tick);
+  }
+  function start() { stop(); gen(); wk = 0; served = { L: 0, R: 0 }; week(); timer = setInterval(week, 2600); }
+  function stop() { if (timer) clearInterval(timer); timer = null; moving.forEach((m) => m.c.remove()); moving = []; }
+  gen(); refill();
+  stage.addEventListener('slidechange', (e) => { const s = stage.querySelectorAll(':scope > section')[e.detail.index]; if (s === sec) start(); else stop(); });
+  setTimeout(() => { if (sec.hasAttribute('data-deck-active') && !timer) start(); }, 300);
+})();
+</script>
+<script>
+/* ═══ 14c · Galton's ox: 787 guesses fall into a dot plot; 14d · independent vs. herded crowd ═══ */
+(function () {
+  const stage = document.querySelector('deck-stage'), NS = 'http://www.w3.org/2000/svg';
+  const el = (tag, at, parent, txt) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); if (txt != null) e.textContent = txt; if (parent) parent.appendChild(e); return e; };
+  const rng = (seed) => () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const ease = (t) => 1 - Math.pow(1 - t, 3);
+  const onSlide = (sec, fn) => {
+    stage.addEventListener('slidechange', (e) => fn(stage.querySelectorAll(':scope > section')[e.detail.index] === sec));
+    setTimeout(() => { if (sec.hasAttribute('data-deck-active')) fn(true); }, 300);
+  };
+
+  /* ── 14c · Galton's ox ── guesses rebuilt from Galton's published percentiles (Vox Populi, 1907) */
+  const ox = document.querySelector('section.sop-ox');
+  if (ox) {
+    const svg = ox.querySelector('svg.oxs'), gn = ox.querySelector('.gnn');
+    const P = [0, 1, 3, 5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, 97, 99, 100];
+    const V = [990, 1020, 1050, 1074, 1109, 1126, 1148, 1162, 1174, 1181, 1188, 1197, 1207, 1214, 1219, 1225, 1230, 1236, 1243, 1254, 1267, 1293, 1310, 1340, 1380];
+    const q = (p) => { p *= 100; let i = 1; while (P[i] < p) i++; return V[i - 1] + (V[i] - V[i - 1]) * (p - P[i - 1]) / (P[i] - P[i - 1]); };
+    const LO = 980, HI = 1390, X0 = 40, X1 = 1120, AY = 470, BW = 10, PY = 11.5;
+    const X = (v) => X0 + (v - LO) * (X1 - X0) / (HI - LO), bw = (X1 - X0) * BW / (HI - LO);
+    el('line', { x1: X0, y1: AY, x2: X1, y2: AY, stroke: '#131312', 'stroke-width': 2 }, svg);
+    for (let v = 1000; v <= 1350; v += 50) { el('line', { x1: X(v), y1: AY, x2: X(v), y2: AY + 10, stroke: '#131312', 'stroke-width': 2 }, svg);
+      el('text', { x: X(v), y: AY + 40, 'text-anchor': 'middle', 'font-size': 24, fill: '#71716A' }, svg, v.toLocaleString('en-US')); }
+    el('text', { x: X1, y: AY + 74, 'text-anchor': 'end', 'font-size': 22, fill: '#71716A' }, svg, 'guess (lb) · one dot = one guess');
+    const gd = el('g', {}, svg), fill = {}, dots = [];
+    const vals = []; for (let i = 0; i < 787; i++) vals.push(Math.round(q((i + 0.5) / 787)));
+    vals.forEach((v) => { const b = Math.floor((v - LO) / BW), k = fill[b] = (fill[b] || 0) + 1;
+      const cx = X(LO + b * BW) + bw / 2 + ((k - 1) % 2 ? 5.5 : -5.5), cy = AY - 7 - Math.floor((k - 1) / 2) * PY;
+      dots.push({ c: el('circle', { cx, cy: -20, r: 5, fill: '#9C9C94', opacity: 0 }, gd), cy }); });
+    const r = rng(1906); for (let i = dots.length - 1; i > 0; i--) { const j = Math.floor(r() * (i + 1)); [dots[i], dots[j]] = [dots[j], dots[i]]; }
+    const mark = (v, label, color, y, anchor, step, w) => { const g = el('g', { class: 'mk', 'data-reveal': step }, svg), x = X(v);
+      el('line', { x1: x, y1: AY, x2: x, y2: y + 10, stroke: color, 'stroke-width': w, 'stroke-dasharray': w > 4 ? '' : '10 7' }, g);
+      el('text', { x: x + (anchor === 'start' ? 10 : anchor === 'end' ? -10 : 0), y, 'text-anchor': anchor, 'font-size': 26, 'font-weight': 700, fill: color, stroke: '#FBFBFA', 'stroke-width': 8, 'paint-order': 'stroke' }, g, label); };
+    mark(1197, 'Average 1,197', '#131312', 34, 'end', 1, 3);
+    mark(1207, 'Median 1,207', '#71716A', 34, 'start', 1, 3);
+    mark(1198, 'Actual 1,198', '#D50015', 0, 'middle', 2, 6);
+    let raf = null, t0 = 0;
+    const STEP = 4, FALL = 520;
+    function frame(now) { let n = 0, busy = false;
+      dots.forEach((d, i) => { const f = (now - t0 - i * STEP) / FALL; if (f <= 0) { busy = true; return; } n++;
+        if (f >= 1) { if (!d.done) { d.c.setAttribute('cy', d.cy); d.done = true; } return; } busy = true;
+        d.c.setAttribute('opacity', 1); d.c.setAttribute('cy', -20 + (d.cy + 20) * ease(f)); });
+      gn.textContent = n; raf = busy ? requestAnimationFrame(frame) : null; }
+    function reset(show) { if (raf) cancelAnimationFrame(raf); raf = null;
+      dots.forEach((d) => { d.done = show; d.c.setAttribute('cy', show ? d.cy : -20); d.c.setAttribute('opacity', show ? 1 : 0); }); gn.textContent = show ? dots.length : 0; }
+    reset(true);   // static full plot for print / thumbnails
+    onSlide(ox, (on) => { if (on) { reset(false); t0 = performance.now() + 250; raf = requestAnimationFrame(frame); } else reset(true); });
+  }
+
+  /* ── 14d · independent vs. herded crowd ── */
+  const why = document.querySelector('section.sop-why');
+  if (why) {
+    const svg = why.querySelector('svg.whys'), avgT = why.querySelector('.avg'), capT = why.querySelector('.capt');
+    const TRUE = 1198, LOUD = 1330, LO = 980, HI = 1420, X0 = 30, X1 = 870, AY = 330, R = 8.5;
+    const X = (v) => X0 + (v - LO) * (X1 - X0) / (HI - LO);
+    el('line', { x1: X0, y1: AY, x2: X1, y2: AY, stroke: '#131312', 'stroke-width': 2 }, svg);
+    for (let v = 1000; v <= 1400; v += 100) { el('line', { x1: X(v), y1: AY, x2: X(v), y2: AY + 10, stroke: '#131312', 'stroke-width': 2 }, svg);
+      el('text', { x: X(v), y: AY + 40, 'text-anchor': 'middle', 'font-size': 24, fill: '#71716A' }, svg, v.toLocaleString('en-US')); }
+    el('line', { x1: X(TRUE), y1: AY, x2: X(TRUE), y2: 26, stroke: '#131312', 'stroke-width': 3, 'stroke-dasharray': '10 7' }, svg);
+    el('text', { x: X(TRUE), y: 16, 'text-anchor': 'middle', 'font-size': 24, 'font-weight': 700, fill: '#131312' }, svg, 'Truth 1,198');
+    // 40 independent guesses, sd ≈ 75 lb, rescaled so the crowd average is 1,203
+    const r = rng(4242), g = [];
+    for (let i = 0; i < 39; i++) { const u = r() || 1e-9, v = r(); g.push(Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v)); }
+    const m = g.reduce((a, b) => a + b, 0) / g.length, s = Math.sqrt(g.reduce((a, b) => a + (b - m) ** 2, 0) / g.length);
+    const ind = g.map((z) => TRUE + 5 + 75 * (z - m) / s); ind.push(LOUD);   // the loud voice is one of the 40
+    const adj = (ind.reduce((a, b) => a + b, 0) - 40 * (TRUE + 5)) / 39; for (let i = 0; i < 39; i++) ind[i] -= adj;
+    const herd = ind.map((v, i) => i === 39 ? v : v + 0.7 * (LOUD - v) + 6 * Math.sin(i * 2.3));
+    const BW = 10, bw = (X1 - X0) * BW / (HI - LO);   // dot plot: 10-lb bins, one dot per row
+    const swarm = (xs) => { const fill = {}, pos = [];
+      xs.map((v, i) => i).sort((a, b) => xs[a] - xs[b]).forEach((i) => { const b = Math.floor((xs[i] - LO) / BW), k = fill[b] = (fill[b] || 0) + 1;
+        pos[i] = [X(LO + b * BW) + bw / 2, AY - R - 3 - (k - 1) * (2 * R + 1.5)]; }); return pos; };
+    const PI = swarm(ind), PH = swarm(herd), mean = (a) => a.reduce((x, y) => x + y, 0) / a.length;
+    const gdots = el('g', {}, svg), cs = ind.map((v, i) => el('circle', { cx: PI[i][0], cy: PI[i][1], r: R, fill: i === 39 ? '#D50015' : '#9C9C94', stroke: '#FBFBFA', 'stroke-width': 2 }, gdots));
+    const loudT = el('text', { 'text-anchor': 'middle', 'font-size': 22, 'font-weight': 700, fill: '#D50015', opacity: 0 }, svg, 'loud voice');
+    const am = el('g', {}, svg), aml = el('line', { y1: AY, y2: AY + 6, stroke: '#D50015', 'stroke-width': 0 }, am);
+    const amt = el('path', { d: 'M0 0 l-14 24 h28 z', fill: '#D50015' }, am);
+    let cur = PI.map((p) => p.slice()), curAvg = mean(ind), raf = null;
+    function draw(pos, avg) { pos.forEach((p, i) => { cs[i].setAttribute('cx', p[0]); cs[i].setAttribute('cy', p[1]); });
+      am.setAttribute('transform', `translate(${X(avg)},${AY + 48})`);
+      loudT.setAttribute('x', pos[39][0]); loudT.setAttribute('y', Math.min(...pos.map((p) => p[1])) - R - 14);
+      const off = Math.round(Math.abs(avg - TRUE));
+      avgT.textContent = Math.round(avg).toLocaleString('en-US') + ' · off by ' + off + ' lb'; avgT.classList.toggle('bad', off > 20); }
+    function go(herded, animate) { const to = herded ? PH : PI, toAvg = mean(herded ? herd : ind);
+      capT.textContent = herded ? 'Now one loud voice speaks first.' : '40 people guess the ox on their own.';
+      loudT.setAttribute('opacity', herded ? 1 : 0);
+      if (raf) cancelAnimationFrame(raf); raf = null;
+      if (!animate) { cur = to.map((p) => p.slice()); curAvg = toAvg; draw(cur, curAvg); return; }
+      const from = cur.map((p) => p.slice()), fromAvg = curAvg, t0 = performance.now(), D = 1600;
+      const step = (now) => { const f = Math.min(1, (now - t0) / D), e = ease(f);
+        cur = from.map((p, i) => [p[0] + (to[i][0] - p[0]) * e, p[1] + (to[i][1] - p[1]) * e]); curAvg = fromAvg + (toAvg - fromAvg) * e;
+        draw(cur, curAvg); raf = f < 1 ? requestAnimationFrame(step) : null; };
+      raf = requestAnimationFrame(step); }
+    const herdOn = () => why.querySelector('[data-reveal="1"]').hasAttribute('data-reveal-shown');
+    let state = null;
+    const sync = (animate) => { const h = herdOn(); if (h !== state) { state = h; go(h, animate); } };
+    new MutationObserver(() => sync(true)).observe(why, { subtree: true, attributes: true, attributeFilter: ['data-reveal-shown'] });
+    sync(false);
+    onSlide(why, (on) => { if (on) { state = null; sync(false); } });
+  }
+})();
+</script>
+<script>
+/* ═══ Ex 7 · 29 Pay for Flexibility (timeline per strategy) and 29b mature manufacturing ═══ */
+(function () {
+  const stage = document.querySelector('deck-stage'), NS = 'http://www.w3.org/2000/svg';
+  const el = (tag, at, parent, txt) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); if (txt != null) e.textContent = txt; if (parent) parent.appendChild(e); return e; };
+  const P = 2000, PIL = 0.2, DEM = [175, 325];
+  const fmtM = (v) => (v < -1 ? '−' : '') + '$' + Math.abs(v / 1e6).toFixed(2) + 'M';
+  // the four strategies; run(d) gives capacity, units available to sell, and capital spent, by quarter
+  function strategies(c, c2) {
+    const S = [
+      { name: 'Commit 700', desc: 'Build 700 now, launch everywhere', run: (d) => ({ cap: [175, 175, 175, 175], av: [d, d, d, d], cost: [700 * c, 0] }) },
+      { name: 'Commit 1,300', desc: 'Build 1,300 now, launch everywhere', run: (d) => ({ cap: [325, 325, 325, 325], av: [d, d, d, d], cost: [1300 * c, 0] }) },
+      { name: 'Pilot & wait', desc: 'Q1 in one region only, then build exactly', pilot: true, run: (d) => ({ cap: [d * PIL, d, d, d], av: [d * PIL, d, d, d], cost: [0, 4 * d * c], tag: 'build ' + (4 * d).toLocaleString('en-US') }) },
+      { name: 'Stage', desc: 'Build 700 now; rush 600 more if Q1 says High', run: (d) => ({ cap: [175, d, d, d], av: [d, d, d, d], cost: [700 * c, d > 175 ? 4 * (d - 175) * c2 : 0], tag: d > 175 ? 'rush +600' : '' }) },
+    ];
+    S.forEach((s) => { s.res = DEM.map((d) => { const r = s.run(d); r.sold = r.cap.map((k, q) => Math.min(k, r.av[q])); r.profit = r.sold.reduce((a, b) => a + b, 0) * P - r.cost[0] - r.cost[1]; return r; });
+      s.ev = (s.res[0].profit + s.res[1].profit) / 2; });
+    return S;
+  }
+  function board(ul, S, max, n, animate) {   // fill the first n rows of a scoreboard
+    const best = n >= S.length ? S.reduce((b, s, i) => (s.ev > S[b].ev ? i : b), 0) : -1;
+    ul.querySelectorAll('li[data-i]').forEach((li) => { const i = +li.dataset.i, on = i < n, bar = li.querySelector('i');
+      if (!animate) { bar.style.transition = 'none'; requestAnimationFrame(() => bar.style.transition = ''); }
+      bar.style.width = on ? (100 * S[i].ev / max) + '%' : '0';
+      li.querySelector('.v').textContent = on ? fmtM(S[i].ev) : ''; li.classList.toggle('on', on); li.classList.toggle('best', i === best); });
+  }
+  const steps = (sec) => sec.querySelectorAll('.fx-step[data-reveal-shown]').length;
+  const watch = (sec, fn) => {
+    new MutationObserver(() => fn(false)).observe(sec, { subtree: true, attributes: true, attributeFilter: ['data-reveal-shown'] });
+    let last = 0; const arrive = () => { const now = performance.now(); if (now - last < 600) return; last = now; fn(true); };
+    stage.addEventListener('slidechange', (e) => { if (stage.querySelectorAll(':scope > section')[e.detail.index] === sec) arrive(); });
+    setTimeout(() => { if (sec.hasAttribute('data-deck-active')) arrive(); }, 300);
+  };
+
+  /* ── 29 · timeline ── */
+  const fx = document.querySelector('section.sop-flex');
+  if (fx) {
+    const S = strategies(1000, 1100), ul = fx.querySelector('.fx-sb'), sn = fx.querySelector('.sn'), sd = fx.querySelector('.sd');
+    const X0 = 80, QW = 245, BY = 215, Y = (v) => BY - v * 0.55, BX = 40, BWD = QW - 80;
+    const pans = [...fx.querySelectorAll('.fx-pan')].map((pan, k) => {
+      const svg = pan.querySelector('svg'), d = DEM[k], o = { pf: pan.querySelector('.pf'), val: 0, d };
+      [175, 325].forEach((v) => el('text', { x: X0 - 12, y: Y(v) + 8, 'text-anchor': 'end', 'font-size': 22, fill: '#71716A' }, svg, v));
+      o.sold = [], o.gap = [], o.gl = [], o.cap = [];
+      for (let q = 0; q < 4; q++) {
+        o.gap.push(el('rect', { class: 'an', x: X0 + q * QW + BX, width: BWD, y: BY, height: 0 }, svg));
+        o.sold.push(el('rect', { class: 'an', x: X0 + q * QW + BX, width: BWD, y: BY, height: 0, fill: '#6F6F68' }, svg));
+        o.gl.push(el('text', { class: 'fade', x: X0 + q * QW + QW / 2, 'text-anchor': 'middle', 'font-size': 22, 'font-weight': 700, opacity: 0 }, svg));
+        el('text', { x: X0 + q * QW + QW / 2, y: BY + 30, 'text-anchor': 'middle', 'font-size': 24, fill: '#71716A' }, svg, 'Q' + (q + 1));
+      }
+      el('line', { x1: X0, y1: BY, x2: X0 + 4 * QW, y2: BY, stroke: '#131312', 'stroke-width': 2 }, svg);
+      el('line', { x1: X0, y1: Y(d), x2: X0 + 4 * QW, y2: Y(d), stroke: '#131312', 'stroke-width': 3, 'stroke-dasharray': '10 7' }, svg);
+      for (let q = 0; q < 4; q++) o.cap.push(el('rect', { class: 'an', x: X0 + q * QW + 4, width: QW - 8, y: BY, height: 6, fill: '#D50015', opacity: 0 }, svg));
+      o.tag = el('text', { class: 'fade', x: X0 + QW + 12, 'font-size': 22, 'font-weight': 700, fill: '#D50015', opacity: 0 }, svg);
+      return o;
+    });
+    let timers = [], raf = null, shown = -1;
+    const later = (ms, f, anim) => { if (anim) timers.push(setTimeout(f, ms)); else f(); };
+    function tween(o, to, anim) { const tok = o.tok = (o.tok || 0) + 1; if (!anim) { o.val = to; o.pf.textContent = fmtM(to); return; }
+      const from = o.val, t0 = performance.now(); o.val = to;
+      const st = (now) => { if (tok !== o.tok) return; const f = Math.min(1, (now - t0) / 500); o.pf.textContent = fmtM(from + (to - from) * f); if (f < 1) requestAnimationFrame(st); }; requestAnimationFrame(st); }
+    const setR = (r, y, h) => { r.style.y = y + 'px'; r.style.height = h + 'px'; };
+    function clear() { timers.forEach(clearTimeout); timers = [];
+      pans.forEach((o) => { [...o.sold, ...o.gap, ...o.cap].forEach((r) => { r.style.transition = 'none'; setR(r, BY, 0); r.style.opacity = ''; });
+        o.cap.forEach((r) => { r.style.height = '6px'; r.style.opacity = 0; }); [...o.gl, o.tag].forEach((t) => { t.style.transition = 'none'; t.style.opacity = 0; });
+        o.val = 0; o.tok = (o.tok || 0) + 1; o.pf.textContent = ''; });
+      fx.getBoundingClientRect(); pans.forEach((o) => [...o.sold, ...o.gap, ...o.cap, ...o.gl, o.tag].forEach((r) => r.style.transition = '')); }
+    function play(i, anim) {
+      clear(); const s = S[i]; sn.textContent = s.name; sd.textContent = s.desc;
+      board(ul, S, 1.0e6, anim ? i : i + 1, false);
+      const T0 = 300, TQ = 1050;
+      pans.forEach((o, k) => { const r = s.res[k];
+        const capAt = (q, v) => { setR(o.cap[q], Y(v) - 3, 6); o.cap[q].style.opacity = 1; };
+        later(anim ? T0 : 0, () => { capAt(0, r.cap[0]); if (!s.pilot) for (let q = 1; q < 4; q++) capAt(q, r.cap[0]);
+          tween(o, -r.cost[0], anim); }, anim);
+        for (let q = 0; q < 4; q++) { const t = T0 + 500 + q * TQ, ev = q === 1 && (r.cost[1] > 0 || s.pilot);
+          if (ev) later(anim ? t : 0, () => { for (let j = 1; j < 4; j++) capAt(j, r.cap[1]);
+            if (r.tag) { o.tag.textContent = r.tag; o.tag.setAttribute('y', Y(Math.max(r.cap[1], r.cap[0])) - 14); o.tag.style.opacity = 1; }
+            tween(o, o.val - r.cost[1], anim); }, anim);
+          later(anim ? t + (ev ? 450 : 0) : 0, () => { const sold = r.sold[q], d = o.d, cap = r.cap[q], g = o.gap[q], gl = o.gl[q];
+            setR(o.sold[q], Y(sold), BY - Y(sold));
+            let lo, hi, txt = '', col = '#131312';
+            if (s.pilot && q === 0) { lo = sold; hi = d; g.setAttribute('fill', '#F2F2ED'); g.setAttribute('stroke', '#B9B9B1'); g.setAttribute('stroke-dasharray', '6 5'); txt = 'pilot only'; col = '#71716A'; }
+            else if (cap < d) { lo = cap; hi = d; g.setAttribute('fill', 'rgba(213,0,21,.22)'); g.setAttribute('stroke', '#D50015'); g.setAttribute('stroke-dasharray', ''); txt = 'lost ' + Math.round(d - cap); col = '#D50015'; }
+            else if (cap > d) { lo = d; hi = cap; g.setAttribute('fill', '#E4E4DE'); g.setAttribute('stroke', 'none'); txt = 'idle ' + Math.round(cap - d); col = '#71716A'; }
+            if (txt) { setR(g, Y(hi), Y(lo) - Y(hi)); gl.textContent = txt; gl.setAttribute('fill', col); gl.setAttribute('y', (Y(hi) + Y(lo)) / 2 + 8); gl.style.opacity = 1; }
+            tween(o, o.val + sold * P, anim); }, anim);
+        }
+      });
+      later(anim ? T0 + 500 + 4 * TQ : 0, () => board(ul, S, 1.0e6, i + 1, anim), anim);
+    }
+    function sync(arrive) { const n = steps(fx), fin = fx.querySelector('.fx-take').hasAttribute('data-reveal-shown');
+      if (n === shown && !arrive) return; const fwd = n === shown + 1 || (arrive && n === 0); shown = n; play(n, fwd); if (fin) board(ul, S, 1.0e6, 4, false); }
+    watch(fx, (arrive) => sync(arrive));
+    shown = 3; play(3, false);   // static final state for print / thumbnails
+  }
+
+  /* ── 29b · new product vs. mature process ── */
+  const mat = document.querySelector('section.sop-mat');
+  if (mat) {
+    const sets = { new: strategies(1000, 1100), old: strategies(400, 600) };
+    mat.querySelectorAll('.mat-c').forEach((c) => { c.querySelector('.fx-sb').innerHTML = sets[c.dataset.set].map((s, i) => `<li data-i="${i}"><span class="nm">${s.name.replace('&', '&amp;')}</span><span class="bw"><i></i></span><b class="v"></b></li>`).join(''); });
+    const ulN = mat.querySelector('[data-set="new"] .fx-sb'), ulO = mat.querySelector('[data-set="old"] .fx-sb');
+    let shown = -1;
+    const sync = (arrive) => { const n = steps(mat); if (n === shown && !arrive) return; shown = n;
+      board(ulN, sets.new, 1.6e6, 0, false); board(ulO, sets.old, 1.6e6, 0, false);
+      setTimeout(() => { board(ulN, sets.new, 1.6e6, 4, true); if (n) board(ulO, sets.old, 1.6e6, 4, true); }, 60); };
+    watch(mat, sync);
+    board(ulN, sets.new, 1.6e6, 4, false); board(ulO, sets.old, 1.6e6, 4, false);
+  }
+})();
+</script>
+</body>
+</html>
