@@ -12,7 +12,182 @@
   from "2026 SCLX Project Introduction 1/project-1.html"; speaker notes are copied from the pptx.
   Gates (clicks) reveal the answer / lesson lines on answer slides. s9 is skipped (hidden backup).
 -->
-<style>deck-stage:not(:defined){visibility:hidden}</style>
+<style>deck-stage:not(:defined){visibility:hidden}
+/* ── Seagate (s21–23): line diagram, demand-mix bubbles, capacity poll ── */
+.sop-sg .sg-sub { margin-top: 24px; max-width: 1640px; }
+.sop-sg .sg-grid { display: grid; grid-template-columns: 760px 760px; gap: 100px; margin-top: 30px; align-items: start; }
+.sop-sg svg { display: block; width: 100%; height: auto; overflow: visible; }
+.sop-sg svg text { font-family: var(--sans); font-size: 24px; fill: var(--muted); }
+.sop-sg svg .ax { font-size: 26px; fill: var(--ink); }
+.sop-sg svg .bx { font-size: 30px; font-weight: 700; fill: var(--ink); }
+.sop-sg svg .bx.red { fill: var(--red); }
+.sop-sg svg .bx2 { font-size: 22px; }
+.sop-sg svg .cap { font-weight: 700; fill: var(--ink); font-size: 26px; }
+.sop-sg svg .bl { font-size: 26px; fill: var(--ink); }
+.sop-sg svg .bl2 { font-size: 22px; }
+.sop-sg svg .tl { font-size: 24px; font-weight: 700; fill: var(--red); }
+.sop-sg svg .tl2 { font-size: 20px; fill: var(--red); }
+.sop-sg .sg-k { font-size: 26px; color: var(--muted); margin-bottom: 10px; }
+.sop-sg .sg-cost { margin-top: 34px; width: 100%; }
+.sop-sg .sg-cost .sg-fx { font-size: 24px; color: var(--muted); }
+.sop-sg .sg-oh, .sop-sg .sg-o { display: grid; grid-template-columns: 175px 175px 140px 160px 1fr; align-items: baseline; }
+.sop-sg .sg-oh { grid-template-columns: 96px 175px 175px 140px 160px 1fr; font-size: 24px; color: var(--muted); padding-bottom: 10px; }
+.sop-sg .sg-o .nm { font-weight: 700; }
+.sop-sg .sg-pollw { max-width: 1180px; margin-top: 24px; }
+.sop-sg .sg-line2 { width: 620px; }
+.sop-sg .sg-top { display: flex; gap: 40px; align-items: center; }
+.sop-sg .sg-mini { width: 540px; flex: none; }
+.sop-sg .sg-mini text { font-size: 22px; }
+.sop-sg .sg-mini .ax { font-size: 22px; fill: var(--muted); }
+.sop-sg .sg-mini .bl { font-size: 22px; }
+.sop-sg .sg-mini .bl2 { font-size: 20px; }
+.sop-sg .poll.live.edge { top: 290px; }
+.sop-sg .sg-line1 { width: 640px; }
+.sop-sg .sg-q { margin-top: 14px; margin-bottom: 14px; }
+.sop-sg .sg-ans { margin-top: 26px; padding-top: 18px; border-top: 2px solid var(--ink); font-size: 32px; line-height: 1.25; }
+.sop-sg .sg-o .m, .sop-sg .sg-oh .m { color: var(--muted); }
+.sop-pf .pf-sub { margin-top: 18px; max-width: 1640px; font-size: 32px; line-height: 1.3; }
+.sop-pf .pf-top { display: flex; gap: 50px; align-items: flex-end; margin-top: 18px; max-width: 1240px; }
+.sop-pf .pf-top .pf-d { width: 420px; }
+.sop-pf .pf-top .sg-mini { width: 440px; }
+.sop-pf .sg-k { font-size: 24px; margin-bottom: 6px; }
+.sop-pf svg .pb { font-size: 22px; font-weight: 700; fill: var(--ink); }
+.sop-pf svg .pc { font-size: 24px; fill: var(--ink); }
+.sop-pf svg .pa { font-weight: 700; fill: var(--red); }
+.sop-pf .pf-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; margin-top: 24px; max-width: 1640px; }
+.sop-pf .pf-card { border-top: 3px solid var(--ink); padding-top: 10px; }
+.sop-pf .pf-card .pf-h { font-size: 30px; font-weight: 700; }
+.sop-pf .pf-card .pf-s { font-size: 22px; color: var(--muted); margin: 2px 0 8px; }
+.sop-pf .pf-card .pf-d { width: 100%; max-width: 420px; }
+.sop-pf .pf-t { margin-top: 30px; }
+.sop-pf .pf-t td, .sop-pf .pf-t th { font-variant-numeric: tabular-nums; }
+.sop-pf .pf-bot { display: grid; grid-template-columns: 1fr 460px; gap: 60px; margin-top: 10px; align-items: start; }
+.sop-pf .pf-bot .take { margin-top: 30px; font-size: 40px; }
+.sop-pf .pf-pos { margin-top: 20px; }
+.sop-pf .pf-pos .sg-mini { width: 440px; }
+.sop-sg .pf-box { margin-top: 44px; border: 4px solid var(--red); background: var(--tint); padding: 26px 30px; font-size: 40px; font-weight: 700; line-height: 1.2; text-align: center; color: var(--ink); max-width: 640px; }
+.sop-sg .pf-box.q { color: var(--red); }
+.sop-sg .pf-lg { display: flex; align-items: center; gap: 34px; margin-top: 34px; }
+.sop-sg .pf-lg img { height: 60px; width: auto; }
+.sop-sg .pf-lg span { font-size: 22px; color: var(--muted); }
+.sop-pf .pf-no { font-size: 28px; font-weight: 700; color: var(--red); margin-top: 4px; line-height: 1.25; }
+
+
+/* ── Innovation framing (3b, 33c, part strips) ── */
+.sop-inn .inn { display: grid; grid-template-columns: 340px 90px 280px 90px 460px 90px 290px; margin-top: 40px; height: 500px; }
+.sop-inn .ib { background: var(--tint); border-top: 4px solid var(--ink); padding: 16px 20px 18px; display: flex; flex-direction: column; }
+.sop-inn .ib.is { border-top-color: var(--red); }
+.sop-inn .ih { font-size: 30px; font-weight: 700; line-height: 1.1; margin-bottom: 14px; }
+.sop-inn .is .ih { color: var(--red); }
+.sop-inn .ia { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; }
+.sop-inn .ia svg { width: 74px; height: auto; }
+.sop-inn .ia span { font-size: 20px; color: var(--muted); text-align: center; line-height: 1.15; }
+.sop-inn .ig { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.sop-inn .ig figure { margin: 0; }
+.sop-inn .ig .im { height: 150px; background: #fff; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.sop-inn .ig .im img { width: 100%; height: 100%; object-fit: cover; }
+.sop-inn .ig .im.lg img { object-fit: contain; padding: 12px; }
+.sop-inn .ig figcaption { font-size: 20px; margin-top: 6px; color: var(--ink); text-align: center; }
+.sop-inn .ib svg.cv { width: 100%; height: auto; margin-top: auto; margin-bottom: auto; }
+.sop-inn svg.cv text { font-family: var(--sans); font-size: 20px; fill: var(--muted); }
+.sop-inn .ir { display: grid; grid-template-columns: 120px 1fr; align-items: center; border-top: 1px solid var(--hair); padding: 12px 0; flex: 1; }
+.sop-inn .ir b { font-size: 26px; }
+.sop-inn .ir span { display: flex; gap: 12px; align-items: center; }
+.sop-inn .ir img { height: 50px; width: 82px; object-fit: contain; background: #fff; padding: 5px; box-sizing: content-box; }
+.sop-inn .take { margin: 40px auto 0; padding: 22px 48px 24px; max-width: 1500px; width: fit-content; text-align: center; font-size: 50px; font-weight: 700; border-top: 0; background: var(--tint); border-left: 8px solid var(--red); border-right: 8px solid var(--red); }
+.pstrip { position: absolute; left: var(--m); bottom: 120px; display: flex; align-items: center; gap: 30px; }
+.pstrip .k { font-size: 22px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-right: 6px; }
+.pstrip img { height: 56px; max-width: 170px; object-fit: contain; }
+.pstrip .tb, .tl .tb { font-size: 22px; font-weight: 700; line-height: 1.05; border: 2px solid var(--ink); padding: 6px 10px; text-align: center; }
+.sop-tl .tl { display: grid; grid-template-columns: repeat(10, 1fr); grid-template-rows: 200px 44px 200px; margin-top: 40px; }
+.sop-tl .tl .it { display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 4px; }
+.sop-tl .tl .it.up { grid-row: 1; justify-content: flex-end; padding-bottom: 8px; }
+.sop-tl .tl .it.dn { grid-row: 3; justify-content: flex-start; padding-top: 8px; }
+.sop-tl .tl .it .lgo { height: 66px; display: flex; align-items: center; justify-content: center; }
+.sop-tl .tl .it img { max-height: 62px; max-width: 150px; object-fit: contain; }
+.sop-tl .tl .it .y { font-size: 26px; font-weight: 700; margin-top: 8px; }
+.sop-tl .tl .it .y i { font-style: normal; font-size: 18px; font-weight: 700; color: #fff; background: var(--ink); padding: 1px 7px; margin-right: 6px; vertical-align: 3px; }
+.sop-tl .tl .it .y i.b { background: var(--red); }
+.sop-tl .tl .it .y i.c { background: var(--muted); }
+.sop-tl .tl .it .w { font-size: 20px; line-height: 1.2; color: var(--muted); margin-top: 4px; }
+.sop-tl .tl .ln { grid-row: 2; grid-column: 1 / -1; position: relative; }
+.sop-tl .tl .ln::before { content: ""; position: absolute; left: 0; right: 0; top: 20px; height: 4px; background: var(--ink); }
+.sop-tl .tl .dt { grid-row: 2; justify-self: center; align-self: center; width: 18px; height: 18px; border-radius: 50%; background: var(--red); position: relative; z-index: 1; }
+.sop-tl .key { display: flex; gap: 34px; margin-top: 26px; font-size: 24px; color: var(--muted); }
+.sop-tl .key i { font-style: normal; font-size: 18px; font-weight: 700; color: #fff; background: var(--ink); padding: 1px 7px; margin-right: 8px; }
+.sop-tl .key i.b { background: var(--red); } .sop-tl .key i.c { background: var(--muted); }
+.sop-tl .take { margin-top: 24px; padding-top: 22px; font-size: 42px; }
+.sop-tl .src { position: absolute; left: var(--m); right: var(--m); bottom: 44px; font-size: 18px; color: var(--muted); font-style: italic; line-height: 1.3; }
+.sop-fs { position: absolute; right: 160px; top: 200px; width: 330px; margin: 0; }
+.sop-fs img { display: block; height: 380px; width: auto; margin: 0 auto; }
+.sop-fs figcaption { font-size: 22px; line-height: 1.3; text-align: center; }
+.sop-fs figcaption img { height: 30px; display: inline; margin: 0 6px 0 0; vertical-align: -6px; }
+.sop-u15 .r15 { width: 560px; }
+.sop-u15 .r15 .two { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+.sop-u15 .r15 .two img { width: 100%; display: block; }
+.sop-u15 .r15 .two figcaption { font-size: 20px; }
+.sop-u15 .tz { margin-top: 30px; background: var(--tint); padding: 22px 26px 24px; }
+.sop-u15 .tz img { height: 34px; display: block; }
+.sop-u15 .tz .n { font-size: 64px; font-weight: 700; color: var(--red); letter-spacing: -0.02em; line-height: 1; margin-top: 18px; }
+.sop-u15 .tz .t { font-size: 24px; line-height: 1.3; margin-top: 8px; }
+.sop-u15 .tz .c { font-size: 22px; line-height: 1.3; color: var(--muted); margin-top: 10px; border-top: 1px solid var(--hair); padding-top: 10px; }
+.sop-x .shn { display: flex; align-items: center; gap: 28px; margin-top: 26px; font-size: 28px; line-height: 1.3; }
+.sop-x .shn img { height: 40px; }
+.th-lg { display: flex; gap: 18px; align-items: center; margin-top: 12px; }
+.th-lg img { height: 40px; max-width: 120px; object-fit: contain; }
+
+/* ── Sara Park borrowings: small source logo, bottom left ── */
+.sop-real .rs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 40px; margin-top: 56px; max-width: 1640px; }
+.sop-real .rc { border-top: 4px solid var(--ink); padding-top: 18px; }
+.sop-real .rc .v { font-size: 52px; font-weight: 700; color: var(--red); letter-spacing: -0.02em; line-height: 1; }
+.sop-real .rc .co { font-size: 30px; font-weight: 700; margin-top: 16px; line-height: 1.2; }
+.sop-real .rc .st { font-size: 27px; line-height: 1.35; color: var(--muted); margin-top: 14px; min-height: 220px; }
+.sop-real .rc .st b { color: var(--ink); }
+.sop-real .rc .ls { font-size: 27px; line-height: 1.3; font-weight: 700; border-top: 1px solid var(--hair); padding-top: 14px; margin-top: 14px; }
+.sop-real .src { position: absolute; left: var(--m); bottom: 52px; font-size: 20px; color: var(--muted); font-style: italic; }
+.sop-fine .rs { margin-top: 30px; gap: 34px; }
+.sop-fine .rc .v { font-size: 40px; }
+.sop-fine .rc .co { font-size: 26px; margin-top: 8px; }
+.sop-fine .fp { list-style: none; margin-top: 10px; }
+.sop-fine .fp li { font-size: 21px; line-height: 1.3; color: var(--muted); padding: 7px 0; border-bottom: 1px solid var(--hair); }
+.sop-fine .fp li b { color: var(--ink); }
+.sop-fine .fp-src { font-size: 17px; right: var(--m); line-height: 1.3; bottom: 40px; }
+.rf-g { margin-top: 30px; border-top: 2px solid var(--hair); padding-top: 14px; }
+.rf-g .rf-k { font-size: 24px; font-weight: 700; line-height: 1.25; margin-bottom: 8px; }
+.rf-g svg { display: block; width: 100%; height: auto; overflow: visible; }
+.rf-g svg text { font-family: var(--sans); fill: var(--muted); }
+.rf-g svg .z { font-size: 20px; fill: var(--ink); }
+.rf-g svg .z.no { font-size: 26px; font-weight: 700; fill: var(--red); }
+.rf-g svg .t { font-size: 18px; }
+.rf-g svg .t.red { fill: var(--red); font-weight: 700; }
+.rf-g svg .ax { font-size: 20px; fill: var(--ink); }
+.sku-r { width: 560px; display: grid; gap: 24px; }
+.sku-r .sku-pen { display: block; width: 330px; margin: 0 auto; }
+.sku-r .sku-paper { display: block; width: 500px; margin: 10px auto 0; border: 1px solid var(--hair); background: #fff; }
+.sku-r .sku-houses { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.sku-r .sku-houses img { width: 100%; display: block; }
+.sp-logo { position: absolute; left: var(--m); bottom: 46px; height: 30px; width: auto; opacity: .55; }
+/* ── hands-up card (replaces dropped phone polls) ── */
+.hands { border: 3px solid var(--red); padding: 26px 34px; width: 380px; text-align: center; background: #fff; }
+.hands .k { font-size: 24px; font-weight: 700; letter-spacing: .08em; color: var(--red); }
+.hands .q { font-size: 34px; font-weight: 700; margin-top: 10px; }
+.jar-sf .ai-note { margin-top: 8px; font-size: 24px; color: var(--muted); }
+.jar-sf .ai-note b { color: var(--ink); }
+/* ── 33b · IBP steps ── */
+.sop-ibp .ibp { display: grid; grid-template-columns: repeat(5, 1fr); column-gap: 22px; row-gap: 26px; margin-top: 56px; max-width: 1640px; }
+.sop-ibp .st { border-top: 4px solid var(--ink); padding-top: 18px; min-height: 230px; }
+.sop-ibp .st i { font-style: normal; font-size: 56px; font-weight: 700; color: var(--red); display: block; line-height: 1; }
+.sop-ibp .st b { display: block; font-size: 34px; line-height: 1.15; margin-top: 12px; }
+.sop-ibp .st span { display: block; font-size: 26px; color: var(--muted); margin-top: 10px; line-height: 1.25; }
+.sop-ibp .pt { background: var(--tint); padding: 20px 24px; }
+.sop-ibp .pt b { font-size: 36px; display: block; }
+.sop-ibp .pt span { font-size: 26px; color: var(--muted); display: block; margin-top: 6px; }
+/* ── 35 · listening guide ── */
+.sop-listen .lg { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px 50px; margin-top: 40px; max-width: 1640px; }
+.sop-listen .lg > div { border-top: 3px solid var(--ink); padding-top: 16px; }
+.sop-listen .lg b { font-size: 34px; display: block; }
+.sop-listen .lg p { font-size: 28px; line-height: 1.3; color: var(--muted); margin-top: 8px; }
+</style>
 <style>
 /* ═══ SCLX shared · BEGIN · canonical copy: .claude/sclx-work/shared/sclx-shared.css
    Keep identical in all three decks: run .claude/sclx-work/tools/sync-shared.py <deck.html> after editing.
@@ -184,6 +359,10 @@ table.t td:first-child { font-weight: 700; }
 table.t tr.hl td { background: var(--tint); font-weight: 700; }
 table.t tr.hl td:last-child { color: var(--red); }
 table.t tr.hl td:first-child { padding-left: 18px; }
+.sop-av table.t tr.hl td:nth-child(2) { color: var(--red); }
+.sop-av table.t mark.hy { background: #FFE45C; color: #131312; font-weight: 700; padding: 2px 10px; }
+.sop-av .take { margin-top: 30px; padding-top: 24px; font-size: 44px; }
+.sop-av .take .sm { font-size: 28px; }
 table.t.l td, table.t.l th { text-align: left; }
 table.t.sm td { font-size: 30px; padding: 14px 0 14px 24px; }
 table.t.sm th { font-size: 24px; }
@@ -313,6 +492,17 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
 .road .c { font-size: 28px; line-height: 1.35; color: var(--muted); margin-top: 18px; }
 .road .c b { color: var(--ink); }
 .sop-hard .road .q { min-height: 132px; }
+.sop-s3 .road { margin-top: 44px; }
+.sop-s3 .road .q { min-height: 96px; font-size: 34px; }
+.sop-s3 .road .c { margin-top: 10px; }
+.sop-s3 .ibp3 { display: grid; grid-template-columns: repeat(6, 1fr); column-gap: 0; margin-top: 30px; }
+.sop-s3 .ibp3 .lbl { grid-column: 1 / -1; font-size: 24px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+.sop-s3 .ibp3 .st { background: var(--tint); padding: 14px 18px 16px; margin-right: 12px; }
+.sop-s3 .ibp3 .st.w { grid-column: span 2; }
+.sop-s3 .ibp3 .st i { font-style: normal; font-weight: 700; color: var(--red); font-size: 34px; margin-right: 10px; }
+.sop-s3 .ibp3 .st b { font-size: 28px; line-height: 1.15; }
+.sop-s3 .ibp3 .st span { display: block; font-size: 22px; line-height: 1.25; color: var(--muted); margin-top: 6px; }
+.sop-s3 .take { margin-top: 30px; padding-top: 22px; font-size: 42px; }
 .sop-hard .road .fix { border-top: 1px solid var(--hair); padding-top: 16px; }
 .sop-hard .road .fix b { color: var(--red); }
 
@@ -494,52 +684,80 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
 </section>
 
 <!-- s3 · roadmap -->
-<section data-label="3 · Today: Three Moves" class="s-std" data-speaker-notes="Arc: Forecast -&gt; Design -&gt; Respond -&gt; FEMSA. Bring a phone: we will poll the room several times.">
+<section data-label="3 · Today: Three Moves" class="s-std sop-s3" data-speaker-notes="Arc: Forecast -&gt; Design -&gt; Respond -&gt; FEMSA. Bring a phone: we will poll the room several times.">
   <h2>Today: Three Moves</h2>
   <div class="road">
-    <div class="rise d1"><h3>A. <span class="red">Forecast</span></h3><p class="q">What will happen?</p><p class="c"><b>Cases</b> Segway · Meta Display · Wegovy pill · KO launches</p></div>
+    <div class="rise d1"><h3>A. <span class="red">Forecast</span></h3><p class="q">What will happen?</p><p class="c"><b>Cases</b> Segway · Meta Display · Wegovy pill · Galton’s ox</p></div>
     <div class="rise d2"><h3>B. <span class="red">Design</span></h3><p class="q">How do we build so the forecast matters less?</p><p class="c"><b>Cases</b> Genentech · postponement · Seagate</p></div>
     <div class="rise d3"><h3>C. <span class="red">Respond</span></h3><p class="q">How do we adapt as we learn?</p><p class="c"><b>Cases</b> Xiaomi · the art of saying “No”</p></div>
   </div>
-  <p class="take grise" data-reveal="1" style="margin-top:70px">Then: <span class="red">FEMSA</span> shows how S&amp;OP is implemented successfully at one of the world’s largest Coca-Cola bottlers.</p>
+  <div class="ibp3" data-reveal="1">
+    <p class="lbl">Where these sit in the S&amp;OP / IBP cycle</p>
+    <div class="st"><i>1</i><b>Product lifecycle</b><span>launches and exits</span></div>
+    <div class="st"><i>2</i><b>Forecast &amp; demand plan</b><span>unconstrained, then constrained</span></div>
+    <div class="st w"><i>3</i><b>Supply plan</b><span>capacity, inventory, sourcing</span></div>
+    <div class="st"><i>4</i><b>Balance</b><span>invest in supply or constrain demand</span></div>
+    <div class="st"><i>5</i><b>Executive decision</b><span>trade-offs in dollars</span></div>
+  </div>
+  <p class="take grise" data-reveal="2">Then: <span class="red">FEMSA</span> shows how it implemented <b>integrated business planning</b> in Brazil, at one of the world’s largest beverage bottlers.</p>
+  <img class="sp-logo" src="images/shared/logo-coca-cola.png" alt="" />
+  <div class="pg"></div>
+</section>
+
+<!-- 3b · two kinds of innovation (HTML only) -->
+<section data-label="3b · Two Kinds of Innovation" class="s-std sop-inn" data-html-only data-speaker-notes="2 min. The frame for the whole session. On arrival, left: product innovations create uncertainty. All four are in today's session: Segway, Meta's Ray-Ban Display, the Wegovy pill, and Avastin from Genentech. A product that has never existed has no sales history, so demand is a wide distribution, not a number (middle). Click 1: supply chain innovation absorbs that uncertainty, in our three moves. Forecast: pool independent guesses (Galton's crowd) and get early signals (Tesla's Model 3 deposits). Design: postpone the last step (Home Depot paint, Coca-Cola Freestyle) and share capacity across products (Seagate). Respond: launch in small batches (Xiaomi, Shein) and commit capacity early when the margin justifies it (Lilly). Click 2: the result is supply that keeps pace with demand, the challenge from slide 2. Line: product innovation creates the uncertainty; supply chain innovation absorbs it. Every tool today was once someone's supply chain innovation.">
+  <h2>Two Kinds of Innovation</h2>
+  <div class="inn">
+    <div class="ib ip">
+      <p class="ih">Product innovation</p>
+      <div class="ig">
+        <figure><div class="im"><img src="images/sop/segway-rider.jpg" alt="Segway" /></div><figcaption>Segway</figcaption></figure>
+        <figure><div class="im"><img src="images/sop/meta-display.jpg" alt="Meta Ray-Ban Display glasses" /></div><figcaption>Meta Display</figcaption></figure>
+        <figure><div class="im"><img src="images/sop/wegovy-pill.jpg" alt="Wegovy pill" /></div><figcaption>Wegovy pill</figcaption></figure>
+        <figure><div class="im lg"><img src="images/sop/logos/genentech.png" alt="Genentech" /></div><figcaption>Avastin</figcaption></figure>
+      </div>
+    </div>
+    <div class="ia"><svg viewBox="0 0 90 40" aria-hidden="true"><path d="M4,20 H68" stroke="var(--red)" stroke-width="6"/><path d="M64,6 L88,20 L64,34 Z" fill="var(--red)"/></svg><span>creates</span></div>
+    <div class="ib iu">
+      <p class="ih">Uncertainty</p>
+      <svg class="cv" viewBox="0 0 260 230" role="img" aria-label="A wide demand distribution: nobody knows the number"><path d="M15.0,183.2 L24.2,179.4 L33.4,174.2 L42.6,167.1 L51.8,158.2 L61.0,147.3 L70.2,134.8 L79.4,121.2 L88.6,107.3 L97.8,94.2 L107.0,83.0 L116.2,74.9 L125.4,70.5 L134.6,70.5 L143.8,74.9 L153.0,83.0 L162.2,94.2 L171.4,107.3 L180.6,121.2 L189.8,134.8 L199.0,147.3 L208.2,158.2 L217.4,167.1 L226.6,174.2 L235.8,179.4 L245.0,183.2 L245,190 L15,190 Z" fill="#fff"/><path d="M15.0,183.2 L24.2,179.4 L33.4,174.2 L42.6,167.1 L51.8,158.2 L61.0,147.3 L70.2,134.8 L79.4,121.2 L88.6,107.3 L97.8,94.2 L107.0,83.0 L116.2,74.9 L125.4,70.5 L134.6,70.5 L143.8,74.9 L153.0,83.0 L162.2,94.2 L171.4,107.3 L180.6,121.2 L189.8,134.8 L199.0,147.3 L208.2,158.2 L217.4,167.1 L226.6,174.2 L235.8,179.4 L245.0,183.2" stroke="var(--ink)" stroke-width="4" fill="none"/><path d="M8,190 H252" stroke="var(--ink)" stroke-width="2.5"/><text x="130" y="168" text-anchor="middle" style="font-size:84px;font-weight:700;fill:var(--red)">?</text><text x="130" y="220" text-anchor="middle">demand</text></svg>
+    </div>
+    <div class="ia" data-reveal="1"><svg viewBox="0 0 90 40" aria-hidden="true"><path d="M4,20 H68" stroke="var(--red)" stroke-width="6"/><path d="M64,6 L88,20 L64,34 Z" fill="var(--red)"/></svg><span>absorbed by</span></div>
+    <div class="ib is" data-reveal="1">
+      <p class="ih">Supply chain innovation</p>
+      <div class="ir"><b>Forecast</b><span><img src="images/sop/crowd-ox.png" alt="Galton's ox: the crowd" /><img src="images/sop/logos/tesla.png" alt="Tesla" /></span></div>
+      <div class="ir"><b>Design</b><span><img src="images/sop/logos/homedepot.png" alt="The Home Depot" /><img src="images/shared/logo-coca-cola.png" alt="Coca-Cola" /><img src="images/sop/logos/seagate.png" alt="Seagate" /></span></div>
+      <div class="ir"><b>Respond</b><span><img src="images/sop/xiaomi-logo.png" alt="Xiaomi" /><img src="images/sop/logos/shein.png" alt="Shein" /><img src="images/sop/logos/lilly.png" alt="Eli Lilly" /></span></div>
+    </div>
+    <div class="ia" data-reveal="2"><svg viewBox="0 0 90 40" aria-hidden="true"><path d="M4,20 H68" stroke="var(--red)" stroke-width="6"/><path d="M64,6 L88,20 L64,34 Z" fill="var(--red)"/></svg><span>&nbsp;</span></div>
+    <div class="ib io" data-reveal="2">
+      <p class="ih">Supply keeps pace</p>
+      <svg class="cv" viewBox="0 0 260 230" role="img" aria-label="Supply tracks demand over time"><path d="M14,30 V190 H252" stroke="var(--ink)" stroke-width="2.5" fill="none"/><path d="M20,146 H42 L42,124 H64 L64,136 H86 L86,108 H108 L108,118 H130 L130,94 H152 L152,104 H174 L174,88 H196 L196,96 H218 L218,82 H240 L240,90 H262" stroke="var(--red)" stroke-width="5" fill="none"/><path d="M20,150 L42,128 L64,140 L86,112 L108,122 L130,98 L152,108 L174,92 L196,100 L218,86 L240,94" stroke="var(--ink)" stroke-width="3" stroke-dasharray="7 5" fill="none"/><text x="250" y="70" text-anchor="end" style="fill:var(--red);font-weight:700">supply</text><text x="250" y="122" text-anchor="end" style="fill:var(--ink)">demand</text><text x="133" y="220" text-anchor="middle">time</text></svg>
+    </div>
+  </div>
+  <p class="take grise" data-reveal="2">Product innovation <span class="red">creates</span> the uncertainty; supply chain innovation <span class="red">absorbs</span> it.</p>
   <div class="pg"></div>
 </section>
 
 <!-- s4 · poll (live: Google Form → Sheet; see SOP_POLLS at the end) -->
-<section data-label="4 · How Much Rides on New Products?" class="s-std sop-s4" data-poll="s4" data-speaker-notes="Quick poll on phones. Show the distribution and transition: launches matter, and they usually miss.">
+<section data-label="4 · How Much Rides on New Products?" class="s-std sop-s4" data-speaker-notes="Hands up: A, B, C or D? Read the room out loud. Transition: launches matter, and they usually miss.">
   <h2>How Much Rides on New Products?</h2>
   <div class="body cols">
     <div>
       <p class="lead">What share of your business’s revenue comes from products launched in the last 3 years?</p>
-      <ul class="qs pollbars" style="margin-top:36px">
-        <li data-opt="0"><span class="red">A</span><span class="lbl">Under 10%</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
-        <li data-opt="1"><span class="red">B</span><span class="lbl">10–25%</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
-        <li data-opt="2"><span class="red">C</span><span class="lbl">Over 25%</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
-        <li data-opt="3"><span class="red">D</span><span class="lbl">I don’t know (also an answer!)</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
+      <ul class="qs" style="margin-top:36px">
+        <li data-opt="0"><span class="red">A</span><span class="lbl">Under 10%</span></li>
+        <li data-opt="1"><span class="red">B</span><span class="lbl">10–25%</span></li>
+        <li data-opt="2"><span class="red">C</span><span class="lbl">Over 25%</span></li>
+        <li data-opt="3"><span class="red">D</span><span class="lbl">I don’t know (also an answer!)</span></li>
       </ul>
     </div>
-    <div class="poll live"><p class="k">PHONE POLL</p><p class="q">Scan to vote</p><div class="qrw"><img class="qr" src="images/sop/qr-s4.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
+    <div class="hands"><p class="k">HANDS UP</p><p class="q">A · B · C · D</p></div>
   </div>
   <div class="pg"></div>
 </section>
 
 <!-- s4b · histogram of the s4 poll (HTML only; not in the pptx) -->
-<section data-label="4b · Your Answers" class="s-std sop-hist" data-poll="s4" data-html-only data-speaker-notes="Histogram of the slide 4 poll, live from the same poll spreadsheet. Compare the room with the HBR benchmark on the next slide: more than half of launches miss their goals, yet many businesses depend on recent launches for a large share of revenue.">
-  <h2>Your Answers</h2>
-  <div class="body">
-    <p class="lead">Share of revenue from products launched in the last 3 years</p>
-    <div class="hist">
-      <div class="col" data-opt="0"><span class="v"></span><span class="b"></span></div>
-      <div class="col" data-opt="1"><span class="v"></span><span class="b"></span></div>
-      <div class="col" data-opt="2"><span class="v"></span><span class="b"></span></div>
-      <div class="col" data-opt="3"><span class="v"></span><span class="b"></span></div>
-    </div>
-    <div class="hist-x"><div><b>A</b>Under 10%</div><div><b>B</b>10–25%</div><div><b>C</b>Over 25%</div><div><b>D</b>I don’t know</div></div>
-    <p class="hist-n"><b class="cnt">0</b> <span class="w">responses</span> · <span class="st"></span></p>
-  </div>
-  <div class="pg"></div>
-</section>
-
 <!-- s5 · most launches miss -->
 <section data-label="5 · Most Launches Miss" class="s-std" data-speaker-notes="Data points from Calmon&#x27;s NPI deck. Transition: here is the most famous miss.">
   <h2>Most Launches Miss</h2>
@@ -561,7 +779,7 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
 
 <!-- s6 · Segway plan, Ex 1 -->
 <section data-label="6 · Segway: The Plan" class="s-std sop-s6" data-poll="s6" data-speaker-notes="0:05. Everyone writes a number privately, then submits on phones. Do NOT discuss first.">
-  <p class="lab">Exercise 1</p>
+  <p class="lab">Thought Experiment 1</p>
   <h2>Segway: The Plan</h2>
   <div class="body" style="margin-top:40px">
     <div class="facts">
@@ -654,6 +872,7 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
   <p class="kicker rise">part A · forecast</p>
   <h2 class="rise d1">a forecast is a <span class="red">distribution</span>, not a number</h2>
   <p class="after rise d2">No history · high uncertainty · many stakeholders depend on it</p>
+  <div class="pstrip rise d3"><span class="k">Innovations ahead</span><img src="images/sop/crowd-ox.png" alt="Galton's ox" /><span class="tb">Sport<br/>Obermeyer</span><img src="images/sop/logos/tesla.png" alt="Tesla" /></div>
   <div class="pg"></div>
 </section>
 
@@ -665,17 +884,17 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
     <div class="np-pair">
       <div class="np-k">Consumer tech · Meta</div>
       <div class="np-row">
-        <figure class="rise d1"><div class="np-img"><span>Ray-Ban Meta</span><img src="images/sop/meta-rayban.png" alt="" onerror="this.remove()" /></div><figcaption>Ray-Ban Meta (Gen 2)<span>next version of a known product</span></figcaption></figure>
+        <figure class="rise d1"><div class="np-img"><span>Ray-Ban Meta</span><img src="images/sop/meta-rayban.jpg" alt="" onerror="this.remove()" /></div><figcaption>Ray-Ban Meta (Gen 2)<span>next version of a known product</span></figcaption></figure>
         <div class="np-arr rise d2">→</div>
-        <figure class="rise d2"><div class="np-img"><span>Meta Ray-Ban Display</span><img src="images/sop/meta-display.png" alt="" onerror="this.remove()" /></div><figcaption>Meta Ray-Ban <span class="red">Display</span><span>a screen in the lens · new category</span></figcaption></figure>
+        <figure class="rise d2"><div class="np-img"><span>Meta Ray-Ban Display</span><img src="images/sop/meta-display.jpg" alt="" onerror="this.remove()" /></div><figcaption>Meta Ray-Ban <span class="red">Display</span><span>a screen in the lens · new category</span></figcaption></figure>
       </div>
     </div>
     <div class="np-pair">
       <div class="np-k">Pharma · Novo Nordisk</div>
       <div class="np-row">
-        <figure class="rise d3"><div class="np-img"><span>Wegovy injection</span><img src="images/sop/wegovy-pen.png" alt="" onerror="this.remove()" /></div><figcaption>Wegovy injection<span>weekly pen, years of sales data</span></figcaption></figure>
+        <figure class="rise d3"><div class="np-img"><span>Wegovy injection</span><img src="images/sop/wegovy-pen.jpg" alt="" onerror="this.remove()" /></div><figcaption>Wegovy injection<span>weekly pen, years of sales data</span></figcaption></figure>
         <div class="np-arr rise d4">→</div>
-        <figure class="rise d4"><div class="np-img"><span>Wegovy pill</span><img src="images/sop/wegovy-pill.png" alt="" onerror="this.remove()" /></div><figcaption>Wegovy <span class="red">pill</span><span>same drug, new form · new patients?</span></figcaption></figure>
+        <figure class="rise d4"><div class="np-img"><span>Wegovy pill</span><img src="images/sop/wegovy-pill.jpg" alt="" onerror="this.remove()" /></div><figcaption>Wegovy <span class="red">pill</span><span>same drug, new form · new patients?</span></figcaption></figure>
       </div>
     </div>
   </div>
@@ -695,8 +914,8 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
 </section>
 
 <!-- s13 · Ex 2 -->
-<section data-label="13 · The Wisdom of the Crowd" class="s-std sop-jar13" data-poll="s13" data-speaker-notes="4 min. Hold up the jar (or point at the photo). Rules: guess privately, no talking to neighbors, one guess per phone (a later guess replaces an earlier one). Phones ask for a first name and a number. The three closest guesses are our superforecasters (in jest) and appear by name on the next slide. Give the room about 90 seconds, watch the response count climb, then move on. Don't hint at the answer (538).">
-  <p class="lab">Exercise 2</p>
+<section data-label="13 · The Wisdom of the Crowd" class="s-std sop-jar13" data-poll="s13" data-speaker-notes="4 min. Hold up the jar (or point at the photo). Rules: guess privately, no talking to neighbors, one guess per phone (a later guess replaces an earlier one). Phones ask for a first name and a range: lowest and highest number. The highest fills in automatically as lowest + 100, and they can change it. The phone shows the midpoint as their guess. The three closest midpoints are our superforecasters (in jest) and appear by name on the next slide. Give the room about 90 seconds, watch the response count climb, then move on. Don't hint at the answer (538).">
+  <p class="lab">Thought Experiment 2</p>
   <h2>The Wisdom of the Crowd</h2>
   <div class="body cols" style="margin-top:34px">
     <div class="jar-l">
@@ -704,20 +923,20 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
         <p class="lead">How many <span class="red">jelly beans</span> are in this jar?</p>
         <ul class="rows tight" style="margin-top:30px">
           <li>Guess privately. <b>Do not talk to your neighbors.</b></li>
-          <li>Enter your <b>first name</b> and your guess on your phone.</li>
-          <li>The three closest guesses are our <span class="red">superforecasters</span>.</li>
+          <li>Enter your <b>first name</b> and a <b>range</b>: your lowest and highest number. Your guess is its midpoint.</li>
+          <li>The three midpoints closest to the answer are our <span class="red">superforecasters</span>.</li>
         </ul>
         <p class="p">Then we compare individual guesses with the <b>average of the room</b>.</p>
       </div>
       <img class="jar-img" src="images/sop/jarbeans.webp" alt="A glass jar full of jelly beans" />
     </div>
-    <div class="poll live"><p class="k">PHONE POLL</p><p class="q">Your first name and your guess</p><div class="qrw"><img class="qr" src="images/sop/qr-s13.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
+    <div class="poll live"><p class="k">PHONE POLL</p><p class="q">Your first name and your range</p><div class="qrw"><img class="qr" src="images/sop/qr-s13.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
   </div>
   <div class="pg"></div>
 </section>
 
 <!-- s13b · results of the s13 poll (HTML only) -->
-<section data-label="13b · The Crowd’s Estimate" class="s-std sop-hist sop-jar" data-poll="s13" data-truth="538" data-gpt="485" data-html-only data-speaker-notes="Live histogram of the jelly-bean guesses, with the median, average and standard deviation. Read out the spread first: how far apart are the lowest and highest guesses? Click 1: the answer, 538 jelly beans, appears as a line on the chart, with how far off the crowd average is and what share of individual guesses it beats. Click 2: the three closest guesses by first name, our superforecasters (in jest; applause). If all three beat ChatGPT, a line shows that ChatGPT guessed 485; if ChatGPT would have made the top 3, it is not shown. Bridge: one good guesser is luck; the average of many independent guesses is a method.">
+<section data-label="13b · The Crowd’s Estimate" class="s-std sop-hist sop-jar" data-poll="s13" data-truth="538" data-gpt="485" data-ai="ChatGPT:485|Claude:400" data-html-only data-speaker-notes="Live histogram of the jelly-bean guesses, with the median, average and standard deviation. Read out the spread first: how far apart are the lowest and highest guesses? Click 1: the answer, 538 jelly beans, appears as a line on the chart, with how far off the crowd average is and what share of individual guesses it beats. The histogram and average use each person's midpoint. If more than half the room had 538 inside their range, a line also says so (otherwise it stays quiet). Click 2: the three closest guesses by first name, our superforecasters (in jest; applause). Then the AI comparison, decided automatically: ChatGPT guessed 485 and Claude guessed 400 (from the photo alone). For each AI, if the best guess, the median or the crowd average beat it, a line names which ones did, followed by the AI-hype caution (a machine-learning pilot improved accuracy but not enough to pay for itself). If both AIs beat all three, AI is not mentioned at all; instead a line says that simply listening to many independent guesses and combining them is a cheap way to forecast better. Bridge: one good guesser is luck; the average of many independent guesses is a method.">
   <h2>The Crowd’s Estimate</h2>
   <div class="jar-g">
     <div>
@@ -739,43 +958,46 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
     <p class="k">Our superforecasters <span>(in jest)</span></p>
     <ol class="sfl"></ol>
     <p class="gpt"></p>
+    <p class="ai-note"></p>
   </div>
+  <img class="sp-logo" src="images/shared/logo-coca-cola.png" alt="" />
   <div class="pg"></div>
 </section>
 
 <!-- s14 · Ex 2 debrief -->
-<section data-label="14 · Why the Crowd Wins" class="s-std" data-speaker-notes="Calmon&#x27;s golden rules. Note the three methods: look-alike (analog adoption curves), expert opinion (structured, independent), early signals (crowdsourcing, pilots, pre-orders; pre-orders != sustained demand).">
+<section data-label="14 · Why the Crowd is Strong" class="s-std" data-speaker-notes="Calmon&#x27;s golden rules. Note the three methods: look-alike (analog adoption curves), expert opinion (structured, independent), early signals (crowdsourcing, pilots, pre-orders; pre-orders != sustained demand).">
   <p class="lab ans">Answer</p>
-  <h2>Why the Crowd Wins</h2>
+  <h2>Why the Crowd is Strong</h2>
   <table class="t l" style="margin-top:44px">
     <tr><th>Golden rule</th><th>What it means in a launch forecast</th></tr>
     <tr><td>Normalize information</td><td>Everyone looks at the same jar: same assumptions, same data</td></tr>
     <tr><td>Keep inputs independent</td><td>Estimate before you discuss; talking first makes the crowd’s error larger</td></tr>
     <tr><td>Diversify inputs</td><td>Sales, Marketing, Ops, Finance, R&amp;D: errors that differ cancel out</td></tr>
     <tr><td>Triangulate methods</td><td>Look-alike analogs · expert opinion · early demand signals</td></tr>
-    <tr><td>Build consensus</td><td>Agree on a range, assumptions, and confidence, not a single number</td></tr>
+    <tr><td>Build consensus</td><td>One monthly meeting (sales, marketing, finance, ops) signs off a range and its assumptions, then manages by exception</td></tr>
   </table>
   <p class="take grise" data-reveal="1" style="font-size:44px">Forecasting is a <span class="red">process</span> that requires structure, iteration, and learning.</p>
+  <img class="sp-logo" src="images/shared/logo-coca-cola.png" alt="" />
   <div class="pg"></div>
 </section>
 
 <!-- 14c · Galton's ox (HTML only, from "wisdom of crowds.pptx" slide 1) -->
-<section data-label="14c · Experts vs. Crowds" class="s-std sop-ox" data-html-only data-speaker-notes="2 min. Right after the room's estimate. The story: Plymouth, England, 1906, a livestock fair. 787 people paid sixpence each to guess the weight of an ox once slaughtered and dressed; prizes for the closest. Butchers and farmers, but also clerks and families with no expertise at all. Francis Galton expected the crowd to be hopeless and collected the tickets. The guesses fall in by themselves as the slide opens. Click 1: the median guess was 1,207 lb and the average 1,197 lb. Ask: what did the ox actually weigh? Click 2: 1,198 lb. The average missed by one pound, while about half the individual guesses were off by more than 35 lb. Galton called it the trustworthiness of a democratic judgment (Vox Populi, Nature, 1907); Surowiecki built The Wisdom of Crowds on it. Compare with our own room's number. Bridge: so when does this work, and when does it fail?">
+<section data-label="14c · Experts vs. Crowds" class="s-std sop-ox" data-html-only data-speaker-notes="2 min. Right after the room's estimate. The story: Plymouth, England, 1906, a livestock fair. 787 people paid sixpence each to guess the weight of an ox once slaughtered and dressed; prizes for the closest. Butchers and farmers, but also clerks and families with no expertise at all. Francis Galton expected the crowd to be hopeless and collected the tickets. The slide opens on the ox alone: ask the room to guess its weight. Click 1: the graph appears and all 787 guesses fall in. Click 2: the median guess was 1,207 lb and the average 1,197 lb. Ask: what did the ox actually weigh? Click 3: 1,198 lb. The average missed by one pound, while about half the individual guesses were off by more than 35 lb. Galton called it the trustworthiness of a democratic judgment (Vox Populi, Nature, 1907); Surowiecki built The Wisdom of Crowds on it. Compare with our own room's number. Bridge: so when does this work, and when does it fail?">
   <p class="lab ans">Answer</p>
   <h2>Experts vs. Crowds: Galton’s Ox</h2>
   <div class="ox">
     <div>
       <img class="ox-img" src="images/sop/crowd-ox.png" alt="Sketch of an ox" />
       <ul class="ox-facts">
-        <li data-reveal="1"><span>Guess median</span><b>1,207 lb</b></li>
-        <li data-reveal="1"><span>Guess average</span><b>1,197 lb</b></li>
-        <li class="act" data-reveal="2"><span>Actual weight</span><b>1,198 lb</b></li>
+        <li data-reveal="2"><span>Guess median</span><b>1,207 lb</b></li>
+        <li data-reveal="2"><span>Guess average</span><b>1,197 lb</b></li>
+        <li class="act" data-reveal="3"><span>Actual weight</span><b>1,198 lb</b></li>
       </ul>
     </div>
-    <div>
+    <div class="ox-graph" data-reveal="1">
       <p class="ox-sub"><span>Plymouth fair, 1906: every guess at the ox’s dressed weight</span><span class="gn">Guesses <b class="gnn">0</b></span></p>
       <svg class="oxs" viewBox="0 0 1160 540"></svg>
-      <p class="take grise" data-reveal="2">About half the guesses missed by <b>35 lb or more</b>. The average missed by <span class="red">1 lb</span>.</p>
+      <p class="take grise" data-reveal="3">About half the guesses missed by <b>35 lb or more</b>. The average missed by <span class="red">1 lb</span>.</p>
     </div>
   </div>
   <p class="src">Galton, “Vox Populi,” Nature, 1907 · Surowiecki, The Wisdom of Crowds, 2004</p>
@@ -783,7 +1005,7 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
 </section>
 
 <!-- 14d · when crowds beat experts (HTML only, from "wisdom of crowds.pptx" slide 2) -->
-<section data-label="14d · When Crowds Beat Experts" class="s-std sop-why" data-html-only data-speaker-notes="3 min. Three conditions (Surowiecki). On arrival: 40 people guess independently. Their errors point in different directions, so the average lands close to the truth (diversity). Click 1, independence: now one confident voice speaks first (1,330 lb) and everyone drifts toward it. The guesses get closer to each other, which feels like consensus, but the average moves about 90 lb away from the truth. Talking first makes the crowd's error larger. In a launch meeting the loud voice is often the most senior person or the brand team. Click 2, aggregation: you also need a way to pool the guesses. Google PageRank counts links as votes. On Who Wants to Be a Millionaire, Ask the Audience was right about 91% of the time, against 65% for Phone a Friend (the expert). Prediction markets priced the 2012 US election, and a stock price pools millions of views (AAPL). For a launch forecast: estimate privately, mix Sales, Marketing, Ops, Finance and R&amp;D, then average. Agree on a range, not a single number.">
+<section data-label="14d · When Crowds Beat Experts" class="s-std sop-why" data-html-only data-speaker-notes="3 min. Three conditions (Surowiecki). On arrival: 40 people guess independently. Their errors point in different directions, so the average lands close to the truth (diversity). Click 1, independence: now one confident voice speaks first (1,330 lb) and everyone drifts toward it. The guesses get closer to each other, which feels like consensus, but the average moves about 90 lb away from the truth. Talking first makes the crowd's error larger. In a launch meeting the loud voice is often the most senior person or the brand team. Click 2, aggregation: you also need a way to pool the guesses. Google PageRank counts links as votes. On Who Wants to Be a Millionaire, Ask the Audience was right about 91% of the time, against 65% for Phone a Friend (the expert). Prediction markets priced the 2012 US election, and a stock price pools millions of views (AAPL). Sport Obermeyer, a ski-wear maker (Fisher, Hammond, Obermeyer and Raman, HBR 1994): each member of the buying committee forecast every style independently; where they disagreed most, forecasts missed most (the chart is an illustration, not their data). So Obermeyer made the styles everyone agreed on early, and waited for early retailer orders before making the risky ones. The spread of the crowd is itself a forecast of the risk. For a launch forecast: estimate privately, mix Sales, Marketing, Ops, Finance and R&amp;D, then average. Agree on a range, not a single number.">
   <h2>When Crowds Beat Experts</h2>
   <div class="why">
     <ul class="rows tight">
@@ -801,33 +1023,38 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
     <figure><div class="im"><img src="images/sop/crowd-millionaire.jpg" alt="Ask the Audience on Who Wants to Be a Millionaire" /></div><figcaption><b>Ask the Audience</b>right ~91% vs. 65% for the expert friend</figcaption></figure>
     <figure><div class="im"><img src="images/sop/crowd-election2012.png" alt="Prediction market prices for the 2012 US presidential election" /></div><figcaption><b>Prediction markets</b>2012 US president</figcaption></figure>
     <figure><div class="im"><img src="images/sop/crowd-aapl.png" alt="Apple share price, 2005 to 2015" /></div><figcaption><b>Stock prices</b>AAPL</figcaption></figure>
+    <figure><div class="im"><svg viewBox="0 0 220 150" style="height:150px;width:auto" role="img" aria-label="Illustration: the more the forecasters disagree, the larger the forecast error"><path d="M20,8 V130 H212" stroke="var(--ink)" stroke-width="2.5" fill="none"/><g fill="var(--red)"><circle cx="40" cy="116" r="6"/><circle cx="62" cy="104" r="6"/><circle cx="80" cy="110" r="6"/><circle cx="102" cy="88" r="6"/><circle cx="124" cy="80" r="6"/><circle cx="146" cy="62" r="6"/><circle cx="166" cy="52" r="6"/><circle cx="190" cy="30" r="6"/></g><text x="116" y="148" text-anchor="middle" style="font-size:16px;fill:var(--muted)">disagreement →</text><text transform="translate(12 70) rotate(-90)" text-anchor="middle" style="font-size:16px;fill:var(--muted)">error →</text></svg></div><figcaption><b>Sport Obermeyer</b>the spread flags risky styles</figcaption></figure>
   </div>
   <div class="pg"></div>
 </section>
 
 <!-- s15 · forecasting the unknowable -->
-<section data-label="15 · Forecasting the Unknowable" class="s-std" data-speaker-notes="McPlant (McDonald&#x27;s) and Nike Adapt (discontinued 2024): both bets on new-to-the-world demand. Next: the KO rule &#x27;model pipeline fill&#x27; as a math problem.">
+<section data-label="15 · Forecasting the Unknowable" class="s-std sop-u15" data-speaker-notes="McPlant (McDonald's) and Nike Adapt (discontinued 2024): both bets on new-to-the-world demand. Click: Tesla turned the forecast into a test. When it unveiled the Model 3 on March 31, 2016, it asked for refundable $1,000 deposits and had more than 325,000 reservations within a week. That is an early demand signal customers paid for. Caution: a deposit is not an order. Deposits were refundable and some people reserved more than one car, so the count overstates demand, the same trap as treating shipments into stores as sales.">
   <h2>Forecasting the Unknowable</h2>
   <div class="body cols">
     <div>
       <p class="lead">When data doesn’t exist, planning must be <span class="red">sequential and adaptive</span>.</p>
       <ul class="rows tight" style="margin-top:30px">
         <li>Treat radical innovations as pilot launches: learn fast, revise forecasts, refine assumptions before scaling</li>
-        <li><span class="red">KO rules:</span> document assumptions, model pipeline fill, include PLM impact</li>
+        <li>Forecast = <b>trends + assumptions</b>: give a range (Most Likely · High · Low), write down every assumption</li>
         <li>The first forecast is a <b>hypothesis</b>; the launch is the <b>experiment</b>. What is your test bed?</li>
       </ul>
     </div>
-    <div style="display:grid;gap:26px;width:560px">
-      <figure><img style="width:100%" src="images/sop/mcplant.png" alt="McDonald’s McPlant burger" /><figcaption>McDonald’s McPlant</figcaption></figure>
-      <figure><img style="width:100%" src="images/sop/nike-adapt.png" alt="Nike Adapt self-lacing shoe" /><figcaption>Nike Adapt (discontinued 2024)</figcaption></figure>
+    <div class="r15">
+      <div class="two">
+        <figure><img src="images/sop/mcplant.png" alt="McDonald’s McPlant burger" /><figcaption>McDonald’s McPlant</figcaption></figure>
+        <figure><img src="images/sop/nike-adapt.png" alt="Nike Adapt self-lacing shoe" /><figcaption>Nike Adapt (ended 2024)</figcaption></figure>
+      </div>
+      <div class="tz" data-reveal="1"><img src="images/sop/logos/tesla.png" alt="Tesla" /><p class="n">325,000</p><p class="t">Model 3 reservations in one week, each with a <b>$1,000</b> deposit (2016)</p><p class="c">A test bed customers paid for. But a deposit is not an order.</p></div>
     </div>
   </div>
+  <img class="sp-logo" src="images/shared/logo-coca-cola.png" alt="" />
   <div class="pg"></div>
 </section>
 
 <!-- s16 · Ex 3 problem -->
-<section data-label="16 · The Pipeline-Fill Trap" class="s-std" data-speaker-notes="6 min. Tables work it on phones/paper.">
-  <p class="lab">Exercise 3</p>
+<section data-label="16 · The Pipeline-Fill Trap" class="s-std" data-deck-skip data-speaker-notes="6 min. Tables work it on phones/paper.">
+  <p class="lab">Thought Experiment 3</p>
   <h2>The Pipeline-Fill Trap</h2>
   <div class="facts" style="margin-top:44px">
     <p>A new flavor launches in <b>4,000 stores</b>.</p>
@@ -843,7 +1070,7 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
 </section>
 
 <!-- s17 · Ex 3 answer -->
-<section data-label="17 · Shipments ≠ Consumption" class="s-std" data-speaker-notes="If you plan production on 132K you build a 2.75x overhang in month 2. This is why KO rules require modeling pipeline fill separately.">
+<section data-label="17 · Shipments ≠ Consumption" class="s-std" data-deck-skip data-speaker-notes="If you plan production on 132K you build a 2.75x overhang in month 2. This is why good launch rules require modeling pipeline fill separately.">
   <p class="lab ans">Answer</p>
   <h2>Shipments ≠ Consumption</h2>
   <table class="t" style="margin-top:44px">
@@ -854,7 +1081,8 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
     <tr><td>True steady monthly demand</td><td>4 weeks × 4,000 × 3</td><td>48,000</td></tr>
     <tr class="hl"><td>Overstatement</td><td>132,000 ÷ 48,000</td><td>2.75×</td></tr>
   </table>
-  <p class="take grise" data-reveal="1">Track <span class="red">store velocity and repeat rate</span>, not shipments.<span class="sm">Separate pipeline fill from run-rate, document the assumptions, revise early. A preview of the bullwhip effect.</span></p>
+  <p class="take grise" data-reveal="1">Track <span class="red">store velocity and repeat rate</span>, not shipments.<span class="sm"><b>Demand ≠ orders ≠ shipments ≠ sales.</b> Separate pipeline fill from run-rate, document the assumptions, revise early: a preview of the bullwhip effect.</span></p>
+  <img class="sp-logo" src="images/shared/logo-coca-cola.png" alt="" />
   <div class="pg"></div>
 </section>
 
@@ -863,12 +1091,13 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
   <p class="kicker rise">part B · design</p>
   <h2 class="rise d1">we won’t get the forecast right, so <span class="red">design for being wrong</span></h2>
   <p class="after rise d2">You only feel capacity when you run out of it, yet you must decide before demand is observed.</p>
+  <div class="pstrip rise d3"><span class="k">Innovations ahead</span><img src="images/sop/logos/genentech.png" alt="Genentech" /><img src="images/sop/logos/homedepot.png" alt="The Home Depot" /><img src="images/shared/logo-coca-cola.png" alt="Coca-Cola" /><img src="images/sop/logos/seagate.png" alt="Seagate" /></div>
   <div class="pg"></div>
 </section>
 
 <!-- s19 · Ex 4 problem -->
 <section data-label="19 · Sizing Capacity for Avastin" class="s-std" data-poll="s19" data-speaker-notes="6 min. Poll the slider first (most build near 1,000), then compute.">
-  <p class="lab">Exercise 4</p>
+  <p class="lab">Thought Experiment 3</p>
   <h2>Sizing Capacity for Avastin</h2>
   <div class="body" style="margin-top:40px;max-width:1190px">
     <div style="display:flex;gap:36px;align-items:center">
@@ -880,12 +1109,10 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
       <svg class="sop-tn" viewBox="0 0 380 250" role="img" aria-label="Truncated normal distribution of demand"><path d="M48,200 L48.0,184.3 L51.2,182.8 L54.4,181.1 L57.5,179.3 L60.7,177.3 L63.9,175.2 L67.1,173.0 L70.3,170.6 L73.4,168.1 L76.6,165.4 L79.8,162.6 L83.0,159.6 L86.2,156.5 L89.3,153.2 L92.5,149.8 L95.7,146.2 L98.9,142.5 L102.1,138.7 L105.2,134.7 L108.4,130.6 L111.6,126.4 L114.8,122.0 L118.0,117.6 L121.1,113.1 L124.3,108.5 L127.5,103.9 L130.7,99.2 L133.9,94.5 L137.0,89.8 L140.2,85.2 L143.4,80.5 L146.6,75.9 L149.8,71.4 L152.9,66.9 L156.1,62.6 L159.3,58.4 L162.5,54.4 L165.7,50.6 L168.8,46.9 L172.0,43.5 L175.2,40.2 L178.4,37.3 L181.6,34.6 L184.7,32.2 L187.9,30.0 L191.1,28.2 L194.3,26.7 L197.5,25.5 L200.6,24.7 L203.8,24.2 L207.0,24.0 L210.2,24.2 L213.4,24.7 L216.5,25.5 L219.7,26.7 L222.9,28.2 L226.1,30.0 L229.3,32.2 L232.4,34.6 L235.6,37.3 L238.8,40.2 L242.0,43.5 L245.2,46.9 L248.3,50.6 L251.5,54.4 L254.7,58.4 L257.9,62.6 L261.1,66.9 L264.2,71.4 L267.4,75.9 L270.6,80.5 L273.8,85.2 L277.0,89.8 L280.1,94.5 L283.3,99.2 L286.5,103.9 L289.7,108.5 L292.9,113.1 L296.0,117.6 L299.2,122.0 L302.4,126.4 L305.6,130.6 L308.8,134.7 L311.9,138.7 L315.1,142.5 L318.3,146.2 L321.5,149.8 L324.7,153.2 L327.8,156.5 L331.0,159.6 L334.2,162.6 L337.4,165.4 L340.6,168.1 L343.7,170.6 L346.9,173.0 L350.1,175.2 L353.3,177.3 L356.5,179.3 L359.6,181.1 L362.8,182.8 L366.0,184.3 L366,200 Z" fill="var(--tint)" stroke="none"/><path d="M48,200 L48.0,184.3 M366.0,184.3 L366,200" stroke="var(--red)" stroke-width="3" fill="none"/><path d="M48.0,184.3 L51.2,182.8 L54.4,181.1 L57.5,179.3 L60.7,177.3 L63.9,175.2 L67.1,173.0 L70.3,170.6 L73.4,168.1 L76.6,165.4 L79.8,162.6 L83.0,159.6 L86.2,156.5 L89.3,153.2 L92.5,149.8 L95.7,146.2 L98.9,142.5 L102.1,138.7 L105.2,134.7 L108.4,130.6 L111.6,126.4 L114.8,122.0 L118.0,117.6 L121.1,113.1 L124.3,108.5 L127.5,103.9 L130.7,99.2 L133.9,94.5 L137.0,89.8 L140.2,85.2 L143.4,80.5 L146.6,75.9 L149.8,71.4 L152.9,66.9 L156.1,62.6 L159.3,58.4 L162.5,54.4 L165.7,50.6 L168.8,46.9 L172.0,43.5 L175.2,40.2 L178.4,37.3 L181.6,34.6 L184.7,32.2 L187.9,30.0 L191.1,28.2 L194.3,26.7 L197.5,25.5 L200.6,24.7 L203.8,24.2 L207.0,24.0 L210.2,24.2 L213.4,24.7 L216.5,25.5 L219.7,26.7 L222.9,28.2 L226.1,30.0 L229.3,32.2 L232.4,34.6 L235.6,37.3 L238.8,40.2 L242.0,43.5 L245.2,46.9 L248.3,50.6 L251.5,54.4 L254.7,58.4 L257.9,62.6 L261.1,66.9 L264.2,71.4 L267.4,75.9 L270.6,80.5 L273.8,85.2 L277.0,89.8 L280.1,94.5 L283.3,99.2 L286.5,103.9 L289.7,108.5 L292.9,113.1 L296.0,117.6 L299.2,122.0 L302.4,126.4 L305.6,130.6 L308.8,134.7 L311.9,138.7 L315.1,142.5 L318.3,146.2 L321.5,149.8 L324.7,153.2 L327.8,156.5 L331.0,159.6 L334.2,162.6 L337.4,165.4 L340.6,168.1 L343.7,170.6 L346.9,173.0 L350.1,175.2 L353.3,177.3 L356.5,179.3 L359.6,181.1 L362.8,182.8 L366.0,184.3" stroke="var(--red)" stroke-width="4" fill="none"/><path d="M34,200 H376 M34,200 V8" stroke="var(--ink)" stroke-width="2.5" fill="none"/><text x="214.0" y="236" text-anchor="middle">Demand</text><text transform="translate(18 114.0) rotate(-90)" text-anchor="middle">Probability</text></svg>
     </div>
     <ul class="qs" style="margin-top:30px">
-      <li><span class="red">Q1</span>Build for the mean? Yes or no?</li>
-      <li><span class="red">Q2</span>Cost of one dose too little (underage)? One dose too much (overage)?</li>
-      <li><span class="red">Q3</span>How much capacity would you build?</li>
+      <li><span class="red">Q</span>How much capacity would you build? Pick from 500 to 1,500, in steps of 100.</li>
     </ul>
   </div>
-  <div class="poll live edge"><p class="k">PHONE POLL</p><p class="q">How much capacity? (thousand doses)</p><div class="qrw"><img class="qr" src="images/sop/qr-s19.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
+  <div class="poll live edge"><p class="k">PHONE POLL</p><p class="q">How much capacity? (thousand doses: 500 to 1,500, in 100s)</p><div class="qrw"><img class="qr" src="images/sop/qr-s19.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
   <div class="pg"></div>
 </section>
 
@@ -901,66 +1128,46 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
 </section>
 
 <!-- s20 · Ex 4 answer -->
-<section data-label="20 · Size to Economics, Not the Mean" class="s-std" data-speaker-notes="Epilogue: Avastin hit the jackpot; CCP3 was not built (personnel bandwidth) and Genentech bought Biogen-Idec&#x27;s Oceanside plant. Doing better than expected can still hurt: Avastin cannibalized Lucentis.">
+<section data-label="20 · Size to Economics, Not the Mean" class="s-std sop-av" data-speaker-notes="Epilogue: Avastin hit the jackpot; CCP3 was not built (personnel bandwidth) and Genentech bought Biogen-Idec&#x27;s Oceanside plant. Doing better than expected can still hurt: Avastin cannibalized Lucentis.">
   <p class="lab ans">Answer</p>
   <h2>Size to Economics, Not the Mean</h2>
   <table class="t" style="margin-top:40px">
-    <tr><th></th><th>Avastin</th><th>A soft drink</th></tr>
-    <tr><td>Price</td><td>$2,000</td><td>$2,000</td></tr>
-    <tr><td>Capacity cost (overage)</td><td>$400</td><td>$1,000</td></tr>
-    <tr><td>Lost margin (underage)</td><td>$1,600</td><td>$1,000</td></tr>
-    <tr><td>Critical ratio</td><td>1,600 ÷ 2,000 = 0.80</td><td>1,000 ÷ 2,000 = 0.50</td></tr>
-    <tr class="hl"><td>Capacity to build</td><td>1,000 + 0.84 × 250 ≈ 1,210</td><td>1,000 (the mean)</td></tr>
+    <tr><th></th><th>Avastin</th><th data-reveal="1">A soft drink</th></tr>
+    <tr><td>Price</td><td>$2,000</td><td data-reveal="1">$800</td></tr>
+    <tr><td>Capacity cost (overage)</td><td>$400</td><td data-reveal="1">$400</td></tr>
+    <tr><td>Lost margin (underage)</td><td>$1,600</td><td data-reveal="1"><mark class="hy">$400</mark></td></tr>
+    <tr><td>Critical ratio</td><td>1,600 ÷ 2,000 = 0.80</td><td data-reveal="1">400 ÷ 800 = 0.50</td></tr>
+    <tr class="hl"><td>Capacity to build</td><td>1,000 + 0.84 × 250 ≈ 1,200</td><td data-reveal="1">1,000 (the mean)</td></tr>
   </table>
-  <p class="take grise" data-reveal="1">High margins justify a <span class="red">capacity cushion</span> (+21%). Low margins say build to the mean.<span class="sm">Aside: one big tank fails 20% of the time; with two small tanks both fail 4%, at least one 36%. Small tanks trade cost for resilience.</span></p>
+  <p class="take grise" data-reveal="2">High margins justify a <span class="red">capacity cushion</span> (≈ +20%). Low margins say build to the mean.<span class="sm">Aside: one big tank fails 20% of the time; with two small tanks both fail 4%, at least one 36%. The odds don’t depend on margin, but the payoff does: two small tanks sell about 35K more doses a year, worth <b>≈ $56M at Avastin’s $1,600</b> margin but only <b>≈ $6M at $400</b>. High margins pay for resilience.</span></p>
   <div class="pg"></div>
 </section>
 
 <!-- s24 · Ex 5 problem (postponement; moved before Seagate) -->
-<section data-label="24 · Postponement and Pooling" class="s-std" data-poll="s24" data-speaker-notes="5 min. Tell the story: a famous Savannah bakery, fruit cake in four flavors (apricot, berry, cherry, date). It has already worked out that it needs 66 loaves of safety stock per flavor, 264 in all. Then it sees what Home Depot did with paint (white base, tinted at the counter) and designs its own business model innovation, Quick Flavor: hold one standard cake and flavor and quick-bake it to order. Run the poll BEFORE anyone computes; the next slide shows the results next to each choice. Many pick ¾ or the same. Behind the 66: weekly demand per flavor has mean 100 and sd 40 (independent), 95% service, so 1.65 × 40 = 66. Pooled: sd = 40 × √4 = 80, so 1.65 × 80 = 132 loaves. The answer is half (D): risk pools with √n, not n. The next slide shows it week by week. Bridge to cola: concentrate, late flavoring and late packaging are the same move.">
-  <p class="lab">Exercise 5</p>
+<section data-label="24 · Postponement and Pooling" class="s-std" data-speaker-notes="5 min. Tell the story: a famous Savannah bakery, fruit cake in four flavors (apricot, berry, cherry, date). It has already worked out that it needs 66 loaves of safety stock per flavor, 264 in all. Then it sees what Home Depot did with paint (white base, tinted at the counter) and designs its own business model innovation, Quick Flavor: hold one standard cake and flavor and quick-bake it to order. Hands up BEFORE anyone computes: A, B, C or D? Many pick ¾ or the same. Click to show the hint and let tables check it. Behind the 66: weekly demand per flavor has mean 100 and sd 40 (independent), 95% service, so 1.65 × 40 = 66. Pooled: sd = 40 × √4 = 80, so 1.65 × 80 = 132 loaves. The answer is half (D): risk pools with √n, not n. The next slide shows it week by week. Click 2: Coca-Cola did the same thing at the fountain. Freestyle (2009) holds concentrated flavor cartridges and mixes more than 100 drinks at the nozzle, so the restaurant stocks a few cartridges instead of a syrup box for every drink. Bridge to beverages: concentrate, late flavoring and late packaging are the same move.">
+  <p class="lab">Thought Experiment 4</p>
   <h2>Postponement and Pooling</h2>
   <div class="body" style="margin-top:24px;max-width:1180px">
     <p class="lead" style="font-size:40px">A famous <b>Savannah bakery</b> sells its fruit cake in <b>4 flavors</b>: apricot, berry, cherry, date. It needs <b>66 loaves</b> of safety stock per flavor: <b>264</b> in all.</p>
     <p class="p" style="margin-top:18px">Then it sees what Home Depot did with paint (white base, tinted at the counter) and launches <span class="red"><b>Quick Flavor</b></span>: hold a standard cake, then flavor and quick-bake it to order.</p>
-    <p class="p" style="margin-top:18px;max-width:880px"><b>How many standard cakes should Quick Flavor hold in stock?</b></p>
-    <ul class="qs tight pollbars" style="margin-top:6px;max-width:880px">
-      <li data-opt="0"><span class="red">A</span><span class="lbl">the same (264)</span><span class="bar" hidden></span><span class="pct" hidden></span></li>
-      <li data-opt="1"><span class="red">B</span><span class="lbl">double (528)</span><span class="bar" hidden></span><span class="pct" hidden></span></li>
-      <li data-opt="2"><span class="red">C</span><span class="lbl">¾ as much (198)</span><span class="bar" hidden></span><span class="pct" hidden></span></li>
-      <li data-opt="3"><span class="red">D</span><span class="lbl">half (132)</span><span class="bar" hidden></span><span class="pct" hidden></span></li>
+    <p class="p" style="margin-top:18px;max-width:880px"><b>How many standard cakes should Quick Flavor hold in stock?</b> <span class="red">Hands up</span> before anyone computes.</p>
+    <ul class="qs tight" style="margin-top:6px;max-width:880px">
+      <li data-opt="0"><span class="red">A</span><span class="lbl">the same (264)</span></li>
+      <li data-opt="1"><span class="red">B</span><span class="lbl">double (528)</span></li>
+      <li data-opt="2"><span class="red">C</span><span class="lbl">¾ as much (198)</span></li>
+      <li data-opt="3"><span class="red">D</span><span class="lbl">half (132)</span></li>
     </ul>
     <p class="small grise" data-reveal="1" style="margin-top:10px;max-width:900px;line-height:1.3">Behind the 66: demand per flavor mean 100, sd 40, so 1.65 × 40 = 66. Hint: sd of a sum of n independent demands = sd × √n.</p>
   </div>
-  <div class="poll live edge"><p class="k">PHONE POLL</p><p class="q">Guess first, then compute</p><div class="qrw"><img class="qr" src="images/sop/qr-s24.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
   <svg class="sop-tn sop-tn24" viewBox="0 0 380 250" role="img" aria-label="Normal distribution of weekly demand per flavor"><path d="M48,200 L48.0,184.3 L51.2,182.8 L54.4,181.1 L57.5,179.3 L60.7,177.3 L63.9,175.2 L67.1,173.0 L70.3,170.6 L73.4,168.1 L76.6,165.4 L79.8,162.6 L83.0,159.6 L86.2,156.5 L89.3,153.2 L92.5,149.8 L95.7,146.2 L98.9,142.5 L102.1,138.7 L105.2,134.7 L108.4,130.6 L111.6,126.4 L114.8,122.0 L118.0,117.6 L121.1,113.1 L124.3,108.5 L127.5,103.9 L130.7,99.2 L133.9,94.5 L137.0,89.8 L140.2,85.2 L143.4,80.5 L146.6,75.9 L149.8,71.4 L152.9,66.9 L156.1,62.6 L159.3,58.4 L162.5,54.4 L165.7,50.6 L168.8,46.9 L172.0,43.5 L175.2,40.2 L178.4,37.3 L181.6,34.6 L184.7,32.2 L187.9,30.0 L191.1,28.2 L194.3,26.7 L197.5,25.5 L200.6,24.7 L203.8,24.2 L207.0,24.0 L210.2,24.2 L213.4,24.7 L216.5,25.5 L219.7,26.7 L222.9,28.2 L226.1,30.0 L229.3,32.2 L232.4,34.6 L235.6,37.3 L238.8,40.2 L242.0,43.5 L245.2,46.9 L248.3,50.6 L251.5,54.4 L254.7,58.4 L257.9,62.6 L261.1,66.9 L264.2,71.4 L267.4,75.9 L270.6,80.5 L273.8,85.2 L277.0,89.8 L280.1,94.5 L283.3,99.2 L286.5,103.9 L289.7,108.5 L292.9,113.1 L296.0,117.6 L299.2,122.0 L302.4,126.4 L305.6,130.6 L308.8,134.7 L311.9,138.7 L315.1,142.5 L318.3,146.2 L321.5,149.8 L324.7,153.2 L327.8,156.5 L331.0,159.6 L334.2,162.6 L337.4,165.4 L340.6,168.1 L343.7,170.6 L346.9,173.0 L350.1,175.2 L353.3,177.3 L356.5,179.3 L359.6,181.1 L362.8,182.8 L366.0,184.3 L366,200 Z" fill="var(--tint)" stroke="none"/><path d="M48,200 L48.0,184.3 M366.0,184.3 L366,200" stroke="var(--red)" stroke-width="3" fill="none"/><path d="M48.0,184.3 L51.2,182.8 L54.4,181.1 L57.5,179.3 L60.7,177.3 L63.9,175.2 L67.1,173.0 L70.3,170.6 L73.4,168.1 L76.6,165.4 L79.8,162.6 L83.0,159.6 L86.2,156.5 L89.3,153.2 L92.5,149.8 L95.7,146.2 L98.9,142.5 L102.1,138.7 L105.2,134.7 L108.4,130.6 L111.6,126.4 L114.8,122.0 L118.0,117.6 L121.1,113.1 L124.3,108.5 L127.5,103.9 L130.7,99.2 L133.9,94.5 L137.0,89.8 L140.2,85.2 L143.4,80.5 L146.6,75.9 L149.8,71.4 L152.9,66.9 L156.1,62.6 L159.3,58.4 L162.5,54.4 L165.7,50.6 L168.8,46.9 L172.0,43.5 L175.2,40.2 L178.4,37.3 L181.6,34.6 L184.7,32.2 L187.9,30.0 L191.1,28.2 L194.3,26.7 L197.5,25.5 L200.6,24.7 L203.8,24.2 L207.0,24.0 L210.2,24.2 L213.4,24.7 L216.5,25.5 L219.7,26.7 L222.9,28.2 L226.1,30.0 L229.3,32.2 L232.4,34.6 L235.6,37.3 L238.8,40.2 L242.0,43.5 L245.2,46.9 L248.3,50.6 L251.5,54.4 L254.7,58.4 L257.9,62.6 L261.1,66.9 L264.2,71.4 L267.4,75.9 L270.6,80.5 L273.8,85.2 L277.0,89.8 L280.1,94.5 L283.3,99.2 L286.5,103.9 L289.7,108.5 L292.9,113.1 L296.0,117.6 L299.2,122.0 L302.4,126.4 L305.6,130.6 L308.8,134.7 L311.9,138.7 L315.1,142.5 L318.3,146.2 L321.5,149.8 L324.7,153.2 L327.8,156.5 L331.0,159.6 L334.2,162.6 L337.4,165.4 L340.6,168.1 L343.7,170.6 L346.9,173.0 L350.1,175.2 L353.3,177.3 L356.5,179.3 L359.6,181.1 L362.8,182.8 L366.0,184.3" stroke="var(--red)" stroke-width="4" fill="none"/><path d="M34,200 H376 M34,200 V8" stroke="var(--ink)" stroke-width="2.5" fill="none"/><text x="376" y="236" text-anchor="end">Demand</text><text transform="translate(18 114.0) rotate(-90)" text-anchor="middle">Probability</text><text x="207" y="226" text-anchor="middle">100</text></svg>
   <img class="sop-paint" src="images/sop/paint_mixing.jpg" alt="Tint being added to white base paint at the store counter, the idea behind Quick Flavor" />
+  <figure class="sop-fs" data-reveal="2"><img src="images/sop/logos/freestyle-machine.jpg" alt="Coca-Cola Freestyle dispenser" /><figcaption><img src="images/shared/logo-coca-cola.png" alt="Coca-Cola" />Freestyle (2009): 100+ drinks from one set of cartridges, mixed at the nozzle</figcaption></figure>
   <div class="pg"></div>
 </section>
 
 <!-- s24b · results of the s24 poll (HTML only) -->
-<section data-label="24b · Quick Flavor: Your Answers" class="s-std" data-poll="s24" data-html-only data-speaker-notes="Same slide with the live results: bars next to each choice show how the room voted (the top answer in red). Late votes still count while the slide is up. Many rooms land on ¾ or the same; the answer is D, half (132). Click to show the hint, let tables check it, then go to the animation.">
-  <p class="lab">Exercise 5</p>
-  <h2>Postponement and Pooling</h2>
-  <div class="body" style="margin-top:24px;max-width:1180px">
-    <p class="lead" style="font-size:40px">A famous <b>Savannah bakery</b> sells its fruit cake in <b>4 flavors</b>: apricot, berry, cherry, date. It needs <b>66 loaves</b> of safety stock per flavor: <b>264</b> in all.</p>
-    <p class="p" style="margin-top:18px">Then it sees what Home Depot did with paint (white base, tinted at the counter) and launches <span class="red"><b>Quick Flavor</b></span>: hold a standard cake, then flavor and quick-bake it to order.</p>
-    <p class="p" style="margin-top:18px;max-width:880px"><b>How many standard cakes should Quick Flavor hold in stock?</b></p>
-    <ul class="qs tight pollbars" style="margin-top:6px;max-width:880px">
-      <li data-opt="0"><span class="red">A</span><span class="lbl">the same (264)</span><span class="bar"></span><span class="pct"></span></li>
-      <li data-opt="1"><span class="red">B</span><span class="lbl">double (528)</span><span class="bar"></span><span class="pct"></span></li>
-      <li data-opt="2"><span class="red">C</span><span class="lbl">¾ as much (198)</span><span class="bar"></span><span class="pct"></span></li>
-      <li data-opt="3"><span class="red">D</span><span class="lbl">half (132)</span><span class="bar"></span><span class="pct"></span></li>
-    </ul>
-    <p class="small grise" data-reveal="1" style="margin-top:10px;max-width:900px;line-height:1.3">Behind the 66: demand per flavor mean 100, sd 40, so 1.65 × 40 = 66. Hint: sd of a sum of n independent demands = sd × √n.</p>
-  </div>
-  <div class="poll live edge"><p class="k">PHONE POLL</p><p class="q">Guess first, then compute</p><div class="qrw"><img class="qr" src="images/sop/qr-s24.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
-  <svg class="sop-tn sop-tn24" viewBox="0 0 380 250" role="img" aria-label="Normal distribution of weekly demand per flavor"><path d="M48,200 L48.0,184.3 L51.2,182.8 L54.4,181.1 L57.5,179.3 L60.7,177.3 L63.9,175.2 L67.1,173.0 L70.3,170.6 L73.4,168.1 L76.6,165.4 L79.8,162.6 L83.0,159.6 L86.2,156.5 L89.3,153.2 L92.5,149.8 L95.7,146.2 L98.9,142.5 L102.1,138.7 L105.2,134.7 L108.4,130.6 L111.6,126.4 L114.8,122.0 L118.0,117.6 L121.1,113.1 L124.3,108.5 L127.5,103.9 L130.7,99.2 L133.9,94.5 L137.0,89.8 L140.2,85.2 L143.4,80.5 L146.6,75.9 L149.8,71.4 L152.9,66.9 L156.1,62.6 L159.3,58.4 L162.5,54.4 L165.7,50.6 L168.8,46.9 L172.0,43.5 L175.2,40.2 L178.4,37.3 L181.6,34.6 L184.7,32.2 L187.9,30.0 L191.1,28.2 L194.3,26.7 L197.5,25.5 L200.6,24.7 L203.8,24.2 L207.0,24.0 L210.2,24.2 L213.4,24.7 L216.5,25.5 L219.7,26.7 L222.9,28.2 L226.1,30.0 L229.3,32.2 L232.4,34.6 L235.6,37.3 L238.8,40.2 L242.0,43.5 L245.2,46.9 L248.3,50.6 L251.5,54.4 L254.7,58.4 L257.9,62.6 L261.1,66.9 L264.2,71.4 L267.4,75.9 L270.6,80.5 L273.8,85.2 L277.0,89.8 L280.1,94.5 L283.3,99.2 L286.5,103.9 L289.7,108.5 L292.9,113.1 L296.0,117.6 L299.2,122.0 L302.4,126.4 L305.6,130.6 L308.8,134.7 L311.9,138.7 L315.1,142.5 L318.3,146.2 L321.5,149.8 L324.7,153.2 L327.8,156.5 L331.0,159.6 L334.2,162.6 L337.4,165.4 L340.6,168.1 L343.7,170.6 L346.9,173.0 L350.1,175.2 L353.3,177.3 L356.5,179.3 L359.6,181.1 L362.8,182.8 L366.0,184.3 L366,200 Z" fill="var(--tint)" stroke="none"/><path d="M48,200 L48.0,184.3 M366.0,184.3 L366,200" stroke="var(--red)" stroke-width="3" fill="none"/><path d="M48.0,184.3 L51.2,182.8 L54.4,181.1 L57.5,179.3 L60.7,177.3 L63.9,175.2 L67.1,173.0 L70.3,170.6 L73.4,168.1 L76.6,165.4 L79.8,162.6 L83.0,159.6 L86.2,156.5 L89.3,153.2 L92.5,149.8 L95.7,146.2 L98.9,142.5 L102.1,138.7 L105.2,134.7 L108.4,130.6 L111.6,126.4 L114.8,122.0 L118.0,117.6 L121.1,113.1 L124.3,108.5 L127.5,103.9 L130.7,99.2 L133.9,94.5 L137.0,89.8 L140.2,85.2 L143.4,80.5 L146.6,75.9 L149.8,71.4 L152.9,66.9 L156.1,62.6 L159.3,58.4 L162.5,54.4 L165.7,50.6 L168.8,46.9 L172.0,43.5 L175.2,40.2 L178.4,37.3 L181.6,34.6 L184.7,32.2 L187.9,30.0 L191.1,28.2 L194.3,26.7 L197.5,25.5 L200.6,24.7 L203.8,24.2 L207.0,24.0 L210.2,24.2 L213.4,24.7 L216.5,25.5 L219.7,26.7 L222.9,28.2 L226.1,30.0 L229.3,32.2 L232.4,34.6 L235.6,37.3 L238.8,40.2 L242.0,43.5 L245.2,46.9 L248.3,50.6 L251.5,54.4 L254.7,58.4 L257.9,62.6 L261.1,66.9 L264.2,71.4 L267.4,75.9 L270.6,80.5 L273.8,85.2 L277.0,89.8 L280.1,94.5 L283.3,99.2 L286.5,103.9 L289.7,108.5 L292.9,113.1 L296.0,117.6 L299.2,122.0 L302.4,126.4 L305.6,130.6 L308.8,134.7 L311.9,138.7 L315.1,142.5 L318.3,146.2 L321.5,149.8 L324.7,153.2 L327.8,156.5 L331.0,159.6 L334.2,162.6 L337.4,165.4 L340.6,168.1 L343.7,170.6 L346.9,173.0 L350.1,175.2 L353.3,177.3 L356.5,179.3 L359.6,181.1 L362.8,182.8 L366.0,184.3" stroke="var(--red)" stroke-width="4" fill="none"/><path d="M34,200 H376 M34,200 V8" stroke="var(--ink)" stroke-width="2.5" fill="none"/><text x="376" y="236" text-anchor="end">Demand</text><text transform="translate(18 114.0) rotate(-90)" text-anchor="middle">Probability</text><text x="207" y="226" text-anchor="middle">100</text></svg>
-  <div class="pg"></div>
-</section>
-
 <!-- s25b · pooling animation (HTML only; alternative to slide 25) -->
-<section data-label="25b · See It: Pool the Risk" class="s-std sop-pool" data-html-only data-speaker-notes="Back to the Savannah bakery. The animation runs by itself while the slide is on screen and restarts at week 1 each time you arrive. Left: four flavored cakes, 66 loaves of safety stock each (264). Right: Quick Flavor, one pile of 132 standard cakes, flavored and quick-baked to order. The number over each flavor is that week's demand (forecast 100); dots show the loaves going out; piles drain only by demand above forecast and restock weekly. Week 5 is the moment: Berry jumps to 170 and runs out on the left, while Apricot (61) and Cherry (59) leave their piles untouched, and those idle cakes cannot help Berry. On the right the four flavors net out to 5 under forecast, so nothing is drawn. By week 20 both sides serve 95% of flavor-weeks (76 of 80), with half the stock (a shortfall of standard cake counts against all four flavors). Click to reveal the takeaway. Bridge to cola: concentrate, late flavoring and late packaging are the same move.">
+<section data-label="25b · See It: Pool the Risk" class="s-std sop-pool" data-html-only data-speaker-notes="Back to the Savannah bakery. The animation runs by itself while the slide is on screen and restarts at week 1 each time you arrive. Left: four flavored cakes, 66 loaves of safety stock each (264). Right: Quick Flavor, one pile of 132 standard cakes, flavored and quick-baked to order. The number over each flavor is that week's demand (forecast 100); dots show the loaves going out; piles drain only by demand above forecast and restock weekly. Week 5 is the moment: Berry jumps to 170 and runs out on the left, while Apricot (61) and Cherry (59) leave their piles untouched, and those idle cakes cannot help Berry. On the right the four flavors net out to 5 under forecast, so nothing is drawn. By week 20 both sides serve 95% of flavor-weeks (76 of 80), with half the stock (a shortfall of standard cake counts against all four flavors). Click to reveal the takeaway. Bridge to beverages: concentrate, late flavoring and late packaging are the same move.">
   <p class="lab ans">Answer</p>
   <h2>See It: One Standard Cake, Half the Stock</h2>
   <p class="pool-sub"><span>The Savannah bakery, 4 flavors, forecast 100 loaves each per week. Regular stock covers the forecast; only demand above it comes out of safety stock (the piles).</span><span class="wk">Week <b class="wkn">1</b></span></p>
@@ -972,71 +1179,85 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
   <div class="pg"></div>
 </section>
 
-<!-- s21 · Ex 6 setup -->
-<section data-label="21 · Seagate: Where’s the Next Dollar?" class="s-std" data-speaker-notes="8 min total across the three Seagate slides. Tables compute the scenario margins.">
-  <p class="lab">Exercise 6</p>
-  <h2>Seagate: Where’s the Next Dollar?</h2>
-  <p class="p" style="margin-top:30px">Two disk drives. Each has its own <b>dedicated assembly line</b>; both share one expensive <b>test facility</b>.</p>
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;margin-top:30px">
-    <table class="t sm">
-      <tr><th>Stage</th><th>Margin / unit</th><th>Capacity</th><th>Cost / unit</th></tr>
-      <tr><td>Barracuda line</td><td>$300</td><td>Kb</td><td>$20</td></tr>
-      <tr><td>Cheetah line</td><td>$400</td><td>Kc</td><td>$30</td></tr>
-      <tr><td>Shared tester</td><td>—</td><td>Kt</td><td>$80</td></tr>
-    </table>
-    <table class="t sm">
-      <tr><th>Scenario</th><th>Prob.</th><th>Barracuda</th><th>Cheetah</th></tr>
-      <tr><td>1</td><td>0.25</td><td>250K</td><td>450K</td></tr>
-      <tr><td>2</td><td>0.50</td><td>300K</td><td>300K</td></tr>
-      <tr><td>3</td><td>0.25</td><td>350K</td><td>150K</td></tr>
-    </table>
+<!-- s21 · Ex 6 setup (moved before 20c) -->
+<section data-label="21 · Design for Your Portfolio" class="s-std sop-sg" data-speaker-notes="Bridge from postponement: the bakery pooled four flavors behind one standard cake. Seagate can pool products. Each drive has its own assembly line and its own tester, and each has only 200K of capacity. Read the chart: when Barracuda demand is high, Cheetah is low, and in every scenario demand for each drive is above 200K except Cheetah in S3, so the shortage is obvious. The box says it: uncertain demand for multiple products. Next slide: should you expand capacity, and how?">
+  <p class="lab">Thought Experiment 5</p>
+  <h2>Design for Your Portfolio</h2>
+  <p class="p sg-sub">After postponement, a second hedge: sell products whose demand moves in <span class="red">opposite directions</span>.</p>
+  <div class="sg-grid">
+    <div>
+      <svg class="sg-line sg-line1" viewBox="0 0 760 270" role="img" aria-label="Each drive has its own assembly line and its own tester, 200K each">
+<defs><marker id="sgar1" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/></marker></defs>
+<rect x="4" y="20" width="270" height="92" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="2.5"/><text x="139" y="60" text-anchor="middle" class="bx">Barracuda line</text><text x="139" y="92" text-anchor="middle" class="bx2">assembly · <tspan class="cap">200K</tspan></text>
+<path d="M276,66 H404" stroke="var(--ink)" stroke-width="3" fill="none" marker-end="url(#sgar1)"/>
+<rect x="410" y="20" width="230" height="92" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="2.5"/><text x="525" y="60" text-anchor="middle" class="bx">Barracuda tester</text><text x="525" y="92" text-anchor="middle" class="bx2">dedicated · <tspan class="cap">200K</tspan></text>
+<path d="M642,66 H748" stroke="var(--ink)" stroke-width="3" fill="none" marker-end="url(#sgar1)"/>
+<rect x="4" y="158" width="270" height="92" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="2.5"/><text x="139" y="198" text-anchor="middle" class="bx">Cheetah line</text><text x="139" y="230" text-anchor="middle" class="bx2">assembly · <tspan class="cap">200K</tspan></text>
+<path d="M276,204 H404" stroke="var(--ink)" stroke-width="3" fill="none" marker-end="url(#sgar1)"/>
+<rect x="410" y="158" width="230" height="92" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="2.5"/><text x="525" y="198" text-anchor="middle" class="bx">Cheetah tester</text><text x="525" y="230" text-anchor="middle" class="bx2">dedicated · <tspan class="cap">200K</tspan></text>
+<path d="M642,204 H748" stroke="var(--ink)" stroke-width="3" fill="none" marker-end="url(#sgar1)"/>
+</svg>
+      <p class="pf-box">Uncertain Demand for Multiple Products!</p>
+    </div>
+    <div>
+      <p class="sg-k">Demand mix next year · bubble size = probability</p>
+      <svg class="sg-mix" viewBox="0 0 760 590" role="img" aria-label="Bubble chart: Barracuda demand rises as Cheetah demand falls"><path d="M100.0,60.0 V500.0 H720.0" stroke="var(--ink)" stroke-width="2.5" fill="none"/><line x1="100.0" y1="500.0" x2="100.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="100.0" y="540.0" text-anchor="middle">200K</text><line x1="255.0" y1="500.0" x2="255.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="255.0" y="540.0" text-anchor="middle">250K</text><line x1="410.0" y1="500.0" x2="410.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="410.0" y="540.0" text-anchor="middle">300K</text><line x1="565.0" y1="500.0" x2="565.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="565.0" y="540.0" text-anchor="middle">350K</text><line x1="720.0" y1="500.0" x2="720.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="720.0" y="540.0" text-anchor="middle">400K</text><line x1="90.0" y1="500.0" x2="100.0" y2="500.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="508.0" text-anchor="end">100K</text><line x1="90.0" y1="390.0" x2="100.0" y2="390.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="398.0" text-anchor="end">200K</text><line x1="90.0" y1="280.0" x2="100.0" y2="280.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="288.0" text-anchor="end">300K</text><line x1="90.0" y1="170.0" x2="100.0" y2="170.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="178.0" text-anchor="end">400K</text><line x1="90.0" y1="60.0" x2="100.0" y2="60.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="68.0" text-anchor="end">500K</text><text x="410.0" y="580.0" text-anchor="middle" class="ax">Barracuda demand</text><text transform="translate(22 280.0) rotate(-90)" text-anchor="middle" class="ax">Cheetah demand</text><circle cx="255.0" cy="115.0" r="45" fill="var(--ink)" fill-opacity=".14" stroke="var(--ink)" stroke-width="2.5"/><text x="312.0" y="111.0" class="bl"><tspan font-weight="700">S1 · 25%</tspan></text><text x="312.0" y="141.0" class="bl2">250K + 450K = 700K</text><circle cx="410.0" cy="280.0" r="64" fill="var(--ink)" fill-opacity=".14" stroke="var(--ink)" stroke-width="2.5"/><text x="486.0" y="276.0" class="bl"><tspan font-weight="700">S2 · 50%</tspan></text><text x="486.0" y="306.0" class="bl2">300K + 300K = 600K</text><circle cx="565.0" cy="445.0" r="45" fill="var(--ink)" fill-opacity=".14" stroke="var(--ink)" stroke-width="2.5"/><text x="622.0" y="441.0" class="bl"><tspan font-weight="700">S3 · 25%</tspan></text><text x="622.0" y="471.0" class="bl2">350K + 150K = 500K</text></svg>
+    </div>
   </div>
-  <p class="p" style="margin-top:36px"><span class="red">Capital request:</span> Kb = 300K, Kc = 300K, Kt = 600K. Fixed $40M → total <b>$103M</b>.</p>
-  <ul class="qs" style="margin-top:20px">
-    <li style="font-size:34px"><span class="red">Q1</span>Margin in each scenario? (fill Cheetah first: it earns more per tester slot)</li>
-    <li style="font-size:34px"><span class="red">Q2</span>Expected profit?</li>
-    <li style="font-size:34px"><span class="red">Q3</span>You can change the three capacities. Where do you move money?</li>
-  </ul>
   <div class="pg"></div>
 </section>
 
-<!-- s22 · Ex 5 capital request -->
-<section data-label="22 · Seagate: The Capital Request" class="s-std" data-poll="s22" data-speaker-notes="Run the poll before revealing. Most rooms vote A (the tester looks like the bottleneck).">
-  <p class="lab">Exercise 6</p>
-  <h2>Seagate: The Capital Request</h2>
-  <div style="max-width:1180px">
-  <table class="t" style="margin-top:36px">
-    <tr><th>Scenario</th><th>Barracuda sold</th><th>Cheetah sold</th><th>Margin</th></tr>
-    <tr><td>1 (p = 0.25)</td><td>250K × $300</td><td>300K × $400 (capped)</td><td>$195M</td></tr>
-    <tr><td>2 (p = 0.50)</td><td>300K × $300</td><td>300K × $400</td><td>$210M</td></tr>
-    <tr><td>3 (p = 0.25)</td><td>300K × $300 (capped)</td><td>150K × $400</td><td>$150M</td></tr>
-    <tr><td>Expected margin</td><td></td><td></td><td>$191.25M</td></tr>
-    <tr class="hl"><td>Expected profit</td><td></td><td>$191.25M − $103M</td><td>$88.25M</td></tr>
-  </table>
-  <div style="margin-top:34px">
-    <ul class="qs tight pollbars" style="flex:1">
-      <li data-opt="0"><span class="red">A</span><span class="lbl">Bigger tester</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
-      <li data-opt="1"><span class="red">B</span><span class="lbl">Bigger dedicated lines</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
-      <li data-opt="2"><span class="red">C</span><span class="lbl">Shrink everything</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
-      <li data-opt="3"><span class="red">D</span><span class="lbl">Keep the request</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
-    </ul>
+<!-- 21b · copy of 21 with the expansion question (HTML only) -->
+<section data-label="21b · Design for Your Portfolio: Expand?" data-html-only class="s-std sop-sg" data-speaker-notes="Same picture, now the question: should you expand capacity, and how? Let the room argue. Where would you add capacity: the lines, the testers, or both? And should the two testers stay separate or be combined into one shared tester? Hint if needed: because the two demands move in opposite directions, the total barely moves. Then the answer slide.">
+  <p class="lab">Thought Experiment 5</p>
+  <h2>Design for Your Portfolio</h2>
+  <p class="p sg-sub">After postponement, a second hedge: sell products whose demand moves in <span class="red">opposite directions</span>.</p>
+  <div class="sg-grid">
+    <div>
+      <svg class="sg-line sg-line1" viewBox="0 0 760 270" role="img" aria-label="Each drive has its own assembly line and its own tester, 200K each">
+<defs><marker id="sgar1b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/></marker></defs>
+<rect x="4" y="20" width="270" height="92" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="2.5"/><text x="139" y="60" text-anchor="middle" class="bx">Barracuda line</text><text x="139" y="92" text-anchor="middle" class="bx2">assembly · <tspan class="cap">200K</tspan></text>
+<path d="M276,66 H404" stroke="var(--ink)" stroke-width="3" fill="none" marker-end="url(#sgar1b)"/>
+<rect x="410" y="20" width="230" height="92" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="2.5"/><text x="525" y="60" text-anchor="middle" class="bx">Barracuda tester</text><text x="525" y="92" text-anchor="middle" class="bx2">dedicated · <tspan class="cap">200K</tspan></text>
+<path d="M642,66 H748" stroke="var(--ink)" stroke-width="3" fill="none" marker-end="url(#sgar1b)"/>
+<rect x="4" y="158" width="270" height="92" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="2.5"/><text x="139" y="198" text-anchor="middle" class="bx">Cheetah line</text><text x="139" y="230" text-anchor="middle" class="bx2">assembly · <tspan class="cap">200K</tspan></text>
+<path d="M276,204 H404" stroke="var(--ink)" stroke-width="3" fill="none" marker-end="url(#sgar1b)"/>
+<rect x="410" y="158" width="230" height="92" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="2.5"/><text x="525" y="198" text-anchor="middle" class="bx">Cheetah tester</text><text x="525" y="230" text-anchor="middle" class="bx2">dedicated · <tspan class="cap">200K</tspan></text>
+<path d="M642,204 H748" stroke="var(--ink)" stroke-width="3" fill="none" marker-end="url(#sgar1b)"/>
+</svg>
+      <p class="pf-box q">Should you expand capacity, and how?</p>
+    </div>
+    <div>
+      <p class="sg-k">Demand mix next year · bubble size = probability</p>
+      <svg class="sg-mix" viewBox="0 0 760 590" role="img" aria-label="Bubble chart: Barracuda demand rises as Cheetah demand falls"><path d="M100.0,60.0 V500.0 H720.0" stroke="var(--ink)" stroke-width="2.5" fill="none"/><line x1="100.0" y1="500.0" x2="100.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="100.0" y="540.0" text-anchor="middle">200K</text><line x1="255.0" y1="500.0" x2="255.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="255.0" y="540.0" text-anchor="middle">250K</text><line x1="410.0" y1="500.0" x2="410.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="410.0" y="540.0" text-anchor="middle">300K</text><line x1="565.0" y1="500.0" x2="565.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="565.0" y="540.0" text-anchor="middle">350K</text><line x1="720.0" y1="500.0" x2="720.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="720.0" y="540.0" text-anchor="middle">400K</text><line x1="90.0" y1="500.0" x2="100.0" y2="500.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="508.0" text-anchor="end">100K</text><line x1="90.0" y1="390.0" x2="100.0" y2="390.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="398.0" text-anchor="end">200K</text><line x1="90.0" y1="280.0" x2="100.0" y2="280.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="288.0" text-anchor="end">300K</text><line x1="90.0" y1="170.0" x2="100.0" y2="170.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="178.0" text-anchor="end">400K</text><line x1="90.0" y1="60.0" x2="100.0" y2="60.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="68.0" text-anchor="end">500K</text><text x="410.0" y="580.0" text-anchor="middle" class="ax">Barracuda demand</text><text transform="translate(22 280.0) rotate(-90)" text-anchor="middle" class="ax">Cheetah demand</text><circle cx="255.0" cy="115.0" r="45" fill="var(--ink)" fill-opacity=".14" stroke="var(--ink)" stroke-width="2.5"/><text x="312.0" y="111.0" class="bl"><tspan font-weight="700">S1 · 25%</tspan></text><text x="312.0" y="141.0" class="bl2">250K + 450K = 700K</text><circle cx="410.0" cy="280.0" r="64" fill="var(--ink)" fill-opacity=".14" stroke="var(--ink)" stroke-width="2.5"/><text x="486.0" y="276.0" class="bl"><tspan font-weight="700">S2 · 50%</tspan></text><text x="486.0" y="306.0" class="bl2">300K + 300K = 600K</text><circle cx="565.0" cy="445.0" r="45" fill="var(--ink)" fill-opacity=".14" stroke="var(--ink)" stroke-width="2.5"/><text x="622.0" y="441.0" class="bl"><tspan font-weight="700">S3 · 25%</tspan></text><text x="622.0" y="471.0" class="bl2">350K + 150K = 500K</text></svg>
+    </div>
   </div>
-  </div>
-  <div class="poll live edge"><p class="k">PHONE POLL</p><p class="q">Where would you move money?</p><div class="qrw"><img class="qr" src="images/sop/qr-s22.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
   <div class="pg"></div>
 </section>
 
-<!-- s23 · Ex 5 answer -->
-<section data-label="23 · Seagate: Hedge the Mix" class="s-std" data-speaker-notes="Found by trying all capacity combinations in 25K steps. Link: KPIs &lt;-&gt; bottlenecks; the bottleneck is not always where you should add capacity.">
+<!-- 21c · answer: shared tester (HTML only) -->
+<section data-label="21c · Design Your Supply Chain for Your Portfolio" data-html-only class="s-std sop-sg" data-speaker-notes="The answer. Add capacity to the two cheap dedicated lines (350K each) and combine the testers into one shared 600K tester. Drives sold: S1 600K (Barracuda 250K, Cheetah capped at 350K by its line), S2 600K, S3 500K; expected 575K. Separate testers would need 450K for Cheetah and 350K for Barracuda to cover the same peaks, 800K in all. One shared 600K tester is enough because the two demands move in opposite directions: when Barracuda is high, Cheetah is low, and the total barely moves. Takeaway: share the bottleneck; one product's dip makes room for the other's peak. Seagate did this with its testers. GM research (Jordan and Graves, 1995) showed that a little flexibility, plants that can each build two models, captures most of the benefit of full flexibility. Caution: it only works when demands don't rise and fall together (hard drives and RAM do, so sharing would gain nothing).">
   <p class="lab ans">Answer</p>
-  <h2>Seagate: Hedge the Mix</h2>
-  <table class="t" style="margin-top:44px">
-    <tr><th>Design (Kb / Kc / Kt)</th><th>Cost</th><th>Margin S1 / S2 / S3</th><th>Expected profit</th></tr>
-    <tr><td>Request: 300 / 300 / 600</td><td>$103.0M</td><td>$195 / $210 / $150M</td><td>$88.25M</td></tr>
-    <tr class="hl"><td>Better: 350 / 350 / 600</td><td>$105.5M</td><td>$215 / $210 / $165M</td><td>$94.50M</td></tr>
-  </table>
-  <p class="p" style="margin-top:44px">Spending <b>$2.5M</b> more on cheap dedicated lines ($20–30/unit) earns <span class="red">+$6.25M</span>. The expensive shared tester ($80/unit) is already right-sized for total volume.</p>
-  <p class="take grise" data-reveal="1">You can’t predict the mix, so let it flex: <span class="red">operational hedging</span>.<span class="sm">Flexibility buys back part of a forecast you can never get.</span></p>
+  <h2>Design Your Supply Chain for Your Portfolio</h2>
+  <p class="p sg-sub">After postponement, a second hedge: sell products whose demand moves in <span class="red">opposite directions</span>.</p>
+  <div class="sg-grid">
+    <div>
+      <svg class="sg-line sg-line1" viewBox="0 0 760 270" role="img" aria-label="Two dedicated assembly lines, 350K each, feed one shared tester of 600K">
+<defs><marker id="sgar1c" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="var(--ink)"/></marker></defs>
+<rect x="4" y="20" width="270" height="92" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="2.5"/><text x="139" y="60" text-anchor="middle" class="bx">Barracuda line</text><text x="139" y="92" text-anchor="middle" class="bx2">assembly · <tspan class="cap">350K</tspan></text>
+<rect x="4" y="158" width="270" height="92" rx="6" fill="#fff" stroke="var(--ink)" stroke-width="2.5"/><text x="139" y="198" text-anchor="middle" class="bx">Cheetah line</text><text x="139" y="230" text-anchor="middle" class="bx2">assembly · <tspan class="cap">350K</tspan></text>
+<path d="M276,66 C340,66 340,135 404,135 M276,204 C340,204 340,135 404,135" stroke="var(--ink)" stroke-width="3" fill="none" marker-end="url(#sgar1c)"/>
+<rect x="410" y="80" width="230" height="110" rx="6" fill="var(--tint)" stroke="var(--red)" stroke-width="3"/><text x="525" y="128" text-anchor="middle" class="bx red">Shared tester</text><text x="525" y="162" text-anchor="middle" class="bx2">both drives · <tspan class="cap">600K</tspan></text>
+<path d="M642,135 H748" stroke="var(--ink)" stroke-width="3" fill="none" marker-end="url(#sgar1c)"/>
+</svg>
+      <p class="pf-box q">Share the bottleneck: one product’s dip makes room for the other’s peak.</p>
+      <div class="pf-lg"><img src="images/sop/logos/seagate.png" alt="Seagate" /><img src="images/sop/logos/gm.png" alt="General Motors" /><span>shared, flexible capacity</span></div>
+    </div>
+    <div>
+      <p class="sg-k">Demand mix next year · bubble size = probability</p>
+      <svg class="sg-mix" viewBox="0 0 760 590" role="img" aria-label="Bubble chart: Barracuda demand rises as Cheetah demand falls"><path d="M100.0,60.0 V500.0 H720.0" stroke="var(--ink)" stroke-width="2.5" fill="none"/><line x1="100.0" y1="500.0" x2="100.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="100.0" y="540.0" text-anchor="middle">200K</text><line x1="255.0" y1="500.0" x2="255.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="255.0" y="540.0" text-anchor="middle">250K</text><line x1="410.0" y1="500.0" x2="410.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="410.0" y="540.0" text-anchor="middle">300K</text><line x1="565.0" y1="500.0" x2="565.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="565.0" y="540.0" text-anchor="middle">350K</text><line x1="720.0" y1="500.0" x2="720.0" y2="510.0" stroke="var(--ink)" stroke-width="2"/><text x="720.0" y="540.0" text-anchor="middle">400K</text><line x1="90.0" y1="500.0" x2="100.0" y2="500.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="508.0" text-anchor="end">100K</text><line x1="90.0" y1="390.0" x2="100.0" y2="390.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="398.0" text-anchor="end">200K</text><line x1="90.0" y1="280.0" x2="100.0" y2="280.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="288.0" text-anchor="end">300K</text><line x1="90.0" y1="170.0" x2="100.0" y2="170.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="178.0" text-anchor="end">400K</text><line x1="90.0" y1="60.0" x2="100.0" y2="60.0" stroke="var(--ink)" stroke-width="2"/><text x="82.0" y="68.0" text-anchor="end">500K</text><text x="410.0" y="580.0" text-anchor="middle" class="ax">Barracuda demand</text><text transform="translate(22 280.0) rotate(-90)" text-anchor="middle" class="ax">Cheetah demand</text><circle cx="255.0" cy="115.0" r="45" fill="var(--ink)" fill-opacity=".14" stroke="var(--ink)" stroke-width="2.5"/><text x="312.0" y="111.0" class="bl"><tspan font-weight="700">S1 · 25%</tspan></text><text x="312.0" y="141.0" class="bl2">250K + 450K = 700K</text><circle cx="410.0" cy="280.0" r="64" fill="var(--ink)" fill-opacity=".14" stroke="var(--ink)" stroke-width="2.5"/><text x="486.0" y="276.0" class="bl"><tspan font-weight="700">S2 · 50%</tspan></text><text x="486.0" y="306.0" class="bl2">300K + 300K = 600K</text><circle cx="565.0" cy="445.0" r="45" fill="var(--ink)" fill-opacity=".14" stroke="var(--ink)" stroke-width="2.5"/><text x="622.0" y="441.0" class="bl"><tspan font-weight="700">S3 · 25%</tspan></text><text x="622.0" y="471.0" class="bl2">350K + 150K = 500K</text></svg>
+    </div>
+  </div>
   <div class="pg"></div>
 </section>
 
@@ -1053,9 +1274,9 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
       </ul>
       <p class="take" style="font-size:40px">Three cushions: <span class="red">capacity</span> (Genentech) · <span class="red">flexibility</span> (Seagate) · <span class="red">postponement</span> (pooling)</p>
     </div>
-    <div style="width:560px;display:grid;gap:24px">
-      <img style="width:100%" src="images/sop/sku-pen.png" alt="A modular injector pen" />
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px"><img style="width:100%" src="images/sop/sku-house-a.png" alt="Modular house, version A" /><img style="width:100%" src="images/sop/sku-house-b.png" alt="Modular house, version B" /></div>
+    <div class="sku-r">
+      <div data-reveal="1"><img class="sku-pen" src="images/sop/sku-pen.png" alt="A modular injector pen" /><img class="sku-paper" src="images/sop/fleibleproducts.png" alt="Production and Operations Management paper: Flexible Products for Dynamic Preferences, Alptekinoğlu and Ramachandran (2019)" /></div>
+      <div data-reveal="2"><div class="sku-houses"><img src="images/sop/sku-house-a.png" alt="Modular house, version A" /><img src="images/sop/sku-house-b.png" alt="Modular house, version B" /></div><img class="sku-paper" src="images/sop/partialcompletion-title.png" alt="MSOM paper: Partial Completion as a Nonprofit Strategy, Zhang, Atasu and Ramachandran" /></div>
     </div>
   </div>
   <div class="pg"></div>
@@ -1065,13 +1286,15 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
 <section data-label="27 · Part C: Respond" class="sop-stmt" data-speaker-notes="0:45. Section C: response strategies.">
   <p class="kicker rise">part C · respond</p>
   <h2 class="rise d1">options have value: <span class="red">adapt as you learn</span></h2>
-  <p class="after rise d2">Commit, wait, stage, or refuse</p>
+  <p class="after rise d2">Invest in supply or constrain demand: <b>commit, wait, stage, or refuse</b></p>
+  <div class="pstrip rise d3"><span class="k">Innovations ahead</span><img src="images/sop/logos/lilly.png" alt="Eli Lilly" /><img src="images/sop/logos/mcdonalds.png" alt="McDonald's" /><img src="images/sop/logos/tesla.png" alt="Tesla" /><img src="images/sop/xiaomi-logo.png" alt="Xiaomi" /><img src="images/sop/logos/shein.png" alt="Shein" /></div>
+  <img class="sp-logo" src="images/shared/logo-coca-cola.png" alt="" />
   <div class="pg"></div>
 </section>
 
 <!-- s28 · Ex 7 problem -->
-<section data-label="28 · Commit, Wait, or Stage?" class="s-std sop-cws" data-poll="s28" data-speaker-notes="6 min. Simplified from the Delayed Newsvendor workbook. Story: a new product with a one-year life. You will know whether demand is High or Low after the first quarter of sales, but capacity has to be decided now. The empty timeline shows the two demand levels and the moment you learn. Three ways to play it: commit now (700 or 1,300), pilot in one region in Q1 and launch everywhere in Q2 once you know, or stage (700 now, rush 600 more for Q2 if High). The pilot runs on the pilot line, so no new capacity in Q1. Let them vote, then ask: what does a bottleneck cost you? (each missed unit is $2,000 of margin) And idle capacity? ($1,000 per unit). Next slide plays each strategy through the year.">
-  <p class="lab">Exercise 7</p>
+<section data-label="28 · Commit, Wait, or Stage?" data-deck-skip class="s-std sop-cws" data-speaker-notes="6 min. Simplified from the Delayed Newsvendor workbook. Story: a new product with a one-year life. You will know whether demand is High or Low after the first quarter of sales, but capacity has to be decided now. The empty timeline shows the two demand levels and the moment you learn. Three ways to play it: commit now (700 or 1,300), pilot in one region in Q1 and launch everywhere in Q2 once you know, or stage (700 now, rush 600 more for Q2 if High). The pilot runs on the pilot line, so no new capacity in Q1. Hands up for Commit, Wait or Stage, then ask: what does a bottleneck cost you? (each missed unit is $2,000 of margin) And idle capacity? ($1,000 per unit). Next slide plays each strategy through the year.">
+  <p class="lab">Thought Experiment 7</p>
   <h2>Commit, Wait, or Stage?</h2>
   <div class="body cols" style="margin-top:26px">
     <div>
@@ -1089,20 +1312,20 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
         <text x="200" y="198" text-anchor="middle" font-size="24" fill="#71716A">Q1</text><text x="440" y="198" text-anchor="middle" font-size="24" fill="#71716A">Q2</text><text x="680" y="198" text-anchor="middle" font-size="24" fill="#71716A">Q3</text><text x="920" y="198" text-anchor="middle" font-size="24" fill="#71716A">Q4</text>
         <text x="1040" y="140" text-anchor="end" font-size="22" fill="#71716A">capacity: your call</text>
       </svg>
-      <ul class="qs tight pollbars" style="--barl:190px">
-        <li data-opt="0" style="padding-left:190px"><span class="red">Commit</span><span class="lbl">Build 700 or 1,300 now; launch everywhere in Q1.</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
-        <li data-opt="1" style="padding-left:190px"><span class="red">Wait</span><span class="lbl">Pilot in one region (20% of the market) in Q1; then build exactly and launch everywhere in Q2.</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
-        <li data-opt="2" style="padding-left:190px"><span class="red">Stage</span><span class="lbl">Build 700 now; if Q1 says High, rush 600 more for Q2 at <b>$1,100</b> a unit.</span><span class="bar grise" data-reveal="1"></span><span class="pct grise" data-reveal="1"></span></li>
+      <ul class="qs tight">
+        <li data-opt="0" style="padding-left:190px"><span class="red">Commit</span><span class="lbl">Build 700 or 1,300 now; launch everywhere in Q1.</span></li>
+        <li data-opt="1" style="padding-left:190px"><span class="red">Wait</span><span class="lbl">Pilot in one region (20% of the market) in Q1; then build exactly and launch everywhere in Q2.</span></li>
+        <li data-opt="2" style="padding-left:190px"><span class="red">Stage</span><span class="lbl">Build 700 now; if Q1 says High, rush 600 more for Q2 at <b>$1,100</b> a unit.</span></li>
       </ul>
       <p class="p"><b>Which gives the highest expected profit? What does a bottleneck cost you?</b></p>
     </div>
-    <div class="poll live"><p class="k">PHONE POLL</p><p class="q">Vote: Commit / Wait / Stage</p><div class="qrw"><img class="qr" src="images/sop/qr-s28.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">responses</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
+    <div class="hands"><p class="k">HANDS UP</p><p class="q">Commit · Wait · Stage</p></div>
   </div>
   <div class="pg"></div>
 </section>
 
 <!-- s29 · Ex 7 answer -->
-<section data-label="29 · Pay for Flexibility" class="s-std sop-flex" data-speaker-notes="4 min. Each click plays one strategy through the year: Low demand on top, High below. Red bar = capacity, dashed line = demand, dark bars = units sold, red shading = lost sales (bottleneck), grey = idle capacity. The profit counter starts at minus the capacity cost and climbs $2,000 per unit sold. On arrival, Commit 700: High is a bottleneck all year (150 lost every quarter): $0.70M in both cases. Click 1, Commit 1,300: in Low, 600 units of capacity sit idle ($600K wasted): $0.10M or $1.30M, expected $0.70M, the same as 700. Click 2, Pilot and wait: Q1 sells only in the pilot region (20%), then exactly the right capacity: $0.42M or $0.78M, expected $0.60M. Learning is valuable, but the lost quarter costs more. Click 3, Stage: build 700. Low is perfect. High has one quarter of bottleneck, then 600 rush units at $1,100: $0.94M, expected $0.82M, the best. Click 4: perfect hindsight is $1.00M; stage gives up $180K, commit $300K, wait $400K. Math if asked: Commit 1,300 Low = 700 × $2,000 − 1,300 × $1,000 = $0.10M. Stage High = 1,150 × $2,000 − 700 × $1,000 − 600 × $1,100 = $0.94M. Wait High = (65 + 975) × $2,000 − 1,300 × $1,000 = $0.78M. Genentech: incremental vs. all-at-once expansion. Xiaomi (two slides on): small batches, then scale.">
+<section data-label="29 · Pay for Flexibility" data-deck-skip class="s-std sop-flex" data-speaker-notes="4 min. Each click plays one strategy through the year: Low demand on top, High below. Red bar = capacity, dashed line = demand, dark bars = units sold, red shading = lost sales (bottleneck), grey = idle capacity. The profit counter starts at minus the capacity cost and climbs $2,000 per unit sold. On arrival, Commit 700: High is a bottleneck all year (150 lost every quarter): $0.70M in both cases. Click 1, Commit 1,300: in Low, 600 units of capacity sit idle ($600K wasted): $0.10M or $1.30M, expected $0.70M, the same as 700. Click 2, Pilot and wait: Q1 sells only in the pilot region (20%), then exactly the right capacity: $0.42M or $0.78M, expected $0.60M. Learning is valuable, but the lost quarter costs more. Click 3, Stage: build 700. Low is perfect. High has one quarter of bottleneck, then 600 rush units at $1,100: $0.94M, expected $0.82M, the best. Click 4: perfect hindsight is $1.00M; stage gives up $180K, commit $300K, wait $400K. Math if asked: Commit 1,300 Low = 700 × $2,000 − 1,300 × $1,000 = $0.10M. Stage High = 1,150 × $2,000 − 700 × $1,000 − 600 × $1,100 = $0.94M. Wait High = (65 + 975) × $2,000 − 1,300 × $1,000 = $0.78M. Genentech: incremental vs. all-at-once expansion. Xiaomi (two slides on): small batches, then scale.">
   <p class="lab ans">Answer</p>
   <h2>Pay for Flexibility</h2>
   <div class="fx">
@@ -1129,7 +1352,7 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
 </section>
 
 <!-- 29b · same exercise with mature-manufacturing costs (HTML only) -->
-<section data-label="29b · When Commitment Wins" class="s-std sop-mat" data-html-only data-speaker-notes="2 min. Same exercise with our original numbers, which fit a mature process: capacity $400, rush $600. On arrival: the new-product results from the last slide. Click 1: the mature process. Now Commit 1,300 wins at $1.48M, ahead of Stage $1.39M, Pilot and wait $1.20M and Commit 700 $1.12M. Click 2: why. Compare the two ways to be wrong. Overbuild and demand is Low: 600 idle units × the capacity cost. Stage and demand is High: 150 lost sales × $2,000, plus the rush premium on 600 units. New product: $600K vs. $360K, so stage. Mature: $240K vs. $420K, so commit. Both cases are 50/50, so the smaller regret wins. Cheap, proven capacity is cheap insurance: build ahead. Expensive, new capacity: stage it. KO: established lines and co-packers vs. a brand-new format or package.">
+<section data-label="29b · When Commitment Wins" data-deck-skip class="s-std sop-mat" data-html-only data-speaker-notes="2 min. Same thought experiment with our original numbers, which fit a mature process: capacity $400, rush $600. On arrival: the new-product results from the last slide. Click 1: the mature process. Now Commit 1,300 wins at $1.48M, ahead of Stage $1.39M, Pilot and wait $1.20M and Commit 700 $1.12M. Click 2: why. Compare the two ways to be wrong. Overbuild and demand is Low: 600 idle units × the capacity cost. Stage and demand is High: 150 lost sales × $2,000, plus the rush premium on 600 units. New product: $600K vs. $360K, so stage. Mature: $240K vs. $420K, so commit. Both cases are 50/50, so the smaller regret wins. Cheap, proven capacity is cheap insurance: build ahead. Expensive, new capacity: stage it. In beverages: established lines and co-packers vs. a brand-new format or package.">
   <h2>When Commitment Wins: Mature Manufacturing</h2>
   <div class="mat">
     <div class="mat-c" data-set="new"><h3>New product<span>capacity $1,000 · rush $1,100</span></h3><ul class="fx-sb"></ul></div>
@@ -1141,13 +1364,55 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
     <tr><td>Stage, demand High: 150 lost × $2,000 + 600 × rush premium</td><td>$360K</td><td>$420K</td></tr>
     <tr class="hl"><td>Smaller regret wins</td><td>Stage</td><td>Commit 1,300</td></tr>
   </table>
-  <p class="small" data-reveal="2">Cheap, proven capacity is cheap insurance: <b>build ahead</b>. Expensive, new capacity: <b>stage it</b>.</p>
+  <p class="small" data-reveal="2">Cheap, proven capacity is cheap insurance: <b>build ahead</b> (e.g., make and store empty bottles before a known capacity crunch). Expensive, new capacity: <b>stage it</b>.</p>
   <i class="fx-step" data-reveal="1"></i>
+  <img class="sp-logo" src="images/shared/logo-coca-cola.png" alt="" />
+  <div class="pg"></div>
+</section>
+
+<!-- 29c · real stories: commit / wait / stage / refuse (HTML only; replaces 28–29b in the talk) -->
+<section data-label="29c · What Companies Actually Do" class="s-std sop-real" data-html-only data-speaker-notes="3 min. One click per move; one company each. Commit: Lilly began a major manufacturing expansion in 2020 and says it made that decision at risk, before Mounjaro (2022) and Zepbound (2023) were approved. By May 2024 it had committed more than $16 billion to new sites since 2020 (more than $18 billion counting upgrades and an acquisition). Its 2024 annual report says demand exceeded production at times in 2024. High margin, so being short costs more than being idle. Wait: McDonald's started the McPlant in 8 restaurants (Nov 2021), expanded to about 600 around the San Francisco Bay Area and Dallas–Fort Worth (Feb 2022), and ended the test in July 2022. Analysts and franchisees reported disappointing sales; in 2024 McDonald's US president said it was not successful in either market. No national rollout. Stage: Tesla, June 2018, Model 3 short of 5,000 a week; it put a third assembly line in a tent outside Fremont in two to three weeks. Novo Nordisk agreed in February 2024 to pay $11 billion for three Catalent fill-finish sites (Anagni, Brussels, Bloomington), closed December 2024; Novo expects them to add filling capacity gradually from 2026. Capacity added after you learn costs more, but you only buy it when you need it. Refuse: on May 4, 2023 Novo said it would temporarily reduce US supply of the lower Wegovy doses (0.25, 0.5, 1 mg) to safeguard continuity of care for patients already on treatment; the limits ran into 2024. When you cannot serve everyone, decide whom to serve. Bridge: that last one is where we go next, the art of saying No.">
+  <h2>What Companies Actually Do</h2>
+  <div class="rs">
+    <div class="rc" data-reveal="1"><p class="v">Commit</p><p class="co">Eli Lilly · Mounjaro, Zepbound</p><p class="st">Began expanding plants in 2020 <b>“at risk”</b>, before either drug was approved: more than <b>$16B</b> committed to new sites by 2024. Demand still outran supply at times in 2024.</p><p class="ls">High margin: being short costs more than being idle.</p></div>
+    <div class="rc" data-reveal="2"><p class="v">Wait</p><p class="co">McDonald’s · McPlant</p><p class="st">Tested in about <b>600 restaurants</b> around Dallas and the San Francisco Bay Area (2021–22). Sales disappointed: <b>no national rollout</b>.</p><p class="ls">Learn in a few markets before committing to all of them.</p></div>
+    <div class="rc" data-reveal="3"><p class="v">Stage</p><p class="co">Tesla · Novo Nordisk</p><p class="st">Tesla added a Model 3 line <b>in a tent</b> in two to three weeks (2018). In 2024, with Wegovy demand clear, Novo agreed to pay <b>$11B</b> for three fill-finish plants.</p><p class="ls">Buy capacity once you know, at a premium.</p></div>
+    <div class="rc" data-reveal="4"><p class="v">Refuse</p><p class="co">Novo Nordisk · Wegovy</p><p class="st">Demand ran ahead of supply. In 2023 Novo <b>cut US supply of starter doses</b> so patients already on treatment kept getting theirs.</p><p class="ls">If you cannot serve everyone, choose whom to serve.</p></div>
+  </div>
+  <p class="src">Sources: Lilly press release (May 2024) and 2024 annual report; CNBC (July 2022, May 2023); Restaurant Business (2024); Electrek (June 2018); Novo Nordisk (Feb and Dec 2024).</p>
+  <div class="pg"></div>
+</section>
+
+<!-- 29d · backup: fact-check details for 29c (hidden; HTML only) -->
+<section data-label="29d · Backup: The Fine Print" class="s-std sop-real sop-fine" data-deck-skip data-html-only data-speaker-notes="Hidden backup for the previous slide. Open only if someone asks for dates, numbers or sources.">
+  <p class="lab bk">Backup</p>
+  <h2>The Fine Print</h2>
+  <div class="rs">
+    <div class="rc"><p class="v">Commit</p><p class="co">Eli Lilly</p><ul class="fp">
+      <li>Began a major expansion in <b>2020</b>; made the decision <b>“at risk”</b>, before Mounjaro (May 2022) and Zepbound (Nov 2023) were approved.</li>
+      <li><b>$16B+</b> committed to new sites since 2020 (as of May 2024); <b>$18B+</b> with upgrades and the Wisconsin plant purchase.</li>
+      <li>May 2024: Lebanon, Indiana raised to <b>$9B</b> (+$5.3B); production from late 2026.</li>
+      <li>2024 annual report: demand exceeded production in “periods of 2024”.</li></ul></div>
+    <div class="rc"><p class="v">Wait</p><p class="co">McDonald’s</p><ul class="fp">
+      <li><b>Nov 2021:</b> McPlant in 8 restaurants.</li>
+      <li><b>Feb 2022:</b> about <b>600</b> restaurants in the SF Bay Area and Dallas–Fort Worth.</li>
+      <li><b>July 2022:</b> test ended; no national launch.</li>
+      <li>Analysts (JPMorgan, BTIG) and franchisees: sales disappointing, about 20 a day per store.</li>
+      <li>2024, McDonald’s US president: “not successful in either market”.</li></ul></div>
+    <div class="rc"><p class="v">Stage</p><p class="co">Tesla · Novo Nordisk</p><ul class="fp">
+      <li>Tesla <b>GA4</b>: Model 3 line in a tent at Fremont; first car <b>June 2018</b>, to reach 5,000 a week. “Two weeks” and “three weeks”: both are Musk’s own claims.</li>
+      <li>Novo: agreed <b>Feb 5, 2024</b>, closed <b>Dec 18, 2024</b>; <b>$11B</b> for three Catalent fill-finish sites (Anagni, Brussels, Bloomington). Capacity from <b>2026</b>.</li></ul></div>
+    <div class="rc"><p class="v">Refuse</p><p class="co">Novo Nordisk</p><ul class="fp">
+      <li><b>May 4, 2023:</b> “To safeguard continuity of care”, temporarily reduced US supply of the lower Wegovy doses (<b>0.25, 0.5, 1 mg</b>).</li>
+      <li>Aug 2023: limits extended into 2024.</li>
+      <li>Jan 2024: supply of the lower doses more than doubled.</li></ul></div>
+  </div>
+  <p class="src fp-src">Sources: Lilly press release, May 24, 2024 (via Chemical Engineering, European Pharmaceutical Review) · Lilly 2024 annual report · NRN, Jan 2022 · CNBC, July 28, 2022 · Restaurant Business, QSR Magazine, 2024 · Electrek, Engadget, Fortune, June 2018 · Novo Nordisk, Dec 18, 2024 · Pharmaphorum, Dec 2024 · CNBC, May 4, 2023 · CNN, Aug 10, 2023</p>
   <div class="pg"></div>
 </section>
 
 <!-- s30 · Xiaomi -->
-<section data-label="30 · Staging in Practice: Xiaomi" class="s-std" data-speaker-notes="From Calmon&#x27;s IBP case. Staging at scale: each batch is an experiment that updates the forecast.">
+<section data-label="30 · Staging in Practice: Xiaomi" class="s-std sop-x" data-speaker-notes="Xiaomi launches new phones in small batches (about 100K units), sells them online, folds customer feedback into the next batch, and scales up only what sells. Each batch is an experiment that updates the forecast. Click: the same playbook in fashion. Shein says it launches each new style in a first batch of 100 to 200 pieces, watches real-time sales, and reorders only the winners. Small first batches make each launch cheap to be wrong about.">
   <h2>Staging in Practice: Xiaomi</h2>
   <p class="lead" style="margin-top:36px">Launch new products in <span class="red">small batches</span> · incorporate customer feedback · scale up production</p>
   <div class="xlogos">
@@ -1162,12 +1427,13 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
     <div class="rise d3">Batch 3 …</div>
   </div>
   <p class="small">Model life cycle ≈ <b>12–18 months</b>: each batch is an experiment that updates the forecast.</p>
+  <p class="shn" data-reveal="1"><img src="images/sop/logos/shein.png" alt="Shein" /><span>Same playbook in fashion: <b>100–200 pieces</b> per new style, then reorder only what sells.</span></p>
   <div class="pg"></div>
 </section>
 
 <!-- s31 · Ex 8 problem -->
 <section data-label="31 · The Art of Saying No" class="s-std" data-speaker-notes="Optional (3 min). Club example from Sara Park&#x27;s 2025 IBP session.">
-  <p class="lab">Exercise 8</p>
+  <p class="lab">Thought Experiment 6</p>
   <h2>The Art of Saying “No”</h2>
   <div class="body cols" style="margin-top:40px">
     <div>
@@ -1180,7 +1446,21 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
       </ul>
       <p class="take" style="font-size:42px">What extra transport and repack cost per case makes variety the <span class="red">wrong answer</span>?</p>
     </div>
-    <figure style="width:560px"><img style="width:100%" src="images/sop/right-of-refusal-paper.png" alt="Management Science paper: A Dynamic Inventory Model with the Right of Refusal" /><figcaption>Bhaskaran, Ramachandran &amp; Semple, <i>Management Science</i></figcaption></figure>
+    <figure style="width:560px"><img style="width:100%" src="images/sop/right-of-refusal-paper.png" alt="Management Science paper: A Dynamic Inventory Model with the Right of Refusal" /><figcaption>Bhaskaran, Ramachandran &amp; Semple, <i>Management Science</i> (2010)</figcaption><div class="rf-g"><p class="rf-k">The paper’s rule: accept orders up to a <span class="red">limit</span>, then say “No”</p>
+<svg viewBox="0 0 560 290" role="img" aria-label="Orders accepted rise one for one with orders received: first served from stock, then backlogged, until a critical backlog limit; beyond the limit, orders are refused">
+<rect x="70" y="20" width="150" height="200" fill="var(--tint)"/><rect x="220" y="20" width="160" height="200" fill="var(--tint)" opacity=".5"/><rect x="380" y="20" width="160" height="200" fill="#FBE3E5"/>
+<path d="M70,220 L380,65 L540,65" stroke="var(--ink)" stroke-width="4" fill="none"/>
+
+<line x1="380" y1="20" x2="380" y2="220" stroke="var(--red)" stroke-width="3" stroke-dasharray="8 6"/>
+<line x1="220" y1="20" x2="220" y2="220" stroke="var(--muted)" stroke-width="2" stroke-dasharray="4 5"/>
+<path d="M70,12 V220 H545" stroke="var(--ink)" stroke-width="2.5" fill="none"/>
+<text x="145" y="48" text-anchor="middle" class="z">serve from</text><text x="145" y="72" text-anchor="middle" class="z">stock</text>
+<text x="300" y="48" text-anchor="middle" class="z">accept and</text><text x="300" y="72" text-anchor="middle" class="z">backlog</text>
+<text x="460" y="120" text-anchor="middle" class="z no">say “No”</text><text x="460" y="146" text-anchor="middle" class="z">refuse: lost sale</text>
+<text x="220" y="244" text-anchor="middle" class="t">stock on hand</text><text x="380" y="244" text-anchor="middle" class="t red">backlog limit</text>
+<text x="305" y="280" text-anchor="middle" class="ax">orders received</text>
+<text transform="translate(28 120) rotate(-90)" text-anchor="middle" class="ax">orders accepted</text>
+</svg></div></figure>
   </div>
   <div class="pg"></div>
 </section>
@@ -1195,8 +1475,9 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
     <tr><td>Straight pack: $0.75 × 1M</td><td>$0.75M</td></tr>
     <tr class="hl"><td>Break-even extra cost: $0.05M ÷ 2M cases</td><td>$0.025 per case</td></tr>
   </table>
-  <p class="p" style="margin-top:36px">Variety packs cost far more than 2.5¢ a case to move and repack, so KO chose <b>straight pack</b>.</p>
+  <p class="p" style="margin-top:36px">Variety packs cost far more than 2.5¢ a case to move and repack, so the right call was <b>straight pack</b>.</p>
   <p class="take grise" data-reveal="1">Forecasting tells you what’s coming; <span class="red">demand management decides what to walk away from</span>.<span class="sm">“Do Not Promote” lists · allocation · protect service on strategic SKUs</span></p>
+  <img class="sp-logo" src="images/shared/logo-coca-cola.png" alt="" />
   <div class="pg"></div>
 </section>
 
@@ -1212,45 +1493,107 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
   <div class="pg"></div>
 </section>
 
+<section data-label="33b · Where Today Fits in IBP" class="s-std sop-ibp" data-html-only data-speaker-notes="1 min. The bridge to FEMSA. S&amp;OP and IBP run in five steps every month. Our three parts map onto them: Part A is steps 1 and 2 (product lifecycle, forecast and demand plan), Part B is step 3 (supply plan: capacity, postponement, hedging), Part C is steps 4 and 5 (balance supply and demand, then decide). Click: IBP is S&amp;OP with dollars. Every thought experiment today put a dollar value on a supply-demand trade-off. That is the work FEMSA will show you.">
+  <h2>Where Today Fits in IBP</h2>
+  <div class="ibp">
+    <div class="st"><i>1</i><b>Product lifecycle</b><span>launches and exits</span></div>
+    <div class="st"><i>2</i><b>Forecast &amp; demand plan</b><span>unconstrained, then constrained</span></div>
+    <div class="st"><i>3</i><b>Supply plan</b><span>capacity, inventory, sourcing</span></div>
+    <div class="st"><i>4</i><b>Balance</b><span>invest in supply or constrain demand</span></div>
+    <div class="st"><i>5</i><b>Executive decision</b><span>trade-offs in dollars</span></div>
+    <div class="pt" style="grid-column:1 / span 2"><b>A. <span class="red">Forecast</span></b><span>Segway · Meta and Wegovy · the crowd · Tesla deposits</span></div>
+    <div class="pt"><b>B. <span class="red">Design</span></b><span>Avastin · Quick Flavor · Seagate</span></div>
+    <div class="pt" style="grid-column:4 / span 2"><b>C. <span class="red">Respond</span></b><span>commit, wait or stage · saying “No”</span></div>
+  </div>
+  <p class="take grise" data-reveal="1">IBP is <span class="red">S&amp;OP with dollars</span>.<span class="sm">Every thought experiment today priced a supply–demand trade-off. That is the work FEMSA will show you.</span></p>
+  <img class="sp-logo" src="images/shared/logo-coca-cola.png" alt="" />
+  <div class="pg"></div>
+</section>
+
+<!-- 33c · timeline: every tool was once an innovation (HTML only) -->
+<section data-label="33c · Every Tool Was Once an Innovation" class="s-std sop-tl" data-html-only data-speaker-notes="1 min. Look back at the toolkit: every move today was once somebody's supply chain innovation. Letters show the part: A forecast, B design, C respond. 1906 Galton finds the average of a crowd's guesses beats the experts. 1985 American Airlines starts limiting discount seats and overbooking (yield management; about $1.4 billion over three years, Smith, Leimkuhler and Darrow, Interfaces 1992): saying No to some customers, on purpose. 1993 HP finishes DeskJet printers for each country at its European warehouse instead of the factory (Lee, Billington and Carter, Interfaces 1993): postponement. 1994 Sport Obermeyer uses the disagreement among its forecasters to decide what to make early and what to wait on (HBR 1994). 1995 GM research shows a little plant flexibility, chained across plants, captures most of the benefit of full flexibility (Jordan and Graves, Management Science 1995). 2009 Coca-Cola Freestyle mixes 100+ drinks at the nozzle. 2011 Xiaomi's first phone, sold online in small batches. 2016 Tesla's Model 3: 325,000 paid reservations in a week. 2020 Lilly starts building plants at risk before Mounjaro is approved. 2020s Shein tests each style with 100 to 200 pieces and reorders winners. Click: what will your company's be? Then hand over to FEMSA.">
+  <h2>Every Tool Today Was Once an Innovation</h2>
+  <div class="tl">
+    <div class="ln"></div>
+    <div class="it up" style="grid-column:1"><div class="lgo"><img src="images/sop/crowd-ox.png" alt="Galton's ox" /></div><p class="y"><i>A</i>1906</p><p class="w">Galton: average the crowd’s guesses</p></div>
+    <div class="dt" style="grid-column:1"></div>
+    <div class="it dn" style="grid-column:2"><div class="lgo"><img src="images/sop/logos/american.png" alt="American Airlines" /></div><p class="y"><i class="c">C</i>1985</p><p class="w">limit cheap seats, overbook: say “No”</p></div>
+    <div class="dt" style="grid-column:2"></div>
+    <div class="it up" style="grid-column:3"><div class="lgo"><img src="images/sop/logos/hp.png" alt="HP" /></div><p class="y"><i class="b">B</i>1993</p><p class="w">finish printers at the regional warehouse</p></div>
+    <div class="dt" style="grid-column:3"></div>
+    <div class="it dn" style="grid-column:4"><div class="lgo"><span class="tb">Sport<br/>Obermeyer</span></div><p class="y"><i>A</i>1994</p><p class="w">disagreement flags risky styles</p></div>
+    <div class="dt" style="grid-column:4"></div>
+    <div class="it up" style="grid-column:5"><div class="lgo"><img src="images/sop/logos/gm.png" alt="General Motors" /></div><p class="y"><i class="b">B</i>1995</p><p class="w">a little plant flexibility goes far</p></div>
+    <div class="dt" style="grid-column:5"></div>
+    <div class="it dn" style="grid-column:6"><div class="lgo"><img src="images/shared/logo-coca-cola.png" alt="Coca-Cola" /></div><p class="y"><i class="b">B</i>2009</p><p class="w">Freestyle: flavor at the nozzle</p></div>
+    <div class="dt" style="grid-column:6"></div>
+    <div class="it up" style="grid-column:7"><div class="lgo"><img src="images/sop/xiaomi-logo.png" alt="Xiaomi" /></div><p class="y"><i class="c">C</i>2011</p><p class="w">launch in small batches</p></div>
+    <div class="dt" style="grid-column:7"></div>
+    <div class="it dn" style="grid-column:8"><div class="lgo"><img src="images/sop/logos/tesla.png" alt="Tesla" /></div><p class="y"><i>A</i>2016</p><p class="w">$1,000 deposits as an early forecast</p></div>
+    <div class="dt" style="grid-column:8"></div>
+    <div class="it up" style="grid-column:9"><div class="lgo"><img src="images/sop/logos/lilly.png" alt="Eli Lilly" /></div><p class="y"><i class="c">C</i>2020</p><p class="w">build plants before approval</p></div>
+    <div class="dt" style="grid-column:9"></div>
+    <div class="it dn" style="grid-column:10"><div class="lgo"><img src="images/sop/logos/shein.png" alt="Shein" /></div><p class="y"><i class="c">C</i>2020s</p><p class="w">test 100–200, reorder winners</p></div>
+    <div class="dt" style="grid-column:10"></div>
+  </div>
+  <div class="key"><span><i>A</i>Forecast</span><span><i class="b">B</i>Design</span><span><i class="c">C</i>Respond</span><span>Year = launch or first published account</span></div>
+  <p class="take grise" data-reveal="1">Someone invented each of these. <span class="red">What will your supply chain innovation be?</span></p>
+  <p class="src">Galton, Nature 1907 · Smith, Leimkuhler &amp; Darrow, Interfaces 1992 · Lee, Billington &amp; Carter, Interfaces 1993 · Fisher, Hammond, Obermeyer &amp; Raman, HBR 1994 · Jordan &amp; Graves, Management Science 1995 · Coca-Cola · Tesla, Apr 2016 · Lilly, May 2024 · Shein Group</p>
+  <div class="pg"></div>
+</section>
+
+<!-- 33d · backup: sources for the innovation examples (hidden; HTML only) -->
+<section data-label="33d · Backup: Innovation Sources" class="s-std sop-real sop-fine" data-deck-skip data-html-only data-speaker-notes="Hidden backup for the innovation examples (slides 3b, 15, 14d, 24, 30 and the timeline). Open only if someone asks.">
+  <p class="lab bk">Backup</p>
+  <h2>The Innovation Examples: Fine Print</h2>
+  <div class="rs">
+    <div class="rc"><p class="v">Forecast</p><ul class="fp">
+      <li><b>Tesla Model 3:</b> unveiled Mar 31, 2016; <b>325,000+</b> reservations in the first week (Tesla, Apr 7, 2016), each with a refundable <b>$1,000</b> deposit. Some people reserved more than one.</li>
+      <li><b>Sport Obermeyer:</b> Fisher, Hammond, Obermeyer &amp; Raman, “Making Supply Meet Demand in an Uncertain World,” HBR, May–June 1994. Committee members forecast each style independently; their spread tracked forecast error. Make low-risk styles early, wait for early orders on the risky ones. The chart on 14d is an illustration.</li></ul></div>
+    <div class="rc"><p class="v">Design</p><ul class="fp">
+      <li><b>Coca-Cola Freestyle:</b> launched 2009; micro-dosing of concentrated cartridges. More than 100 drinks at launch; Coca-Cola now cites 150 to 200+.</li>
+      <li><b>HP DeskJet:</b> Lee, Billington &amp; Carter, Interfaces, 1993: country-specific power supplies and manuals added at the European distribution center (design for localization).</li>
+      <li><b>GM:</b> Jordan &amp; Graves, Management Science, 1995: limited flexibility, configured as a chain, gives most of the benefit of full flexibility.</li></ul></div>
+    <div class="rc"><p class="v">Respond</p><ul class="fp">
+      <li><b>Xiaomi:</b> Mi 1 unveiled Aug 2011, sold online in limited batches (flash sales).</li>
+      <li><b>Shein:</b> company says new styles start in batches of <b>100–200</b> pieces and only winners are reordered; outside sources report 50–200.</li>
+      <li><b>Lilly:</b> see the Part C backup (2020 at-risk expansion).</li></ul></div>
+    <div class="rc"><p class="v">Say “No”</p><ul class="fp">
+      <li><b>American Airlines:</b> Ultimate Super Saver fares, Jan 1985; yield management (overbooking, discount allocation, traffic management) worth about <b>$1.4B</b> over three years (Smith, Leimkuhler &amp; Darrow, Interfaces, 1992; 1991 Edelman Award).</li></ul></div>
+  </div>
+  <p class="src fp-src">Sources: CNN Money, Apr 7, 2016 · HBR, May–June 1994 · Coca-Cola Company · Interfaces 22(1), 1992 and 23(4), 1993 · Management Science 41(4), 1995 · Shein Group · Xiaomi Mi 1 launch coverage, 2011</p>
+  <div class="pg"></div>
+</section>
+
 <!-- s34 · synthesis grid -->
 <section data-label="34 · What to Take Home" class="s-std" data-speaker-notes="0:55. Read across the grid, one row at a time.">
   <h2>What to Take Home</h2>
   <div class="grid3">
     <div class="h" style="border-top-color:transparent"></div><div class="h">A. <span class="red">Forecast</span></div><div class="h">B. <span class="red">Design</span></div><div class="h">C. <span class="red">Respond</span></div>
     <div class="rl">Idea</div><div>A distribution, not a number</div><div>Build so the forecast matters less</div><div>Adapt as you learn</div>
-    <div class="rl">Tool</div><div>Triangulate; separate pipeline fill from run-rate</div><div>Critical ratio · postponement · operational hedging</div><div>Commit / wait / stage / refuse</div>
-    <div class="rl">Today’s number</div><div class="n">2.75× launch overstatement</div><div class="n">0.80 → +21% cushion · ½ the safety stock · +$6.25M</div><div class="n">Staging $1.54M vs. commit $1.48M</div>
+    <div class="rl">Innovation</div><div>Pool independent guesses · early signals<span class="th-lg"><img src="images/sop/crowd-ox.png" alt="Galton's ox" /><img src="images/sop/logos/tesla.png" alt="Tesla" /></span></div><div>Critical ratio · postponement · shared capacity<span class="th-lg"><img src="images/sop/logos/homedepot.png" alt="The Home Depot" /><img src="images/shared/logo-coca-cola.png" alt="Coca-Cola" /><img src="images/sop/logos/seagate.png" alt="Seagate" /></span></div><div>Commit / wait / stage / refuse<span class="th-lg"><img src="images/sop/logos/lilly.png" alt="Eli Lilly" /><img src="images/sop/xiaomi-logo.png" alt="Xiaomi" /><img src="images/sop/logos/american.png" alt="American Airlines" /></span></div>
   </div>
   <div class="pg"></div>
 </section>
 
 <!-- s35 · bridge to FEMSA -->
-<section data-label="35 · Up Next: S&amp;OP at FEMSA" class="s-std" data-poll="s35" data-speaker-notes="Each table submits one question by phone poll (open text). Moderator hands the top-voted questions to FEMSA.">
-  <h2>Up Next: S&amp;OP at FEMSA</h2>
-  <div class="body cols" style="margin-top:40px">
-    <div>
-      <p class="lead">FEMSA will show how Sales &amp; Operations Planning is implemented successfully at the bottler.</p>
-      <p class="p" style="margin-top:34px"><b>As you listen, look for:</b></p>
-      <ul class="qs" style="margin-top:12px">
-        <li><span class="red">1</span>Where do they hold the cushion: capacity, inventory, or lead time?</li>
-        <li><span class="red">2</span>How do they forecast launches across thousands of stores?</li>
-        <li><span class="red">3</span>What do they postpone, pool, or say “No” to?</li>
-        <li><span class="red">4</span>How does S&amp;OP decide the trade-offs we computed today?</li>
-      </ul>
-    </div>
-    <div class="poll live"><p class="k">PHONE POLL</p><p class="q">Submit one question for the FEMSA team</p><div class="qrw"><img class="qr" src="images/sop/qr-s35.png" alt="QR code to vote on your phone" /></div><p class="n"><b class="cnt">0</b> <span class="w">questions</span></p><p class="st"></p><button class="reset" type="button" title="Ignore every response submitted before now">reset</button></div>
+<section data-label="35 · Up Next: IBP at FEMSA Brazil" class="s-std sop-listen" data-speaker-notes="1 min, then hand over. FEMSA will walk through how they implemented integrated business planning in Brazil. Give each table one or two of the six questions to listen for, and ask them to bring one question back for the Q&amp;A. The six come from what makes S&amp;OP and IBP work: data, a senior sponsor, decisions in dollars, starting with demand planning, and routines that keep improving. The last one is Brazil-specific: the business grew by acquiring other bottling operations, and getting them onto one plan is a classic hard part.">
+  <h2>Up Next: IBP at FEMSA Brazil</h2>
+  <p class="lead" style="margin-top:30px;max-width:1500px">FEMSA will show how they implemented <span class="red">integrated business planning</span> in Brazil. Listen for:</p>
+  <div class="lg">
+    <div><b>1 · Where they started</b><p>Demand planning first? What was the first version of the process?</p></div>
+    <div><b>2 · Who sponsors it</b><p>Which senior leader owns it, and who decides in the executive meeting?</p></div>
+    <div><b>3 · One set of numbers</b><p>How did sales, finance and supply agree on the same data?</p></div>
+    <div><b>4 · Decisions in dollars</b><p>How do they price the options: build capacity, hold stock, postpone, or say “No”?</p></div>
+    <div><b>5 · Launches</b><p>How do they forecast a new product, and tell real demand from stores stocking up?</p></div>
+    <div><b>6 · Many businesses, one plan</b><p>Brazil grew by acquisition. How did they bring every operation onto one plan?</p></div>
   </div>
+  <p class="p" style="margin-top:34px">Bring <b>one question</b> back for the Q&amp;A.</p>
+  <img class="sp-logo" src="images/shared/logo-coca-cola.png" alt="" />
   <div class="pg"></div>
 </section>
 
 <!-- s35b · questions for FEMSA (HTML only) -->
-<section data-label="35b · Your Questions for FEMSA" class="s-std sop-hist" data-poll="s35" data-html-only data-speaker-notes="Live wall of the newest nine questions from slide 35. Hand over to the FEMSA team; they can read every question in the s35 tab of the poll spreadsheet.">
-  <h2>Your Questions for FEMSA</h2>
-  <div class="qwall"></div>
-  <p class="hist-n"><b class="cnt">0</b> <span class="w">questions</span> · newest first · <span class="st"></span></p>
-  <div class="pg"></div>
-</section>
-
 <!-- s36 · ? -->
 <section data-label="36 · ?" class="s-close" data-fx="zoom" data-speaker-notes="Questions.">
   <div class="q rise" aria-label="Questions"><span>?</span></div>
@@ -1266,20 +1609,15 @@ figure figcaption { font-size: 24px; color: var(--muted); margin-top: 12px; }
    Voting pages: SOP_WEBAPP + "?p=<id>" (see _build/poll-webapp/Code.gs). QR codes are generated from
    SOP_WEBAPP by _build/build_html.py. Slides read each tab through Google's gviz endpoint as JSONP
    (the sheet is shared "anyone with the link can view"), only while a slide with data-poll is shown.
-   Columns per tab: Timestamp | Answer | Label | Device | Ms. One vote per phone (latest wins), except text.
+   Columns per tab: Timestamp | Answer | Label | Device | Ms (s13 also Min | Max). One vote per phone (latest wins), except text.
    "reset" stores the current time in this browser; older responses are ignored.
    With SOP_WEBAPP empty, every poll shows labelled demo data. */
 window.SOP_WEBAPP = "https://script.google.com/macros/s/AKfycbz0WiHXv67KIIAQtMT8q-OqRqQomd0D1f44dHKBKIOUGgEOBUPNR-sHWwLhs5aBgo8/exec";   // paste the web app URL (ends in /exec), then rebuild
 window.SOP_SHEET = "1S-wsBNSMHC_x-kRKtY0QECAITu2Lgz14DrivM7vemHo";
 window.SOP_POLLS = {
-  s4:  { type: "choice", n: 4, demo: [6, 11, 9, 4] },
   s6:  { type: "number", bins: "log" },
   s13: { type: "number", bins: "auto", names: true },
-  s19: { type: "number", bins: "range:600:1600:100" },
-  s24: { type: "choice", n: 4, demo: [7, 3, 11, 9] },
-  s22: { type: "choice", n: 4, demo: [5, 9, 3, 7] },
-  s28: { type: "choice", n: 3, demo: [8, 5, 14] },
-  s35: { type: "text" }
+  s19: { type: "number", bins: "range:500:1500:100" },
 };
 (function () {
   const stage = document.querySelector('deck-stage');
@@ -1304,11 +1642,12 @@ window.SOP_POLLS = {
       'What goes on your Do Not Promote list?', 'How long did it take before S&OP really worked?', 'Which metrics do you review every month?',
       'How do you align the bottler and the brand owner on a launch?'] };
     if (id === 's6') return { vals: normals(6, 30, Math.log(60000), 1.6).map((x) => Math.round(Math.exp(x) / 100) * 100) };
-    if (id === 's19') return { vals: normals(19, 30, 1080, 180).map((x) => Math.min(1600, Math.max(600, Math.round(x / 10) * 10))) };
+    if (id === 's19') return { vals: normals(19, 30, 1080, 180).map((x) => Math.min(1500, Math.max(500, Math.round(x / 100) * 100))) };
     const NM = ['Ana', 'Ben', 'Chloe', 'Dev', 'Elena', 'Femi', 'Grace', 'Hiro', 'Ines', 'Jamal', 'Kate', 'Luis', 'Maya', 'Nikhil', 'Olga',
       'Priya', 'Quinn', 'Raj', 'Sofia', 'Tom', 'Uma', 'Victor', 'Wen', 'Ximena', 'Yusuf', 'Zoe', 'Arjun', 'Bea', 'Carlos', 'Dana'];
-    const vals = normals(13, 30, 560, 150).map((x) => Math.max(40, Math.round(x)));
-    return { vals, pts: vals.map((v, i) => ({ v, name: NM[i], ms: i })) };
+    const ctr = normals(13, 30, 560, 150).map((x) => Math.max(90, Math.round(x))), wr = rng(131);
+    const pts = ctr.map((c, i) => { const w = 100 + 50 * Math.floor(wr() * 7), lo = c - w / 2, hi = c + w / 2; return { v: (lo + hi) / 2, lo, hi, name: NM[i], ms: i }; });
+    return { vals: pts.map((p) => p.v), pts };
   }
 
   // ── number bins ──
@@ -1394,18 +1733,22 @@ window.SOP_POLLS = {
     const tin = sec.querySelector('.truth-in'), out = sec.querySelector('.truth-out');
     const TF = sec.dataset.truth != null ? Number(sec.dataset.truth) : NaN, gate = sec.querySelector('.jar-ans');
     const T = tin ? (tin.value !== '' ? Number(tin.value) : NaN) : (gate && gate.hasAttribute('data-reveal-shown') ? TF : NaN);
-    superf(sec, pts, TF, mean);
+    superf(sec, pts, TF, mean, med);
     place('truth', T, 'true value ' + fmt(T));
     const lo = isFinite(T) && total && mean < T; box.querySelector('.mk.mean').classList.toggle('l', !!lo || !isFinite(T)); box.querySelector('.mk.truth').classList.toggle('l', isFinite(T) && total > 0 && !lo);
     if (out) {
       if (!isFinite(T) || !total) out.textContent = '';
       else { const err = Math.abs(mean - T), beat = vals.filter((v) => Math.abs(v - T) > err).length;
         out.innerHTML = ''; const b = document.createElement('b'); b.textContent = `${Math.round(100 * beat / total)}%`;
-        out.append(`The crowd average is off by ${fmt(Math.round(err * 10) / 10)} (${T ? fmt(Math.round(1000 * err / Math.abs(T)) / 10) : '–'}%). It beats `, b, ` of individual guesses (${beat} of ${total}).`); }
+        out.append(`The crowd average is off by ${fmt(Math.round(err * 10) / 10)} (${T ? fmt(Math.round(1000 * err / Math.abs(T)) / 10) : '–'}%). It beats `, b, ` of individual guesses (${beat} of ${total}).`);
+        // ranges: show how many had the answer inside their range, only if that is more than half
+        const rp = pts.filter((p) => isFinite(p.lo) && isFinite(p.hi)), hit = rp.filter((p) => p.lo <= T && T <= p.hi).length;
+        if (rp.length && hit / rp.length > 0.5) { const b2 = document.createElement('b'); b2.textContent = `${Math.round(100 * hit / rp.length)}%`;
+          out.append(' ', b2, ` of you had the answer inside your range (${hit} of ${rp.length}).`); } }
     }
   }
   // the three closest guesses by name ("superforecasters"); ChatGPT shown only if all three beat it
-  function superf(sec, pts, T, mean) {
+  function superf(sec, pts, T, mean, med) {
     const ol = sec.querySelector('.sfl'); if (!ol || !isFinite(T)) return;
     const top = pts.filter((p) => isFinite(p.v)).map((p) => ({ ...p, e: Math.abs(p.v - T) })).sort((a, b) => a.e - b.e || a.ms - b.ms).slice(0, 3);
     ol.replaceChildren(...(top.length ? top.map((p, i) => { const li = document.createElement('li');
@@ -1414,14 +1757,25 @@ window.SOP_POLLS = {
       const gs = document.createElement('span'); gs.className = 'gs'; gs.innerHTML = 'guessed <b></b> · off by ';
       gs.querySelector('b').textContent = fmt(p.v); gs.append(fmt(p.e)); li.append(rk, nm, gs); return li; })
       : [Object.assign(document.createElement('li'), { className: 'none', textContent: 'No guesses yet.' })]));
-    const g = sec.querySelector('.gpt'); if (!g) return;
-    const G = Number(sec.dataset.gpt), eG = Math.abs(G - T);
-    g.textContent = '';
-    if (isFinite(G) && top.length === 3 && eG > top[2].e) {
-      const b = document.createElement('b'); b.textContent = fmt(G);
-      g.append('ChatGPT guessed ', b, ` (off by ${fmt(eG)}). All three superforecasters beat it` +
-        (isFinite(mean) && Math.abs(mean - T) < eG ? ', and so did the crowd average.' : '.'));
-    }
+    // AI guesses (data-ai="ChatGPT:485|Other:400"; data-gpt kept as a fallback). Show an AI only if the best guess,
+    // the median or the crowd average beat it; then the AI-hype line. If no AI is beaten, no AI talk at all.
+    const g = sec.querySelector('.gpt'), note = sec.querySelector('.ai-note'); if (!g || !note) return;
+    const ais = (sec.dataset.ai || (sec.dataset.gpt ? 'ChatGPT:' + sec.dataset.gpt : '')).split('|').map((x) => {
+      const i = x.lastIndexOf(':'); return { name: x.slice(0, i).trim(), v: Number(x.slice(i + 1)) }; }).filter((a) => a.name && isFinite(a.v));
+    const bench = [];
+    if (top.length) bench.push(['the best guess', top[0].e]);
+    if (isFinite(med)) bench.push(['the median', Math.abs(med - T)]);
+    if (isFinite(mean)) bench.push(['the crowd average', Math.abs(mean - T)]);
+    const list = (a) => a.length < 2 ? a[0] : a.slice(0, -1).join(', ') + ' and ' + a[a.length - 1];
+    const worse = ais.map((a) => { const e = Math.abs(a.v - T); return { ...a, e, by: bench.filter((b) => b[1] < e).map((b) => b[0]) }; }).filter((a) => a.by.length);
+    g.textContent = ''; note.textContent = '';
+    worse.forEach((a, k) => { const b = document.createElement('b'); b.textContent = fmt(a.v); const by = list(a.by);
+      g.append(k ? ' ' : '', `${a.name} guessed `, b, ` (off by ${fmt(Math.round(a.e * 10) / 10)}). ` +
+        by[0].toUpperCase() + by.slice(1) + (a.by.length === 3 ? ' all beat it.' : a.by.length === 2 ? ' both beat it.' : ' beat it.')); });
+    if (worse.length) { const b = document.createElement('b'); b.textContent = 'but not enough to pay for itself';
+      note.append('Careful with AI hype: a machine-learning forecasting pilot improved accuracy, ', b, '.'); }
+    else if (top.length) { const b = document.createElement('b'); b.textContent = 'listening to many independent guesses';
+      note.append('No fancy model needed: simply ', b, ' and combining them is a cheap, reliable way to forecast better.'); }
   }
   function wall(sec, items) {
     const w = sec.querySelector('.qwall'); if (!w) return;
@@ -1447,12 +1801,12 @@ window.SOP_POLLS = {
         const x = r.c || [], ms = x[4] && +x[4].v, ans = x[1] && x[1].v;
         if (!isFinite(ms) || !ms || ms < t0 || ans == null || ans === '') return;
         const dev = (x[3] && x[3].v) || ('row' + k);
-        if (c.type === 'text') all.push(String(ans)); else last.set(dev, { ans, name: x[2] && x[2].v ? String(x[2].v) : '', ms });
+        if (c.type === 'text') all.push(String(ans)); else last.set(dev, { ans, name: x[2] && x[2].v ? String(x[2].v) : '', ms, lo: x[5] ? x[5].v : null, hi: x[6] ? x[6].v : null });
       });
       let d;
       if (c.type === 'choice') { const counts = Array(c.n).fill(0);
         last.forEach((a) => { const i = String(a.ans).toUpperCase().charCodeAt(0) - 65; if (i >= 0 && i < c.n) counts[i]++; }); d = { counts }; }
-      else if (c.type === 'number') { const pts = [...last.values()].map((a) => ({ v: Number(a.ans), name: a.name, ms: a.ms })).filter((p) => isFinite(p.v));
+      else if (c.type === 'number') { const pts = [...last.values()].map((a) => ({ v: Number(a.ans), name: a.name, ms: a.ms, lo: a.lo == null ? NaN : Number(a.lo), hi: a.hi == null ? NaN : Number(a.hi) })).filter((p) => isFinite(p.v));
         d = { vals: pts.map((p) => p.v), pts }; }
       else d = { items: all };
       cache[id] = d; render(id, d, 'live · updated ' + stamp());
@@ -1610,9 +1964,9 @@ window.SOP_POLLS = {
     const mark = (v, label, color, y, anchor, step, w) => { const g = el('g', { class: 'mk', 'data-reveal': step }, svg), x = X(v);
       el('line', { x1: x, y1: AY, x2: x, y2: y + 10, stroke: color, 'stroke-width': w, 'stroke-dasharray': w > 4 ? '' : '10 7' }, g);
       el('text', { x: x + (anchor === 'start' ? 10 : anchor === 'end' ? -10 : 0), y, 'text-anchor': anchor, 'font-size': 26, 'font-weight': 700, fill: color, stroke: '#FBFBFA', 'stroke-width': 8, 'paint-order': 'stroke' }, g, label); };
-    mark(1197, 'Average 1,197', '#131312', 34, 'end', 1, 3);
-    mark(1207, 'Median 1,207', '#71716A', 34, 'start', 1, 3);
-    mark(1198, 'Actual 1,198', '#D50015', 0, 'middle', 2, 6);
+    mark(1197, 'Average 1,197', '#131312', 34, 'end', 2, 3);
+    mark(1207, 'Median 1,207', '#71716A', 34, 'start', 2, 3);
+    mark(1198, 'Actual 1,198', '#D50015', 0, 'middle', 3, 6);
     let raf = null, t0 = 0;
     const STEP = 4, FALL = 520;
     function frame(now) { let n = 0, busy = false;
@@ -1623,7 +1977,13 @@ window.SOP_POLLS = {
     function reset(show) { if (raf) cancelAnimationFrame(raf); raf = null;
       dots.forEach((d) => { d.done = show; d.c.setAttribute('cy', show ? d.cy : -20); d.c.setAttribute('opacity', show ? 1 : 0); }); gn.textContent = show ? dots.length : 0; }
     reset(true);   // static full plot for print / thumbnails
-    onSlide(ox, (on) => { if (on) { reset(false); t0 = performance.now() + 250; raf = requestAnimationFrame(frame); } else reset(true); });
+    // the ox shows alone on arrival; click 1 brings in the graph and the guesses start falling
+    const graph = ox.querySelector('.ox-graph');
+    let armed = false;
+    const play = () => { reset(false); t0 = performance.now() + 250; raf = requestAnimationFrame(frame); };
+    new MutationObserver(() => { if (!armed) return; if (graph.hasAttribute('data-reveal-shown')) { if (!raf && !dots[dots.length - 1].done) play(); } else reset(false); })
+      .observe(graph, { attributes: true, attributeFilter: ['data-reveal-shown'] });
+    onSlide(ox, (on) => { armed = on; if (on) { if (graph.hasAttribute('data-reveal-shown')) reset(true); else reset(false); } else reset(true); });
   }
 
   /* ── 14d · independent vs. herded crowd ── */
