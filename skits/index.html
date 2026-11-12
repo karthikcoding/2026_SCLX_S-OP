@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex, noai, noimageai" />
+<title>Skit Scoring · SCLX</title>
+<!--
+  SCLX 2026 · skit scoring. Slide 1: QR code to the phone scoring page (SK_WEBAPP + "?p=sk").
+  Slides 2 and 3 are HIDDEN (data-deck-skip: dimmed in the rail, skipped by the arrow keys; click them in the rail).
+  Both are live: they read the "sk" tab of the SCLX poll spreadsheet through the poll web app's JSONP feed
+  (SK_WEBAPP + "?p=sk&view=data"; see 2026 SCLX S&OP/_build/poll-webapp/Code.gs). Each phone's latest scores per team count.
+  Open with ?demo to rehearse with sample scores.
+-->
+<style>deck-stage:not(:defined){visibility:hidden}</style>
+<style>
+/* ═══ SCLX shared · BEGIN · canonical copy: .claude/sclx-work/shared/sclx-shared.css
+   Keep identical in all three decks: run .claude/sclx-work/tools/sync-shared.py <deck.html> after editing.
+   Look: the IGEL deck (Helvetica Neue, paper/ink, hairlines, big type) + one Coca-Cola red. ═══ */
+:root {
+  --paper: #FBFBFA; --ink: #131312; --muted: #71716A; --hair: #E4E4DE; --tint: #F2F2ED;
+  --red: #D50015;      /* the words the PPT marks in red; always bold as well (5.3:1 on paper) */
+  --coke: #F40009;     /* brand ground on the title and closing slides only */
+  --sans: "Helvetica Neue", Helvetica, "Arial Nova", Arial, sans-serif;
+  --m: 140px;          /* side margin */
+}
+html, body { margin: 0; padding: 0; background: #000; }
+/* Keyed on bare `section` so base styles survive cloning into the rail. */
+section { font-family: var(--sans); background: var(--paper); color: var(--ink);
+  box-sizing: border-box; display: flex; flex-direction: column; overflow: hidden; position: relative;
+  -webkit-font-smoothing: antialiased; }
+section *, section *::before, section *::after { box-sizing: border-box; }
+h1, h2, h3, p, figure, blockquote, ul, ol { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+h1, h2 { font-weight: 700; letter-spacing: -0.03em; }
+svg text { font-family: var(--sans); }
+img { display: block; }
+.red { color: var(--red); font-weight: 700; }
+.muted { color: var(--muted); }
+.pg { position: absolute; right: 64px; bottom: 52px; font-size: 24px; color: var(--muted);
+  opacity: 0.55; font-variant-numeric: tabular-nums; }
+.kicker { font-size: 29px; font-weight: 500; letter-spacing: 0.01em; color: var(--muted); }
+.src { font-size: 24px; line-height: 1.3; color: var(--muted); }
+.sgate { position: absolute; left: 0; top: 0; width: 0; height: 0; }
+.ico { display: block; fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+
+/* ── standard content slide: headline top-left, content below ── */
+.s-std { padding: 84px var(--m) 0; }
+.s-std > h2 { font-size: 64px; line-height: 1.08; max-width: 1640px; }
+.s-std.compact > h2 { font-size: 56px; }
+
+/* ── exhibits (third-party charts kept as images; click to enlarge) ── */
+.exh { position: absolute; margin: 0; background: #fff; box-shadow: 0 0 0 1.5px var(--hair); }
+.exh img { width: 100%; height: 100%; object-fit: contain; }
+
+/* ── white title (IGEL pattern) ── */
+.s-title-w { padding: 0 var(--m); }
+.s-title-w .lockup { position: absolute; left: var(--m); top: 118px; height: 62px; width: auto; }
+.s-title-w h1 { position: absolute; left: var(--m); top: 318px; font-size: 138px; line-height: 1.02; letter-spacing: -0.035em; }
+.s-title-w .edition { position: absolute; left: var(--m); top: 506px; font-size: 36px; color: var(--muted); }
+.s-title-w .foot { position: absolute; left: var(--m); right: var(--m); top: 742px; padding-top: 44px;
+  border-top: 2px solid var(--hair); display: flex; justify-content: space-between; align-items: flex-end; }
+.s-title-w .who { font-size: 30px; line-height: 1.42; color: var(--muted); }
+.s-title-w .who b { color: var(--ink); font-weight: 700; }
+.s-title-w .logos { display: flex; align-items: center; gap: 72px; }
+.s-title-w .logos .gt { height: 104px; width: auto; }
+.s-title-w .logos .ko { height: 74px; width: auto; }
+
+/* ── red band title (the SCLX band, redrawn) ── */
+.s-title-r { padding: 0; }
+.s-title-r .band { position: absolute; left: -60px; right: -60px; top: 0; height: 728px; background: var(--coke);
+  border-radius: 0 0 50% 50% / 0 0 128px 128px; }
+.s-title-r .lockup { position: absolute; left: 0; right: 0; margin: 0 auto; top: 112px; height: 64px; width: auto; }
+.s-title-r h1 { position: absolute; left: 0; right: 0; top: 322px; text-align: center; color: var(--paper);
+  font-size: 138px; line-height: 1.02; letter-spacing: -0.035em; }
+.s-title-r .edition { position: absolute; left: 0; right: 0; top: 520px; text-align: center; font-size: 36px; color: rgba(251,251,250,0.86); }
+.s-title-r .foot { position: absolute; left: 0; right: 0; top: 752px; height: 228px; display: flex; justify-content: center; align-items: center; gap: 56px; }
+.s-title-r .foot .gt { height: 98px; width: auto; }
+.s-title-r .foot .ko { height: 72px; width: auto; }
+.s-title-r .foot .rule { width: 2px; height: 128px; background: var(--hair); }
+.s-title-r .who { font-size: 30px; line-height: 1.42; color: var(--muted); }
+.s-title-r .who b { color: var(--ink); font-weight: 700; }
+
+/* ── closing "?" slide (the SCLX closing, redrawn) ── */
+.s-close { background: var(--coke); padding: 0; }
+.s-close .q { position: absolute; left: 730px; top: 214px; width: 460px; height: 460px; border-radius: 50%; background: var(--paper);
+  display: grid; place-items: center; }
+.s-close .q span { font-size: 360px; font-weight: 700; line-height: 1; color: var(--coke); letter-spacing: -0.02em; margin-top: -10px; }
+.s-close .lockup { position: absolute; left: 0; right: 0; margin: 0 auto; top: 852px; height: 64px; width: auto; }
+.s-close .pg { color: rgba(251,251,250,0.7); opacity: 1; }
+
+/* ── presenter chrome (deck-chrome.js): blackout (B), lightbox ([data-enlarge]), films ── */
+#blackout { position: fixed; inset: 0; background: #000; z-index: 2147482000; opacity: 0; pointer-events: none; transition: opacity .4s ease; }
+#blackout[data-on] { opacity: 1; pointer-events: auto; }
+.lightbox { position: fixed; inset: 0; z-index: 2147481000; display: grid; place-items: center; background: rgba(10,10,9,0.94); cursor: zoom-out; opacity: 0; transition: opacity .25s ease; }
+.lightbox[data-on] { opacity: 1; }
+.lightbox img { max-width: 94vw; max-height: 94vh; object-fit: contain; background: #fff; }
+[data-enlarge] { cursor: zoom-in; }
+.film { position: relative; margin: 0; width: var(--fw, 1236px); aspect-ratio: var(--ar, 16 / 9); flex: none; background: #0B0B0A; overflow: hidden; cursor: pointer; }
+.film img, .film video, .film iframe { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border: 0; }
+.film iframe { z-index: 3; background: #000; }
+.film .play { position: absolute; left: 40px; bottom: 40px; z-index: 2; width: 112px; height: 112px; border-radius: 50%;
+  background: var(--paper); display: grid; place-items: center; }
+.film .play::before { content: ""; margin-left: 9px; border-style: solid; border-width: 21px 0 21px 34px; border-color: transparent transparent transparent var(--ink); }
+.film[data-playing] .play { display: none; }
+@media print { #blackout, .lightbox { display: none; } .film .play { display: none; } }
+
+/* ── iframe animations: live on screen, still image in print ── */
+.anim-holder { position: absolute; }
+.anim-holder iframe { width: 100%; height: 100%; border: 0; background: var(--paper); display: block; }
+.anim-holder .pfig { display: none; }
+@media print {
+  .anim-holder iframe { display: none; }
+  .anim-holder .pfig { display: block; width: 100%; height: 100%; }
+  .anim-holder .pfig img { width: 100%; height: 100%; object-fit: contain; }
+}
+
+/* ── motion (only inside no-preference; print and reduced motion show the end state) ── */
+@media (prefers-reduced-motion: no-preference) {
+  [data-deck-active] .rise   { animation: rise 1.05s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+  [data-deck-active] .rise.d1 { animation-delay: .25s; }
+  [data-deck-active] .rise.d2 { animation-delay: .5s; }
+  [data-deck-active] .rise.d3 { animation-delay: .75s; }
+  [data-deck-active] .late   { animation: appear 1.1s ease-out 2.2s both; }
+  [data-deck-active] .later  { animation: appear 1.1s ease-out 3.4s both; }
+  deck-stage section { transition: opacity 0.7s ease, visibility 0.7s; }
+  deck-stage section[data-fx="zoom"] { transition: opacity 0.7s ease, visibility 0.7s, transform 0.9s cubic-bezier(0.25, 0.1, 0.2, 1); transform: scale(1); }
+  deck-stage section[data-fx="zoom"]:not([data-deck-active]) { transform: scale(1.045); }
+  deck-stage section .grise[data-reveal] { transition: opacity .45s ease, transform .45s ease, visibility 0s linear .45s; }
+  deck-stage section .grise[data-reveal]:not([data-reveal-shown]) { transform: translateY(30px); }
+  deck-stage section .grise[data-reveal][data-reveal-shown] {
+    transition: opacity .6s ease var(--gd, 0s), transform .8s cubic-bezier(.2,.7,.2,1) var(--gd, 0s), visibility 0s linear var(--gd, 0s); }
+}
+@keyframes rise   { from { opacity: 0; transform: translateY(36px); } to { opacity: 1; transform: none; } }
+@keyframes appear { from { opacity: 0; } to { opacity: 1; } }
+@media print {
+  deck-stage section [data-reveal] { transform: none !important; transition: none !important; }
+  [data-deck-active] .rise, [data-deck-active] .late, [data-deck-active] .later { animation: none !important; }
+}
+/* ═══ SCLX shared · END ═══ */
+</style>
+<style>
+/* ── this deck ── */
+.body { margin-top: 48px; }
+.cols { display: grid; grid-template-columns: 1fr 600px; gap: 90px; align-items: start; }
+.lead { font-size: 44px; line-height: 1.22; letter-spacing: -0.015em; text-wrap: balance; }
+/* s1 QR */
+.sk-s1 ol { counter-reset: q; margin-top: 26px; }
+.sk-s1 ol > li { counter-increment: q; position: relative; padding: 24px 0 26px 92px; border-top: 2px solid var(--hair); font-size: 44px; line-height: 1.2; font-weight: 700; letter-spacing: -0.015em; }
+.sk-s1 ol > li:last-child { border-bottom: 2px solid var(--hair); }
+.sk-s1 ol > li::before { content: counter(q); position: absolute; left: 0; top: 22px; width: 62px; height: 62px; border-radius: 50%; background: var(--red); color: var(--paper); font-size: 36px; display: grid; place-items: center; }
+.sk-s1 .note { margin-top: 28px; font-size: 32px; color: var(--muted); }
+.sk-s1 .qrbox { text-align: center; }
+.sk-s1 .qrbox img { width: 560px; height: 560px; image-rendering: pixelated; margin: 0 auto; box-shadow: 0 0 0 2px var(--hair); }
+.sk-s1 .qrbox p { margin-top: 22px; font-size: 32px; font-weight: 700; }
+.sk-s1 .qrbox p span { display: block; font-size: 26px; font-weight: 400; color: var(--muted); margin-top: 6px; font-variant-numeric: tabular-nums; }
+/* s1 votes per team (bottom strip) */
+.sk-votes { position: absolute; left: var(--m); right: var(--m); bottom: 44px; display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; }
+.sk-votes .v { background: var(--tint); border-top: 6px solid var(--hair); padding: 10px 16px 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px; min-height: 104px; transition: border-color .4s ease; }
+.sk-votes .v.on { border-top-color: var(--red); }
+.sk-votes .v b { font-size: 21px; line-height: 1.15; font-weight: 700; }
+.sk-votes .v span { font-size: 46px; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; color: var(--muted); }
+.sk-votes .v.on span { color: var(--red); }
+.sk-votes-k { position: absolute; left: var(--m); bottom: 160px; font-size: 22px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); }
+/* s2 averages table */
+.sk-tab { margin-top: 40px; width: 100%; border-collapse: collapse; table-layout: fixed; font-variant-numeric: tabular-nums; }
+.sk-tab th { font-size: 24px; line-height: 1.2; font-weight: 700; color: var(--muted); text-align: right; vertical-align: bottom; padding: 0 0 14px 20px; border-bottom: 3px solid var(--ink); }
+.sk-tab th:first-child { text-align: left; padding-left: 0; }
+.sk-tab td { font-size: 46px; font-weight: 700; text-align: right; padding: 16px 0 16px 20px; border-bottom: 2px solid var(--hair); letter-spacing: -0.01em; }
+.sk-tab td:first-child { text-align: left; padding-left: 0; font-size: 34px; line-height: 1.15; letter-spacing: -0.01em; }
+.sk-tab td.best { color: var(--red); }
+.sk-tab td.na { color: var(--hair); }
+.sk-tab td.ov { color: var(--muted); }
+.sk-tab td.ov.best { color: var(--red); }
+.sk-tab td.n { font-size: 30px; font-weight: 400; color: var(--muted); }
+.sk-tab .bar { height: 8px; background: var(--tint); margin-top: 6px; margin-left: auto; width: 100%; }
+.sk-tab .bar i { display: block; height: 8px; background: var(--ink); opacity: .25; margin-left: auto; transition: width .6s ease; }
+.sk-tab td.best .bar i { background: var(--red); opacity: 1; }
+.sk-key { margin-top: 18px; font-size: 24px; color: var(--muted); }
+/* s3 top 3 per category */
+.sk-top { margin-top: 36px; display: grid; grid-template-columns: 1fr 1fr; gap: 34px 48px; }
+.sk-top .box { background: var(--tint); }
+.sk-top .hd { background: var(--red); color: var(--paper); font-size: 34px; font-weight: 700; letter-spacing: -0.01em; padding: 14px 28px 16px; }
+.sk-top ol { padding: 8px 28px 14px; }
+.sk-top li { display: grid; grid-template-columns: 58px 1fr auto; align-items: center; gap: 18px; padding: 10px 0; border-top: 2px solid var(--hair); }
+.sk-top li:first-child { border-top: 0; }
+.sk-top .rk { width: 52px; height: 52px; border-radius: 50%; background: var(--ink); color: var(--paper); display: grid; place-items: center; font-size: 28px; font-weight: 700; }
+.sk-top li.r1 .rk { background: var(--red); }
+.sk-top .tm { font-size: 31px; font-weight: 700; line-height: 1.12; letter-spacing: -0.01em; }
+.sk-top .tm small { display: block; font-size: 21px; font-weight: 400; color: var(--muted); letter-spacing: 0; margin-top: 2px; }
+.sk-top .av { font-size: 52px; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+.sk-top li.r1 .av { color: var(--red); }
+.sk-top .wait { font-size: 30px; color: var(--muted); padding: 30px 0; }
+/* live status (slides 2 and 3) */
+.status { position: absolute; left: var(--m); bottom: 36px; font-size: 22px; color: var(--muted); display: flex; gap: 22px; align-items: center; }
+.status .dot { width: 14px; height: 14px; border-radius: 50%; background: var(--muted); }
+.status.live .dot { background: #1E9E4A; }
+.status.err .dot { background: var(--red); }
+.status button { font: inherit; font-size: 20px; color: var(--muted); background: none; border: 1.5px solid var(--hair); padding: 4px 14px; cursor: pointer; }
+@media print { .status button { display: none; } }
+</style>
+</head>
+<body>
+<deck-stage width="1920" height="1080">
+
+<!-- s1 · QR -->
+<section data-label="1 · Score the Skits" class="s-std sk-s1" data-speaker-notes="Phones out: scan now and keep the page open. After each skit, pick the team you just watched, give it 0 to 5 on all four categories, and submit; then tap 'Score the next skit'. Anonymous. If someone resubmits for the same team, the latest scores replace the earlier ones. The two slides after this one are hidden (click them in the rail on the left): averages for every team, then the top 3 in each category. Both update live every 10 seconds. Open the deck with ?demo to rehearse with sample scores; 'Reset' on the hidden slides ignores everything submitted before now (use it after rehearsing).">
+  <h2>Score Each Skit: Scan This QR Code</h2>
+  <div class="body cols">
+    <div>
+      <p class="lead rise" style="text-wrap:wrap">After each skit, pick the team<br />and score it <span class="red">0 to 5</span> on:</p>
+      <ol>
+        <li class="rise d1">Creative use of buzzwords!</li>
+        <li class="rise d1">Likelihood of not being disrupted by AI!</li>
+        <li class="rise d2">Actually learned something from this!</li>
+        <li class="rise d2">Rotten Tomatoes score (critics and audience)!</li>
+      </ol>
+      <p class="note rise d3">Six skits · score each one right after it ends · anonymous</p>
+    </div>
+    <div class="qrbox rise d1">
+      <img src="images/qr-sk.png" alt="QR code for the skit scoring page" />
+      <p>Scan with your phone camera<span class="cnt">&nbsp;</span></p>
+    </div>
+  </div>
+  <p class="sk-votes-k">Votes so far</p>
+  <div class="sk-votes"></div>
+  <div class="pg"></div>
+</section>
+
+<!-- s2 · HIDDEN · average score per team and category -->
+<section data-label="2 · Scoreboard: Average Scores" class="s-std sk-s2" data-deck-skip data-sk-live data-speaker-notes="Hidden. Average score (0 to 5) for every team in each category, live. Red marks the highest average in each column. Overall is the average of the four categories. Votes is the number of phones that scored that team (each phone's latest scores count).">
+  <h2>Scoreboard: Average Scores</h2>
+  <table class="sk-tab">
+    <colgroup><col style="width:500px" /><col /><col /><col /><col /><col style="width:150px" /><col style="width:120px" /></colgroup>
+    <thead><tr><th>Team</th><th>Creative use of buzzwords!</th><th>Not disrupted by AI!</th><th>Actually learned something!</th><th>Rotten Tomatoes score!</th><th>Overall</th><th>Votes</th></tr></thead>
+    <tbody></tbody>
+  </table>
+  <p class="sk-key">Average of 0–5 scores · <span class="red">red</span> = highest in the column</p>
+  <div class="status"><i class="dot"></i><span class="msg">Connecting…</span><button class="reset" type="button">Reset</button></div>
+  <div class="pg"></div>
+</section>
+
+<!-- s3 · HIDDEN · top 3 per category -->
+<section data-label="3 · Top 3 in Each Category" class="s-std sk-s3" data-deck-skip data-sk-live data-speaker-notes="Hidden. The three teams with the highest average in each category, live. Teams with the same average (to two decimals) share a rank. Read from the bottom up for suspense: third, second, then the winner.">
+  <h2>Top 3 in Each Category</h2>
+  <div class="sk-top"></div>
+  <div class="status"><i class="dot"></i><span class="msg">Connecting…</span><button class="reset" type="button">Reset</button></div>
+  <div class="pg"></div>
+</section>
+
+</deck-stage>
+<script src="deck-stage.js"></script>
+<script src="deck-morph.js"></script>
+<script src="deck-chrome.js"></script>
+<script>
+/* ═══ Live skit scores ═══
+   Phone page: SK_WEBAPP + "?p=sk". Feed (JSONP): SK_WEBAPP + "?p=sk&view=data&cb=…"
+   → [[team, buzzwords, not disrupted by AI, learned, rotten tomatoes, ms], …] (each phone's latest per team). Polled every 10 s. */
+window.SK_WEBAPP = "https://script.google.com/macros/s/AKfycbz0WiHXv67KIIAQtMT8q-OqRqQomd0D1f44dHKBKIOUGgEOBUPNR-sHWwLhs5aBgo8/exec";
+(function () {
+  const TEAMS = ['Planner of the Future', 'Delivering the Next Chapter of Performance', 'Treasure Hunters', 'Shelf Radar', 'Water Guard AI', 'Asset Loop'];
+  const DIMS = ['Creative use of buzzwords!', 'Likelihood of not being disrupted by AI!', 'Actually learned something from this!', 'Rotten Tomatoes score (critics and audience)!'];
+  const WEB = (window.SK_WEBAPP || '').trim();
+  const DEMO = /[?&]demo\b/.test(location.search);
+  const LS = { get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+               set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} } };
+  const s2 = document.querySelector('.sk-s2'), s3 = document.querySelector('.sk-s3'), cnt = document.querySelector('.sk-s1 .cnt');
+  const el = (t, c, x) => { const e = document.createElement(t); if (c) e.className = c; if (x != null) e.textContent = x; return e; };
+  const f2 = (x) => x.toFixed(2);
+  let last = null, pending = 0;
+
+  // rows → per team: n, avg per dimension, overall
+  function stats(rows) {
+    return TEAMS.map((name) => {
+      const R = rows.filter((r) => r[0] === name), n = R.length;
+      const avg = DIMS.map((_, k) => n ? R.reduce((s, r) => s + (+r[k + 1] || 0), 0) / n : null);
+      return { name, n, avg, overall: n ? avg.reduce((a, b) => a + b, 0) / avg.length : null };
+    });
+  }
+  function drawVotes(S) {
+    const g = document.querySelector('.sk-votes'); g.replaceChildren();
+    S.forEach((t) => { const v = el('div', 'v' + (t.n ? ' on' : '')); v.append(el('b', '', t.name), el('span', '', String(t.n))); g.appendChild(v); });
+  }
+  function drawTable(S) {
+    const tb = s2.querySelector('tbody'); tb.replaceChildren();
+    const best = DIMS.map((_, k) => Math.max(...S.filter((t) => t.n).map((t) => +f2(t.avg[k]))));
+    const bestO = Math.max(...S.filter((t) => t.n).map((t) => +f2(t.overall)));
+    S.forEach((t) => {
+      const tr = el('tr'); tr.appendChild(el('td', '', t.name));
+      t.avg.forEach((a, k) => {
+        if (a == null) { tr.appendChild(el('td', 'na', '–')); return; }
+        const td = el('td', +f2(a) === best[k] ? 'best' : '', f2(a)), bar = el('div', 'bar'), i = el('i');
+        i.style.width = (100 * a / 5) + '%'; bar.appendChild(i); td.appendChild(bar); tr.appendChild(td);
+      });
+      tr.appendChild(t.n ? el('td', 'ov' + (+f2(t.overall) === bestO ? ' best' : ''), f2(t.overall)) : el('td', 'na', '–'));
+      tr.appendChild(el('td', 'n', String(t.n)));
+      tb.appendChild(tr);
+    });
+  }
+  function drawTop(S) {
+    const g = s3.querySelector('.sk-top'); g.replaceChildren();
+    DIMS.forEach((d, k) => {
+      const box = el('div', 'box'), ol = el('ol');
+      box.appendChild(el('div', 'hd', d));
+      const T = S.filter((t) => t.n).map((t) => ({ name: t.name, n: t.n, v: +f2(t.avg[k]) }))
+        .sort((a, b) => b.v - a.v || b.n - a.n || TEAMS.indexOf(a.name) - TEAMS.indexOf(b.name));
+      T.forEach((t) => { t.rank = 1 + T.filter((u) => u.v > t.v).length; });
+      const show = T.filter((t) => t.rank <= 3).slice(0, 4);
+      if (!show.length) ol.appendChild(el('li', 'wait', 'Waiting for scores…'));
+      show.forEach((t) => {
+        const li = el('li', 'r' + t.rank), tm = el('div', 'tm', t.name);
+        tm.appendChild(el('small', '', t.n + (t.n === 1 ? ' vote' : ' votes') + (T.filter((u) => u.rank === t.rank).length > 1 ? ' · tied' : '')));
+        li.append(el('div', 'rk', String(t.rank)), tm, el('div', 'av', t.v.toFixed(2)));
+        ol.appendChild(li);
+      });
+      box.appendChild(ol); g.appendChild(box);
+    });
+  }
+  function draw(rows) {
+    const since = +LS.get('sk-poll-since') || 0;
+    const R = rows.filter((r) => (r[5] || 0) >= since && TEAMS.includes(r[0]));
+    const S = stats(R);
+    drawTable(S); drawTop(S); drawVotes(S);
+    const phones = R.length;
+    cnt.textContent = phones ? phones + (phones === 1 ? ' score sheet in' : ' score sheets in') + ' · ' + S.filter((t) => t.n).length + ' of 6 teams scored' : ' ';
+    return R.length;
+  }
+  function say(text, cls) { document.querySelectorAll('.status').forEach((st) => { st.className = 'status ' + (cls || ''); st.querySelector('.msg').textContent = text; }); }
+  const stamp = () => new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+
+  function read() {
+    if (DEMO) { last = demoRows(); draw(last); say('DEMO DATA · open without ?demo for live scores', 'err'); return; }
+    if (!WEB) { say('Poll web app not connected', 'err'); return; }
+    const id = ++pending, cb = '__skFeed' + id, s = document.createElement('script');
+    const done = () => { delete window[cb]; s.remove(); };
+    const to = setTimeout(() => { done(); if (id === pending) say('Can’t reach the poll · retrying (is Code.gs redeployed?)', 'err'); }, 9000);
+    window[cb] = (rows) => { clearTimeout(to); done(); if (!Array.isArray(rows)) return; last = rows;
+      const n = draw(rows); say('Live · ' + n + ' score sheet' + (n === 1 ? '' : 's') + ' · updated ' + stamp(), 'live'); };
+    s.onerror = () => { clearTimeout(to); done(); say('Can’t reach the poll · retrying', 'err'); };
+    s.src = WEB + '?p=sk&view=data&cb=' + cb + '&t=' + Date.now();
+    document.head.appendChild(s);
+  }
+
+  document.querySelectorAll('.status .reset').forEach((btn) => {
+    ['click', 'pointerdown', 'pointerup'].forEach((ev) => btn.addEventListener(ev, (e) => e.stopPropagation()));
+    btn.addEventListener('click', () => { if (!confirm('Ignore all scores submitted before now (this browser only)?')) return;
+      LS.set('sk-poll-since', String(Date.now())); if (last) draw(last); read(); });
+  });
+
+  function demoRows() {
+    // deterministic sample: 30 phones × 6 teams, each team with its own flavour
+    const base = [[4.2, 2.6, 3.4, 3.9], [3.1, 3.8, 4.1, 3.3], [3.6, 3.0, 2.8, 4.4], [2.7, 4.3, 3.9, 3.0], [4.6, 2.2, 3.1, 3.6], [3.3, 3.6, 3.6, 3.8]];
+    let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+    const t = Date.now(), rows = [];
+    TEAMS.forEach((name, i) => { for (let p = 0; p < 30 - i * 3; p++)
+      rows.push([name].concat(base[i].map((b) => Math.max(0, Math.min(5, Math.round(b + (rnd() - 0.5) * 3)))), [t - p * 1000])); });
+    return rows;
+  }
+
+  draw([]);
+  read(); setInterval(read, 10000);
+  window.addEventListener('beforeprint', () => { if (last) draw(last); });
+})();
+</script>
+</body>
+</html>
